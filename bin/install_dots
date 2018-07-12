@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Running dotfile install script..."
+
+# create symbolic links to dotfiles in home directory
+home_files=(.bash_aliases .bash_profile .bashrc .gitconfig .vimrc .Xdefaults .xinitrc)
+
+for file in ${home_files[*]}
+    do ln -S $file ~/$file  
+    done

@@ -2,22 +2,15 @@
   compton
   fontconfig
   i3
-    config
-    i3status
   ranger
-    rc.conf
-    rifle.conf
   rofi
   termite
   user-dirs.dirs
 .vim
-  autoload
-  colors 
-  view
-  undodir
 .bash_aliases
 .bash_profile
 .bashrc
 .gitconfig
 .vimrc
 .Xdefaults
+.xinitrc
