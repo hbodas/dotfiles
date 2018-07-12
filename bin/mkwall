@@ -1,6 +1,0 @@
-#!/bin/bash
-
-file=$1
-
-feh --bg-scale $file
-cp $file /home/hrishikesh/.config/i3/wall.png

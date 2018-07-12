@@ -14,6 +14,7 @@
   autoload
   colors 
   view
+  undodir
 .bash_aliases
 .bash_profile
 .bashrc
