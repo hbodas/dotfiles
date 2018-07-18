@@ -8,7 +8,6 @@
 
 " set colorscheme
 colorscheme papaya_original
-autocmd ColorScheme * highlight LineNr ctermfg=Grey
 set cursorline
 
 " filetype plugins
@@ -63,7 +62,7 @@ set laststatus=2
 set confirm
 
 "show line numbers on the left
-set number
+set number relativenumber
 
 " number of undo levels
 set undolevels=1000

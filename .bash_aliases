@@ -2,9 +2,9 @@
 alias cmuunix="ssh hbodas@unix.andrew.cmu.edu"
 
 # yay aliases
-alias psyu="yay"
-alias ps="yay -S"
-alias prs="yay -Rs"
+alias ysyu="yay"
+alias ys="yay -S"
+alias yrs="yay -Rs"
 
 # sudo vim alias
 alias svim="sudo vim"

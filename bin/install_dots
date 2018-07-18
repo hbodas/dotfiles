@@ -8,3 +8,7 @@ home_files=(.bash_aliases .bash_profile .bashrc .gitconfig .vimrc .Xdefaults .xi
 for file in ${home_files[*]}
     do ln -S $file ~/$file  
     done
+
+# create symlinks for folders in .vim directory
+
+# add a way to check if .vim exists

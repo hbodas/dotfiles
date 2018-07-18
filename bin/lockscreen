@@ -4,7 +4,7 @@ i3lock -e --force-clock -i ~/.config/i3/wall.png --insidevercolor=ffffff00 \
 --insidewrongcolor=ffffff00 --insidecolor=ffffff00 --ringvercolor=ffffff00 \
 --ringwrongcolor=f44e42aa --ringcolor=ffffff00 --line-uses-ring --keyhlcolor=ffffffaa \
 --bshlcolor=ffffff44 --separatorcolor=ffffffaa --indpos="0.15*w:0.85*h" \
---timecolor=ffffffbb --timestr="%I:%M %p" --timepos="0.5*w:0.38*h" \
+--timecolor=ffffffbb --timestr="%l:%M %p" --timepos="0.5*w:0.38*h" \
 --datecolor=ffffffbb --datestr="%a, %B %d, %Y" --time-font=sans-serif \
 --date-font=sans-serif --timesize=54 --datepos="0.5*w:0.44*h" --datesize=34 \
 --veriftext="" --wrongtext="" --noinputtext="" --radius=30 --ring-width=10 \
