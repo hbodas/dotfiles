@@ -10,3 +10,5 @@ source .bash_aliases
 
 # path variable
 export PATH=$PATH":$HOME/dotfiles/bin"
+
+
