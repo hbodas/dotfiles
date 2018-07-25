@@ -1,7 +1,10 @@
 !! Appearance
-urxvt.font: xft:monospace:pixelsize=20
+URxvt.font: xft:Inconsolata:pixelsize=20,\
+            xft:Droid Sans Mono:pixelsize=20,\
+            xft:Liberation Mono for Powerline
 urxvt.scrollBar: false
 URxvt.depth: 32
+
 
 ! hard contrast: *background: #1d2021
 *background: [75]#282828

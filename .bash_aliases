@@ -2,7 +2,6 @@
 alias cmuunix="ssh hbodas@unix.andrew.cmu.edu"
 
 # yay aliases
-alias ysyu="yay"
 alias ys="yay -S"
 alias yrs="yay -Rs"
 

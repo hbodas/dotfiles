@@ -5,18 +5,30 @@
 
 call plug#begin('~/.vim/plug')
 
-" Nerd Commenter for cool commenting stuff
+" Nerd Commenter
 Plug 'scrooloose/nerdcommenter'
 
-" auto origami for foldcolumn
+" auto origami (fold column)
 Plug 'benknoble/vim-auto-origami'
 
-" surround plugin
+" surround
 Plug 'tpope/vim-surround'
+
+" YouCompleteMe
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+
+" airline
+Plug 'vim-airline/vim-airline'
+
+" airline themes
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 " GENERAL
+
+" encoding
+set encoding=utf-8
 
 " set colorscheme
 syntax enable
@@ -25,17 +37,17 @@ colorscheme gruvbox
 
 " filetype plugins
 filetype indent on
-filetype plugin on                             
+filetype plugin on
 
 " enable syntax coloring
-syntax on        
+syntax on
 
 " not really useful, but it's just there
-set nocompatible                            
-set hidden                        
+set nocompatible
+set hidden
 
-" better command line completion
-set wildmenu                   
+" better command jine completion
+set wildmenu
 
 " show partial commands in the bottom line
 set showcmd
@@ -48,13 +60,13 @@ set incsearch
 
 " show matching brackets
 set showmatch
-set mat=2           
+set mat=2
 
 " no modelines (does not read the first few lines in a file)
-set nomodeline                                 
+set nomodeline
 
 " indentation options
-set autoindent       
+set autoindent
 set shiftwidth=4
 set softtabstop=4
 set expandtab
@@ -65,7 +77,7 @@ set smartindent
 " backspace works like standard backspace
 set backspace=indent,eol,start
 
-" display cursor position at the bottom 
+" display cursor position at the bottom
 set ruler
 
 " always display the status line
@@ -110,14 +122,14 @@ set autoread
 
 " GLOBAL KEYBINDINGS
 
-" setting a leader 
+" setting a leader
 let mapleader= ";"
 
 " sudo save a file
 command W w !sudo tee % > /dev/null
 
 " exit insert mode by pressing [;
-inoremap wj <Esc> 
+inoremap wj <Esc>
 inoremap jw <Esc>
 
 " spell check set to F6
@@ -152,7 +164,7 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " VIM-AUTO-ORIGAMI
 
-" function to enable this plugin 
+" function to enable this plugin
 augroup autofoldcolumn
   au!
 
@@ -160,4 +172,35 @@ augroup autofoldcolumn
   au CursorHold,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
 augroup END
 
+" YOU COMPLETE ME
+
+" minimum number of characters to trigger plugin
+let g:ycm_min_num_of_chars_for_completion = 1
+
+" minimum number of characters in suggestions
+let g:ycm_min_num_identifier_candidate_chars = 3
+
+" maximum number of candidates settings
+let g:ycm_max_num_candidates = 20
+let g:ycm_max_num_identifier_candidates = 10
+
+" AIRLINE
+
+" use powerline fonts
+let g:airline_powerline_fonts = 1
+
+" theme setting
+let g:airline_theme = 'simple'
+
+
+" FUNCTIONS
+
+" trim whitespace
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+:noremap <F4> :call TrimWhitespace()<CR>
 
