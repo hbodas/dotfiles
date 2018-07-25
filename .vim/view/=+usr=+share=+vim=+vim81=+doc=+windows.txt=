@@ -7,26 +7,13 @@ setlocal fdi=#
 setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
-setlocal fen
+setlocal nofen
 silent! normal! zE
-4,26fold
-28,125fold
-127,155fold
-159,174fold
-176,184fold
-186,202fold
-204,236fold
-157,237fold
-239,248fold
-157
-normal! zo
-157
-normal! zc
-let s:l = 237 - ((236 * winheight(0) + 22) / 45)
+let s:l = 651 - ((34 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-237
+651
 normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

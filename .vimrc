@@ -120,6 +120,10 @@ augroup end
 " autoload file changes
 set autoread
 
+" set split to right and split down
+set splitbelow
+set splitright
+
 " GLOBAL KEYBINDINGS
 
 " setting a leader
@@ -135,6 +139,12 @@ inoremap jw <Esc>
 " spell check set to F6
 map <F6> :setlocal spell! spelllang=en_us,es<CR>
 
+" easier navigation between buffers
+map <C-J> <C-W><C-J>
+map <C-K> <C-W><C-K>
+map <C-L> <C-W><C-L>
+map <C-H> <C-W><C-H>
+
 " insert guide for navigation (works only in insert and normal mode)
 inoremap ;w <++>
 nnoremap ;w i<++><Esc>l
@@ -142,6 +152,7 @@ nnoremap ;w i<++><Esc>l
 " navigate to next guide
 inoremap ;e <Esc>/<++><Enter><Esc>:noh<Enter>4xi
 nnoremap ;e /<++><Enter><Esc>:noh<Enter>4xi
+
 
 " PLUGIN SETTINGS
 
@@ -184,6 +195,12 @@ let g:ycm_min_num_identifier_candidate_chars = 3
 let g:ycm_max_num_candidates = 20
 let g:ycm_max_num_identifier_candidates = 10
 
+" filetype blacklist
+let g:ycm_filetype_specific_completion_to_disable = {
+      \ 'tex': 1,
+      \ 'bib': 1
+      \}
+
 " AIRLINE
 
 " use powerline fonts
@@ -191,6 +208,32 @@ let g:airline_powerline_fonts = 1
 
 " theme setting
 let g:airline_theme = 'simple'
+
+" what sections get truncated and at what width
+let g:airline#extensions#default#section_truncate_width = {
+  \ 'b': 79,
+  \ 'x': 60,
+  \ 'y': 88,
+  \ 'z': 45,
+  \ 'warning': 80,
+  \ 'error': 80,
+  \ }
+
+" ignore if the filetype says utf-8[unix]
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+" tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" fugitive tab
+let g:airline#extensions#branch#empty_message = ''
+let g:airline#extensions#branch#displayed_head_limit = 10
+
+" vimtex
+let g:airline#extensions#vimtex#enabled = 1
+let g:airline#extensions#vimtex#compiled = "c₁"
+let g:airline#extensions#vimtex#continuous = "c"
+let g:airline#extensions#vimtex#viewer = "v"
 
 
 " FUNCTIONS
