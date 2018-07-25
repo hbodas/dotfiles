@@ -1,6 +1,7 @@
 .vim/*
 !.vim/autoload
 !.vim/colors
+!.vim/view
 
 .config/*
 !.config/compton
