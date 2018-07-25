@@ -3,12 +3,19 @@
 echo "Running dotfile install script..."
 
 # create symbolic links to dotfiles in home directory
+
+# first check if files exist.
+# TBD
+# if files exist, then move to directory in home called old.
+
+# then create the symlinks
 home_files=(.bash_aliases .bash_profile .bashrc .gitconfig .vimrc .Xdefaults .xinitrc)
 
 for file in ${home_files[*]}
     do ln -S $file ~/$file  
     done
 
-# create symlinks for folders in .vim directory
+# create symlinks for vim directory
 
-# add a way to check if .vim exists
+# create symlink for config directory. first copy over any folders that exist,
+# then symlink

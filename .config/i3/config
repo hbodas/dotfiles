@@ -1,0 +1,188 @@
+# i3 config file (v4)
+
+### GENERAL ###
+font pango: Cantarell 11
+
+# default applications
+set $term urxvt
+set $browser firefox
+set $file_manager urxvt -e ranger
+set $launcher rofi -show run
+
+# Locker
+set $Locker lockscreen
+
+# Modifier keys #
+set $alt Mod1
+set $win Mod4 
+
+# Directions #
+set $up j
+set $down k
+set $left h
+set $right l
+
+# exec bindings
+set $exec exec
+set $execa exec_always
+
+# Display Brightness #
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# Media Player #
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+
+# Screenshot #
+bindsym Print exec scrot -q 100 -e 'mv $f ~/Screenshots/'
+
+# Volume Controls #
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle 
+
+# bar
+bar {
+        status_command i3status -c ~/.config/i3/i3status.conf
+        position top
+        font pango:sans-serif 11
+        # font -xos4-terminus-medium-r-normal--12-120-72-72-C-60-iso8859-1
+        # font -*-proggysquaresz-medium-r-normal-*-11-80-*-*-*-*-iso8859-1
+    workspace_buttons yes
+        colors  {
+        background #0F0F0F
+        statusline #D5D5D5
+        focused_workspace #F5F5FF #7FB256
+        active_workspace #E5E5E5 #5697B2
+        inactive_workspace #E5E5E5 #5697B2
+        urgent_workspace #E5E5E5 #BC9B54
+        binding_mode #E5E5E5 #FF4233
+}
+}
+
+# gaps settings
+default_border pixel 0
+gaps inner 5
+gaps outer 0                                    
+focus_wrapping yes                             
+
+### KEYBINDINGS ###
+
+# floating modifier
+floating_modifier $alt                          
+
+# some launching
+bindsym $alt+Return $exec $term                 
+bindsym $alt+Shift+q kill   
+bindsym $alt+x $exec $launcher 
+bindsym $alt+f $exec $file_manager
+bindsym $alt+d $exec $browser
+
+# moving around
+bindsym $alt+$left focus left                   
+bindsym $alt+$right focus right                 
+bindsym $alt+$up focus up                       
+bindsym $alt+$down focus down                   
+
+bindsym $alt+Shift+$left move left              
+bindsym $alt+Shift+$right move right            
+bindsym $alt+Shift+$up move up                  
+bindsym $alt+Shift+$down move down              
+
+bindsym $alt+Shift+Left move left               
+bindsym $alt+Shift+Right move right             
+bindsym $alt+Shift+Up move up                   
+bindsym $alt+Shift+Down move down               
+
+# split
+bindsym $alt+b split h                          
+bindsym $alt+v split v                          
+
+# changing views
+bindsym $alt+c fullscreen toggle                
+
+bindsym $alt+s layout stacked                   
+bindsym $alt+w layout tabbed                    
+bindsym $alt+e layout toggle split              
+bindsym $alt+a focus parent                     
+
+# reloading and restarting i3
+bindsym $alt+Shift+c reload                     
+bindsym $alt+Shift+r restart                    
+
+# resizing
+bindsym $alt+y resize shrink width 2 px         
+bindsym $alt+u resize grow height 2 px          
+bindsym $alt+i resize shrink height 2 px        
+bindsym $alt+o resize grow width 2 px           
+
+bindsym $win+e exec --no-startup-id $Locker
+bindsym $win+s exec --no-startup-id $Locker && systemctl suspend 
+bindsym $win+r exec --no-startup-id systemctl reboot
+bindsym $win+Shift+s exec --no-startup-id systemctl poweroff -i
+
+### WORKSPACES ###
+
+# defining the workspace variables
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym Mod1+1 workspace $ws1
+bindsym Mod1+2 workspace $ws2
+bindsym Mod1+3 workspace $ws3
+bindsym Mod1+4 workspace $ws4
+bindsym Mod1+5 workspace $ws5
+bindsym Mod1+6 workspace $ws6
+bindsym Mod1+7 workspace $ws7
+bindsym Mod1+8 workspace $ws8
+bindsym Mod1+9 workspace $ws9
+bindsym Mod1+0 workspace $ws10
+
+# move focused container to workspace
+bindsym Mod1+Shift+1 move container to workspace $ws1
+bindsym Mod1+Shift+2 move container to workspace $ws2
+bindsym Mod1+Shift+3 move container to workspace $ws3
+bindsym Mod1+Shift+4 move container to workspace $ws4
+bindsym Mod1+Shift+5 move container to workspace $ws5
+bindsym Mod1+Shift+6 move container to workspace $ws6
+bindsym Mod1+Shift+7 move container to workspace $ws7
+bindsym Mod1+Shift+8 move container to workspace $ws8
+bindsym Mod1+Shift+9 move container to workspace $ws9
+bindsym Mod1+Shift+0 move container to workspace $ws10
+
+# workspace movement
+workspace_auto_back_and_forth yes
+bindsym $win+Left workspace prev 
+bindsym $win+$left workspace prev 
+bindsym $win+Right workspace next 
+bindsym $win+$right workspace next 
+
+### STARTUP APPLICATIONS ###
+
+# setting background image
+exec --no-startup-id feh --bg-scale /home/hrishikesh/.config/i3/wall.png
+
+# compositor
+exec_always compton --config /home/hrishikesh/.config/compton/compton.conf
+
+# lock screen on boot
+exec --no-startup-id $Locker
+
+# network manager applet
+exec --no-startup-id nm-applet
+
+# blueman applet
+exec --no-startup-id blueman-applet
+
