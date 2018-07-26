@@ -1,7 +1,6 @@
 .vim/*
 !.vim/autoload
 !.vim/colors
-!.vim/view
 
 .config/*
 !.config/compton
@@ -11,3 +10,5 @@
 !.config/rofi
 !.config/termite
 !.config/yay
+
+.config/i3/wall.png

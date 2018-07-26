@@ -7,7 +7,8 @@ mkdir ~/old
 # create symlinks for .files in home directory. First checks if already exists,
 # and if so then moves to directory old, and then symlinks.
 
-home_files=(.bash_aliases .bash_profile .bashrc .gitconfig .vimrc .Xdefaults .xinitrc)
+home_files=(.bash_aliases .bash_profile .bashrc .gitconfig .vimrc .Xdefaults \
+.xinitrc .bash_functions)
 
 for file in ${home_files[*]}
     do 
@@ -24,7 +25,7 @@ if [ -d ~/.vim ]
 then mv ~/.vim ~/old
 fi
 ln -s ~/dotfiles/.vim ~/.vim
-mkdir ~/.vim/undo ~/.vim/plug
+cd ~/.vim && mkdir undo plug view
 
 # create symlink for config directory. first copy over any folders that exist,
 # then symlink
@@ -35,4 +36,6 @@ then
     cp ~/.config/* ~/dotfiles/.config/ 
 fi
 ln -s ~/dotfiles/.config ~/.config
+
+echo "Old files moved to ~/old."
 

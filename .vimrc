@@ -1,5 +1,3 @@
-" Author: Hrishikesh Bodas
-" Last edited July 4, 2018
 
 " PLUGIN
 
@@ -15,7 +13,11 @@ Plug 'benknoble/vim-auto-origami'
 Plug 'tpope/vim-surround'
 
 " YouCompleteMe
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe'
+" , {'do': './install.py --clang-completer'}
+
+" Vimtex
+Plug 'lervag/vimtex'
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -46,7 +48,7 @@ syntax on
 set nocompatible
 set hidden
 
-" better command jine completion
+" better command line completion
 set wildmenu
 
 " show partial commands in the bottom line
@@ -104,7 +106,7 @@ set wrap
 set textwidth=80
 
 " viewoptions
-set viewoptions=folds,cursor
+set viewoptions=folds,cursor,slash,unix
 set sessionoptions=folds
 
 " restore folds upon save and reload
@@ -153,7 +155,6 @@ nnoremap ;w i<++><Esc>l
 inoremap ;e <Esc>/<++><Enter><Esc>:noh<Enter>4xi
 nnoremap ;e /<++><Enter><Esc>:noh<Enter>4xi
 
-
 " PLUGIN SETTINGS
 
 " NERDCOMMENTER
@@ -185,21 +186,27 @@ augroup END
 
 " YOU COMPLETE ME
 
-" minimum number of characters to trigger plugin
-let g:ycm_min_num_of_chars_for_completion = 1
+" minimum number of characters to trigger identifier based completer. High value
+" to effectively turn it off
+let g:ycm_min_num_of_chars_for_completion = 99
 
 " minimum number of characters in suggestions
-let g:ycm_min_num_identifier_candidate_chars = 3
+let g:ycm_min_num_identifier_candidate_chars = 2
 
 " maximum number of candidates settings
 let g:ycm_max_num_candidates = 20
-let g:ycm_max_num_identifier_candidates = 10
 
-" filetype blacklist
-let g:ycm_filetype_specific_completion_to_disable = {
-      \ 'tex': 1,
-      \ 'bib': 1
-      \}
+" disable filepath completion
+" let g:ycm_filepath_blacklist = {
+      " \ 'tex' : 1,
+      " \ 'bib' : 1
+      " \ }
+
+" use YCM with latex
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 " AIRLINE
 
@@ -223,7 +230,8 @@ let g:airline#extensions#default#section_truncate_width = {
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 " tabline
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#show_buffers = 0
 
 " fugitive tab
 let g:airline#extensions#branch#empty_message = ''
@@ -234,6 +242,35 @@ let g:airline#extensions#vimtex#enabled = 1
 let g:airline#extensions#vimtex#compiled = "c₁"
 let g:airline#extensions#vimtex#continuous = "c"
 let g:airline#extensions#vimtex#viewer = "v"
+
+" VIMTEX
+
+" latex compilation
+autocmd filetype latex nnoremap <F5> <plug>(vimtex-view)
+autocmd filetype latex nnoremap <F6> <plug>(vimtex-clean)
+autocmd filetype latex nnoremap <F7> <plug>(vimtex-compile)
+
+" disable recursive searching for mainfile
+let g:vimtex_disable_recursive_main_file_detection = 1
+
+" detect tex files as latex and not plaintex
+let g:tex_flavor = 'latex'
+
+" enable folding
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_manual = 1
+
+" aligning on ampersands
+let g:vimtex_indent_on_ampersands = 1
+
+" index mode
+let g:vimtex_index_mode = 1
+
+" table of labels
+let g:vimtex_labels_enabled = 0
+
+" vimtex view method
+let g:vimtex_view_method = 'zathura'
 
 
 " FUNCTIONS
