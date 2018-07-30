@@ -1,0 +1,6 @@
+#!/bin/python
+
+try:
+    import quandl
+except:
+    print("Could not import")

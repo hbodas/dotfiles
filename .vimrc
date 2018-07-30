@@ -197,16 +197,19 @@ let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_max_num_candidates = 20
 
 " disable filepath completion
-" let g:ycm_filepath_blacklist = {
-      " \ 'tex' : 1,
-      " \ 'bib' : 1
-      " \ }
+let g:ycm_filepath_blacklist = {
+      \ 'tex' : 1,
+      \ 'bib' : 1
+      \ }
 
 " use YCM with latex
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
+" using with python
+let g:ycm_python_binary_path = '/usr/bin/python'
 
 " AIRLINE
 

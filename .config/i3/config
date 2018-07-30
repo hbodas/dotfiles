@@ -187,5 +187,5 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
 # redshift - two settings based on location
-exec --no-startup-id redshift-gtk 
+# exec --no-startup-id redshift-gtk
 

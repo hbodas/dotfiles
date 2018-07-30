@@ -1,4 +1,4 @@
-#-l 18.5:73.8 ssh CMU network
+#ssh CMU network
 alias cmuunix="ssh hbodas@unix.andrew.cmu.edu"
 
 # yay aliases
