@@ -139,7 +139,7 @@ inoremap wj <Esc>
 inoremap jw <Esc>
 
 " spell check set to F6
-map <F6> :setlocal spell! spelllang=en_us,es<CR>
+map <F9> :setlocal spell! spelllang=en_us,es<CR>
 
 " easier navigation between buffers
 map <C-J> <C-W><C-J>
@@ -154,6 +154,9 @@ nnoremap ;w i<++><Esc>l
 " navigate to next guide
 inoremap ;e <Esc>/<++><Enter><Esc>:noh<Enter>4xi
 nnoremap ;e /<++><Enter><Esc>:noh<Enter>4xi
+
+" unhighlight, cause it's annoying
+nnoremap nh :noh<cr>
 
 " PLUGIN SETTINGS
 
