@@ -12,4 +12,4 @@ source .bash_functions
 source .bash_aliases
 
 # path variable
-export PATH=$PATH":$HOME/dotfiles/bin:$HOME/.local/bin"
+export PATH=$PATH":$HOME/bin:$HOME/.local/bin"
