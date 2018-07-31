@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# to run after cloning repo into directory dotfiles
+
 echo "Running dotfile install script..."
 
 mkdir ~/old
