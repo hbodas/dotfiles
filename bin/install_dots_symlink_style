@@ -41,3 +41,4 @@ ln -s ~/dotfiles/.config ~/.config
 
 echo "Old files moved to ~/old."
 
+

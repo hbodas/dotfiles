@@ -122,7 +122,7 @@ bindsym $alt+o resize grow width 2 px
 # power options
 bindsym $win+e exec --no-startup-id lockscreen
 bindsym $win+s exec --no-startup-id lockscreen && systemctl suspend
-bindsym $win+r exec --no-startup-id systemctl reboot
+bindsym $win+Shift+r exec --no-startup-id systemctl reboot
 bindsym $win+Shift+s exec --no-startup-id systemctl poweroff -i
 
 ### WORKSPACES ###

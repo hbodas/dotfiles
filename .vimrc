@@ -25,6 +25,12 @@ Plug 'vim-airline/vim-airline'
 " airline themes
 Plug 'vim-airline/vim-airline-themes'
 
+" Ultisnips engine
+Plug 'SirVer/ultisnips'
+
+" snippets for ultisnips
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 " GENERAL
@@ -126,6 +132,9 @@ set autoread
 set splitbelow
 set splitright
 
+" completion options
+set completeopt=menu
+
 " GLOBAL KEYBINDINGS
 
 " setting a leader
@@ -214,6 +223,7 @@ let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 " using with python
 let g:ycm_python_binary_path = '/usr/bin/python'
 
+
 " AIRLINE
 
 " use powerline fonts
@@ -277,6 +287,22 @@ let g:vimtex_labels_enabled = 0
 
 " vimtex view method
 let g:vimtex_view_method = 'zathura'
+
+" ULTISNIPS
+
+" defines how edit window is opened
+let g:UltiSnipsEditSplit = 'vertical'
+
+" directory with private snippet definitions
+let g:UltiSnipsSnippetsDir = "~/.vim/snips"
+
+" search order for snippets
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snips"]
+
+" snippet keybindings (NOTE: THESE SHOULD WORK ONLY IN INSERT MODE)
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-k>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-l>'
 
 
 " FUNCTIONS
