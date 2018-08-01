@@ -1,3 +1,7 @@
+" File: .vimrc
+" Author: HurtLockr
+" Description: Vim configuration file
+" Last Modified: August 02, 2018
 
 " PLUGIN
 
