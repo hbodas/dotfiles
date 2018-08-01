@@ -200,7 +200,7 @@ augroup END
 
 " minimum number of characters to trigger identifier based completer. High value
 " to effectively turn it off
-let g:ycm_min_num_of_chars_for_completion = 99
+let g:ycm_min_num_of_chars_for_completion = 1
 
 " minimum number of characters in suggestions
 let g:ycm_min_num_identifier_candidate_chars = 2
