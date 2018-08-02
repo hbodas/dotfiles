@@ -1,0 +1,216 @@
+#!/bin/python
+
+import argparse
+
+####################################
+# FUNCTIONS
+####################################
+
+def parseArguments():
+    """parses the arguments put in
+
+    :returns: a tuple containing the three filenames, the ledger file, the
+    trades file, and the output filename.
+    """
+    parser = argparse.ArgumentParser(
+        usage="./tradescript ledger trades output")
+    parser.add_argument('ledger', help="The name of the ledger file")
+    parser.add_argument('trades', help="The name of the trades file")
+    parser.add_argument('output', help="The name of the output file")
+    parser.parse_args()
+    return (args.ledger, args.trades, args.output)
+
+def getLines(filename):
+    """extracts lines from the file
+
+    :filename: the name of the file
+    :returns: a 2D list the represents the csv file
+
+    """
+    fhand = open(filename, errors='replace')
+    filetxt = fhand.read()
+    linelist = filetxt.split('\n')
+    for i in range(len(linelist)):
+        linelist[i] = linelist[i].split(',')
+    return linelist
+
+def predFilter(filelist, predicate, predcol):
+    """filters the filelist based on the parameters
+
+    :filelist: the 2D list that represents the file
+    :predicate: the predicate function
+    :predcol: the column to look at
+    :returns: returns a list that contains only the filtered columns
+
+    """
+    lines = []
+    for line in filelist:
+        if len(line) > predcol and predicate(line[predcol]):
+            lines.append(line)
+    return lines
+
+def processLines(linelist, process):
+    """processes the lines and returns a list with the processed lines
+
+    :linelist: the list of lines, filtered
+    :process: the proccessing function
+    :returns: a list with the lines processed
+
+    """
+    lines = []
+    for line in linelist:
+        lines.extend(process(line))
+    return lines
+
+def makeDict(filteredList, keycol):
+    """makes a dictionary out of the filtered list
+
+    :filteredList: the processed list from the previous functions
+    :keycol: the column of the key
+    :returns: a dictionary containing the key, and the corresponding value
+
+    """
+    dtmp = dict()
+    for line in filteredList:
+        k = line[keycol]
+        rest = tuple(line[:keycol] + line[keycol+1:])
+        if not k in dtmp:
+            dtmp[k] = set([rest])
+        else:
+            dtmp[k].add(rest)
+    return dtmp
+
+def extractLines(filename, predcol, predicate, process, keycol):
+    """extracts lines from a file, and returns a dictionary based on the
+    processing
+
+    :filename: the name of the csv file to look at
+    :keycol: the column of the key values, in the processed lines
+    :predcol: the column that the predicate function looks at, in the
+    unprocessed data
+    :predicate: the predicate function
+    :process: the processing function
+    :returns: A dictionary, with the keys as the elements in the keycolumn, and
+    the values a set of the processed outputs
+
+    """
+    # extract the lines from the file
+    filelist = getLines(filename)
+    # filter the lines
+    filteredList = predFilter(filelist, predicate, predcol)
+    # process the lines
+    processedLines = processLines(filteredList, process)
+    # make the dictionary
+    d = makeDict(processedLines, keycol)
+    return d
+    #  return processedLines
+
+def processDate(date, ledger_date, trades_date):
+    """processes the data passed in for a particular date.
+
+    :date: the date to look at
+    :ledger_date: the entry in the ledger dictionary for that date
+    :trades_date: the entry in the trades dictionary for that date
+    :returns: a list representing the output in the output file
+
+    """
+    if len(ledger_date) == 1: total = list(ledger_date)[0][0]
+    else:
+        total = 0
+        for i in range(len(ledger_date)): total += list(ledger_date)[i][0]
+    transactions = []
+    for transaction in trades_date: transactions.append(list(transaction))
+    adjusted = adjustCommission(total, transactions)
+    out, sumtotal = [], 0
+    for transaction in adjusted:
+        out.append([date] + transaction)
+        sumtotal += transaction[-1]
+    out[-1].extend([sumtotal, total])
+    return out
+
+def adjustCommission(total, transactions):
+    """adjusts the transactions for commission
+
+    :total: TODO
+    :transactions: TODO
+    :returns: TODO
+
+    """
+    # first find the total commission
+    adjusted = 0
+    absolute = 0
+    for transaction in transactions:
+        absolute += transaction[3]
+        if transaction[4] == "BUY": adjusted -= transaction[3]
+        else: adjusted += transaction[3]
+    commission = abs(total - adjusted)
+    margin = commission
+    # then find individual commission
+    for transaction in transactions:
+        comm = int(commission * transaction[3] / absolute)
+        transaction.append(-1 * comm)
+        margin -= comm
+    transactions[-1][-1] -= margin
+    for transaction in transactions:
+        if transaction[4] == "BUY": transaction[-1] -= transaction[3]
+        else: transaction[-1] += transaction[3]
+    # return the updated list
+    return transactions
+
+def processDicts(ledger, trades):
+    """processes the dictionaries to produce an output
+
+    :ledger: the ledger dictionary
+    :trades: the trades dictionary
+    :returns: a list that represents the output
+
+    """
+    outputList = []
+    for k in ledger:
+        outputList.extend(processDate(k, ledger[k], trades[k]))
+    return outputList
+
+####################################
+# MAIN
+####################################
+
+if __name__ == "__main__":
+
+    (ledger, trades, output) = parseArguments()
+
+    def ledger_pred(str):
+        return str == "Bill Posted"
+
+    def ledger_proc(l):
+        date = l[0]
+        amount = "".join(l[4:])
+        try:
+            amount = int(100 * float(amount))
+        except:
+            amount = int(100 * float(amount[1:-1]))
+        if l[3] == "Dr":
+            amount *= -1
+        return [[date, amount]]
+
+    def trades_pred(str):
+        return -1 != str.find("-", str.find("-") + 1)
+
+    def trades_proc(l):
+        buy = [l[0], l[4], l[2], l[5], int(100 * float(l[6])), "BUY"]
+        sell = [l[0], l[4], l[2], l[7], int(100 * float(l[8])), "SELL"]
+        ret = []
+        if buy[-2] != 0:
+            ret.append(buy)
+        if sell[-2] != 0:
+            ret.append(sell)
+        return ret
+
+    ledger = extractLines("testfiles/ledger fy17-18.csv", 2, ledger_pred,
+            ledger_proc, 0)
+    trades = extractLines("testfiles/trades fy17-18.csv", 0, trades_pred,
+            trades_proc, 0)
+    #  TODO: change the filenames in the lines above <02-08-18, HB> #
+
+    outList = processDicts(ledger, trades)
+
+
