@@ -37,7 +37,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
 # Screenshot #
-bindsym Print exec scrot -q 100 -e 'mv $f ~/Screenshots/'
+bindsym Print exec scrot -q 100 -e 'mv $f $HOME/screenshots/'
 
 # Volume Controls #
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
@@ -46,7 +46,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # bar
 bar {
-        status_command i3status -c ~/.config/i3/i3status.conf
+        status_command i3status -c $HOME/.config/i3/i3status.conf
         position top
         font pango:sans-serif 11
         # font -xos4-terminus-medium-r-normal--12-120-72-72-C-60-iso8859-1
@@ -173,10 +173,10 @@ bindsym $win+$right workspace next
 ### STARTUP APPLICATIONS ###
 
 # setting background image
-exec --no-startup-id feh --bg-scale /home/hrishikesh/.config/i3/wall.png
+exec --no-startup-id feh --bg-scale $HOME/.config/i3/wall.png
 
 # compositor
-exec_always compton --config /home/hrishikesh/.config/compton/compton.conf
+exec_always compton --config $HOME/.config/compton/compton.conf
 
 # lock screen on boot
 exec --no-startup-id $Locker
