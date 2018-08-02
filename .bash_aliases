@@ -17,6 +17,3 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-
-# prompt for confirmation everytime
-alias rm="rm -i"
