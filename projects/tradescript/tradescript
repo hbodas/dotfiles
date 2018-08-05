@@ -114,6 +114,7 @@ def processDate(date, ledger_date, trades_date):
     :returns: a list representing the output in the output file
 
     """
+    flag = False
     if len(ledger_date) == 1: total = list(ledger_date)[0][0]
     else:
         total = 0
@@ -123,9 +124,33 @@ def processDate(date, ledger_date, trades_date):
     adjusted = adjustCommission(total, transactions)
     out, sumtotal = [], 0
     for transaction in adjusted:
-        out.append([date] + transaction)
-        sumtotal += transaction[-1]
-    out[-1].extend([sumtotal, total])
+        if transaction[0] == "BROKERAGE":
+            flag = True
+            addition = transaction[-1]
+            print(addition)
+        else:
+            addition = 0
+            out.append([date] + transaction)
+            sumtotal += transaction[-1]
+    if addition != 0:
+        each = addition // len(out)
+        for line in out:
+            continue
+            line[-1] += each
+        out[-1][-1] += (addition - len(out) * each)
+    sumtotal += addition
+    out[0].extend([sumtotal, total])
+    if flag: out[0].append("***BROKERAGE ADDED***")
+    #  print(out)
+    return out
+
+def adjustBrokerage(out):
+    """Adjusts the brokerage to remove rows that contain the brokerage thing
+
+    :out: the outputList for a particular date
+    :returns: the modified list, with a flag for the date.
+
+    """
     return out
 
 def adjustCommission(total, transactions):
@@ -168,6 +193,7 @@ def processDicts(ledger, trades):
     outputList = []
     for k in ledger:
         outputList.extend(processDate(k, ledger[k], trades[k]))
+    outputList.reverse()
     return outputList
 
 ####################################
@@ -176,7 +202,7 @@ def processDicts(ledger, trades):
 
 if __name__ == "__main__":
 
-    (ledger, trades, output) = parseArguments()
+    #  (ledger, trades, output) = parseArguments()
 
     def ledger_pred(str):
         return str == "Bill Posted"
@@ -212,5 +238,6 @@ if __name__ == "__main__":
     #  TODO: change the filenames in the lines above <02-08-18, HB> #
 
     outList = processDicts(ledger, trades)
+    for line in outList: print(line)
 
 

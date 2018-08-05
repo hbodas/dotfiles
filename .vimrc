@@ -1,7 +1,3 @@
-" File: .vimrc
-" Author: HurtLockr
-" Description: Vim configuration file
-" Last Modified: August 02, 2018
 
 " PLUGIN
 
@@ -147,6 +143,11 @@ let mapleader= ";"
 " sudo save a file
 command W w !sudo tee % > /dev/null
 
+" quicksaving
+nnoremap ;w :w<cr>
+nnoremap ;wq :wq<cr>
+nnoremap ;W :W<cr>
+
 " exit insert mode by pressing [;
 inoremap wj <Esc>
 inoremap jw <Esc>
@@ -161,8 +162,8 @@ map <C-L> <C-W><C-L>
 map <C-H> <C-W><C-H>
 
 " insert guide for navigation (works only in insert and normal mode)
-inoremap ;w <++>
-nnoremap ;w i<++><Esc>l
+inoremap ;r <++>
+nnoremap ;r i<++><Esc>l
 
 " navigate to next guide
 inoremap ;e <Esc>/<++><Enter><Esc>:noh<Enter>4xi
