@@ -37,7 +37,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
 # Screenshot #
-bindsym Print exec scrot -q 100 -e 'mv $f $HOME/screenshots/'
+bindsym Print exec scrot -q 100 -e 'mv $f ~/screenshots/'
 
 # Volume Controls #
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
