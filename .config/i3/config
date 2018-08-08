@@ -5,8 +5,9 @@ font pango: Cantarell 11
 
 # default applications
 set $term urxvt
+# set $term termite
 set $browser firefox
-set $file_manager urxvt -e ranger
+set $file_manager $term -e ranger
 set $launcher rofi -show run
 
 # Locker
@@ -65,7 +66,7 @@ bar {
 
 # gaps settings
 default_border pixel 0
-gaps inner 5
+gaps inner 20
 gaps outer 0
 focus_wrapping yes
 

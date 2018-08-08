@@ -13,7 +13,7 @@ Plug 'benknoble/vim-auto-origami'
 Plug 'tpope/vim-surround'
 
 " YouCompleteMe
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe' 
 " , {'do': './install.py --clang-completer'}
 
 " Vimtex
