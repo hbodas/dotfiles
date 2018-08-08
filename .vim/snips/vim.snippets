@@ -1,2 +1,13 @@
 # snippets for filetype vim
 
+snippet nmap "Normal mode mapping" b
+nnoremap ${1:keybinding} ${0:mapping}
+endsnippet
+
+snippet vmap "Visual mode mapping" b
+vnoremap ${1:keybinding} ${0:mapping}
+endsnippet
+
+snippet imap "Insert mode mapping" b
+inoremap ${1:keybinding} ${0:mapping}
+endsnippet
