@@ -13,7 +13,7 @@ Plug 'benknoble/vim-auto-origami'
 Plug 'tpope/vim-surround'
 
 " YouCompleteMe
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe' , {'do': './install.py --clang-completer'}
 
 " Vimtex
 Plug 'lervag/vimtex', {'for' : 'latex'}
@@ -30,26 +30,20 @@ Plug 'SirVer/ultisnips'
 " snippets for ultisnips
 Plug 'honza/vim-snippets'
 
-" nerdtree
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-
 " indent guides
 Plug 'nathanaelkane/vim-indent-guides'
 
 " goyo
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 
-" syntastic and syntastic-extras
-Plug 'vim-syntastic/syntastic'
-Plug 'myint/syntastic-extras'
+" " vim-fugitive
+" Plug 'tpope/vim-fugitive'
 
-" vim-fugitive
-Plug 'tpope/vim-fugitive'
-
-" gitgutter
-Plug 'airblade/vim-gitgutter'
+" " gitgutter
+" Plug 'airblade/vim-gitgutter'
 
 call plug#end()
+
 
 " GENERAL
 
@@ -60,6 +54,7 @@ set encoding=utf-8
 syntax enable
 set background=dark
 colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
 
 " filetype plugins
 filetype indent on
@@ -153,6 +148,9 @@ set splitright
 " completion options
 set completeopt=menu
 
+" overriding background color
+hi NonText ctermbg=none
+hi Normal guibg=NONE ctermbg=NONE
 
 
 " GLOBAL KEYBINDINGS
@@ -192,7 +190,7 @@ nnoremap nh :noh<cr>
 " NERDCOMMENTER
 
 " comment empty lines
-let g:NERDCommentEmptyLines = 1
+let g:NERDCommentEmptyLines = 0
 
 " nested comments by defaut
 let g:NERDefaultNesting = 1
@@ -326,8 +324,37 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-l>'
 " view snippets
 let g:UltiSnipsListSnippets = '<C-v>'
 
-" NERDTREE
-nnoremap ntt :NERDTreeToggle<cr>
+" VIM-INDENT-GUIDES
+
+" guide width
+let g:indent_guides_guide_size = 1
+
+" guide start level
+let g:indent_guides_start_level = 2
+
+" enable plugin on vim startup
+let g:indent_guides_enable_on_vim_startup = 1
+
+" GOYO
+
+" mapping to trigger goyo
+nnoremap <F2> :Goyo<cr>
+
+" show line number in goyo
+let g:goyo_linenr = 0
+
+" Goyo enter and leave actions
+" function! s:goyo_enter()
+  " Limelight
+" endfunction
+
+" function! s:goyo_leave()
+  " Limelight!
+" endfunction
+
+" autocmd! User GoyoEnter nested call <SID>goyo_enter()
+" autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 
 
 " FUNCTIONS
