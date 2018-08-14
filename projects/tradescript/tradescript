@@ -1,6 +1,14 @@
 #!/bin/python
 
+"""
+the default way for the script to work is to check for the provided filenames in
+the working directory. In case this needs to be changed, the arguments can be
+provided as such (with an absolute path) or the script can be modified
+accordingly
+"""
+
 import argparse
+from os import path
 
 ####################################
 # FUNCTIONS
@@ -17,7 +25,7 @@ def parseArguments():
     parser.add_argument('ledger', help="The name of the ledger file")
     parser.add_argument('trades', help="The name of the trades file")
     parser.add_argument('output', help="The name of the output file")
-    parser.parse_args()
+    args = parser.parse_args()
     return (args.ledger, args.trades, args.output)
 
 def getLines(filename):
@@ -74,10 +82,8 @@ def makeDict(filteredList, keycol):
     for line in filteredList:
         k = line[keycol]
         rest = tuple(line[:keycol] + line[keycol+1:])
-        if not k in dtmp:
-            dtmp[k] = set([rest])
-        else:
-            dtmp[k].add(rest)
+        if not k in dtmp: dtmp[k] = set([rest])
+        else: dtmp[k].add(rest)
     return dtmp
 
 def extractLines(filename, predcol, predicate, process, keycol):
@@ -118,39 +124,25 @@ def processDate(date, ledger_date, trades_date):
     if len(ledger_date) == 1: total = list(ledger_date)[0][0]
     else:
         total = 0
-        for i in range(len(ledger_date)): total += list(ledger_date)[i][0]
+        for i in range(len(ledger_date)): 
+            total += list(ledger_date)[i][0]
     transactions = []
-    for transaction in trades_date: transactions.append(list(transaction))
+    for transaction in trades_date: 
+        transactions.append(list(transaction))
     adjusted = adjustCommission(total, transactions)
     out, sumtotal = [], 0
     for transaction in adjusted:
         if transaction[0] == "BROKERAGE":
             flag = True
             addition = transaction[-1]
-            print(addition)
         else:
             addition = 0
             out.append([date] + transaction)
             sumtotal += transaction[-1]
-    if addition != 0:
-        each = addition // len(out)
-        for line in out:
-            continue
-            line[-1] += each
-        out[-1][-1] += (addition - len(out) * each)
+    if addition != 0: out[-1][-1] += addition
     sumtotal += addition
     out[0].extend([sumtotal, total])
-    if flag: out[0].append("***BROKERAGE ADDED***")
-    #  print(out)
-    return out
-
-def adjustBrokerage(out):
-    """Adjusts the brokerage to remove rows that contain the brokerage thing
-
-    :out: the outputList for a particular date
-    :returns: the modified list, with a flag for the date.
-
-    """
+    if flag: out[0].append("***BROKERAGE ADDED" + str(addition) + "***")
     return out
 
 def adjustCommission(total, transactions):
@@ -196,13 +188,32 @@ def processDicts(ledger, trades):
     outputList.reverse()
     return outputList
 
+def writeToFile(outputList, filename):
+    """writes the outputList to file
+
+    :outputList: TODO
+    :filename: TODO
+    :returns: TODO
+
+    """
+    filestring = ""
+    for line in outputList:
+        for element in line:
+            try: filestring += element + ","
+            except: filestring += str(element / 100) + ","
+        filestring += "\n"
+    if path.exists(filename): raise ValueError("The file already exists.")
+    f = open(filename, "w")
+    f.write(filestring)
+    f.close()
+
 ####################################
 # MAIN
 ####################################
 
 if __name__ == "__main__":
 
-    #  (ledger, trades, output) = parseArguments()
+    (ledger, trades, output) = parseArguments()
 
     def ledger_pred(str):
         return str == "Bill Posted"
@@ -210,12 +221,9 @@ if __name__ == "__main__":
     def ledger_proc(l):
         date = l[0]
         amount = "".join(l[4:])
-        try:
-            amount = int(100 * float(amount))
-        except:
-            amount = int(100 * float(amount[1:-1]))
-        if l[3] == "Dr":
-            amount *= -1
+        try: amount = int(100 * float(amount))
+        except: amount = int(100 * float(amount[1:-1]))
+        if l[3] == "Dr": amount *= -1
         return [[date, amount]]
 
     def trades_pred(str):
@@ -225,19 +233,13 @@ if __name__ == "__main__":
         buy = [l[0], l[4], l[2], l[5], int(100 * float(l[6])), "BUY"]
         sell = [l[0], l[4], l[2], l[7], int(100 * float(l[8])), "SELL"]
         ret = []
-        if buy[-2] != 0:
-            ret.append(buy)
-        if sell[-2] != 0:
-            ret.append(sell)
+        if buy[-2] != 0: ret.append(buy)
+        if sell[-2] != 0: ret.append(sell)
         return ret
 
-    ledger = extractLines("testfiles/ledger fy17-18.csv", 2, ledger_pred,
-            ledger_proc, 0)
-    trades = extractLines("testfiles/trades fy17-18.csv", 0, trades_pred,
-            trades_proc, 0)
-    #  TODO: change the filenames in the lines above <02-08-18, HB> #
+    ledger = extractLines(ledger, 2, ledger_pred, ledger_proc, 0)
+    trades = extractLines(trades, 0, trades_pred, trades_proc, 0)
 
     outList = processDicts(ledger, trades)
-    for line in outList: print(line)
 
-
+    writeToFile(outList, output)
