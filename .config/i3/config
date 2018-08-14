@@ -67,7 +67,7 @@ bar {
 # gaps settings
 default_border pixel 0
 gaps inner 20
-gaps outer 0
+gaps outer 20
 focus_wrapping yes
 
 ### KEYBINDINGS ###
