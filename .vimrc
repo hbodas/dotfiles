@@ -13,11 +13,10 @@ Plug 'benknoble/vim-auto-origami'
 Plug 'tpope/vim-surround'
 
 " YouCompleteMe
-Plug 'Valloric/YouCompleteMe' 
-" , {'do': './install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 
 " Vimtex
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', {'for' : 'latex'}
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -30,6 +29,25 @@ Plug 'SirVer/ultisnips'
 
 " snippets for ultisnips
 Plug 'honza/vim-snippets'
+
+" nerdtree
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+
+" indent guides
+Plug 'nathanaelkane/vim-indent-guides'
+
+" goyo
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
+
+" syntastic and syntastic-extras
+Plug 'vim-syntastic/syntastic'
+Plug 'myint/syntastic-extras'
+
+" vim-fugitive
+Plug 'tpope/vim-fugitive'
+
+" gitgutter
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -135,6 +153,8 @@ set splitright
 " completion options
 set completeopt=menu
 
+
+
 " GLOBAL KEYBINDINGS
 
 " setting a leader
@@ -142,11 +162,6 @@ let mapleader= ";"
 
 " sudo save a file
 command W w !sudo tee % > /dev/null
-
-" quicksaving
-nnoremap ;w :w<cr>
-nnoremap ;wq :wq<cr>
-nnoremap ;W :W<cr>
 
 " exit insert mode by pressing [;
 inoremap wj <Esc>
@@ -223,11 +238,10 @@ let g:ycm_filepath_blacklist = {
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+autocmd filetype latex let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 " using with python
 let g:ycm_python_binary_path = '/usr/bin/python'
-
 
 " AIRLINE
 
@@ -308,6 +322,12 @@ let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snips"]
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-k>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-l>'
+
+" view snippets
+let g:UltiSnipsListSnippets = '<C-v>'
+
+" NERDTREE
+nnoremap ntt :NERDTreeToggle<cr>
 
 
 " FUNCTIONS
