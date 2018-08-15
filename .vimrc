@@ -265,6 +265,7 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 " tabline
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " fugitive tab
 let g:airline#extensions#branch#empty_message = ''
