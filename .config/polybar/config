@@ -88,8 +88,8 @@ radius = 0.0
 override-redirect = false
 
 ; background and foreground
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.foreground}
+foreground = ${colors.background}
 
 ; margins around modules
 module-margin = 0
@@ -101,9 +101,9 @@ font-2 = DejaVu Sans Mono for Powerline:size=17;3.5
 font-3 = DejaVu Sans Mono for Powerline:size=28;6.5
 
 ; modules
-modules-left = i3 rsep
-modules-center = rtblock placeholder ltblock
-modules-right = lsep
+modules-left = i3 rsep rtblock
+modules-center = placeholder 
+modules-right = ltblock lsep
 
 ; tray
 /* tray-position = right */
@@ -184,6 +184,8 @@ label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-background = ${colors.background}
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
