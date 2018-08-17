@@ -94,16 +94,22 @@ background = ${xrdb:*.background}
 foreground = ${xrdb:*.foreground}
 
 ; margins around modules
-module-margin = 5
+module-margin = 0
 
-; fonts 
+; fonts
 font-0 = Inconsolata:size=13;2.5
 font-1 = DejaVu Sans Mono Nerd Font:size=12;3
+font-2 = DejaVu Sans Mono for Powerline:size=26;6
 
 ; modules
-modules-left = i3
-modules-center = placeholder
-modules-right =
+modules-left = i3 rsep
+modules-center = rtblock placeholder ltblock
+modules-right = lsep
+
+; tray
+tray-position = right
+tray-maxsize = 16
+tray-padding = 2
 
 [module/xwindow]
 type = internal/xwindow
@@ -437,7 +443,33 @@ menu-2-1-exec = menu-open-0
 
 [module/placeholder]
 type = custom/text
-content = " - normal" 
+content = " - normal"
+content-background = ${xrdb:*.foreground}
+content-foreground = ${xrdb:*.background}
+
+[module/rtblock]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${xrdb:*.foreground}
+content-foreground = ${xrdb:*.background}
+
+[module/ltblock]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${xrdb:*.foreground}
+content-foreground = ${xrdb:*.background}
+
+[module/rsep]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${xrdb:*.background}
+content-foreground = ${xrdb:*.foreground}
+
+[module/lsep]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${xrdb:*.background}
+content-foreground = ${xrdb:*.foreground}
 
 [settings]
 screenchange-reload = true
