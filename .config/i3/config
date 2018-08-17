@@ -69,8 +69,8 @@ default_border pixel 0
 hide_edge_borders smart
 
 # gaps settings
-gaps inner 10 
-gaps outer 0
+gaps inner 15 
+gaps outer -5
 focus_wrapping yes
 
 # some color settings
