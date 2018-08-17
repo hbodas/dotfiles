@@ -183,6 +183,10 @@ bindsym $win+$left workspace prev
 bindsym $win+Right workspace next
 bindsym $win+$right workspace next
 
+# bind to workspaces
+assign [class="Firefox"] $ws1
+for_window [class="Spotify"] move container to workspace $ws2
+
 ### STARTUP APPLICATIONS ###
 
 # setting background image
