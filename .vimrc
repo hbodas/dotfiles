@@ -3,6 +3,9 @@
 
 call plug#begin('~/.vim/plug')
 
+" gruvbox theme
+Plug 'morhetz/gruvbox'
+
 " Nerd Commenter
 Plug 'scrooloose/nerdcommenter'
 
@@ -149,11 +152,8 @@ set splitright
 set completeopt=menu
 
 " overriding background color
-hi NonText ctermbg=none
-hi Normal guibg=NONE ctermbg=NONE
-
-" clipboard
-set clipboard=unnamedplus
+" hi NonText ctermbg=none
+" hi Normal guibg=NONE ctermbg=NONE
 
 
 " GLOBAL KEYBINDINGS
@@ -358,7 +358,6 @@ let g:goyo_linenr = 0
 
 " autocmd! User GoyoEnter nested call <SID>goyo_enter()
 " autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
 
 
 " FUNCTIONS
