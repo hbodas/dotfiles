@@ -81,7 +81,7 @@ cursor-scroll = ns-resize
 [bar/top]
 ; dimensions for the bar
 width = 100%
-height = 32
+height = 26
 
 ; corners
 radius = 0.0
@@ -90,8 +90,8 @@ radius = 0.0
 override-redirect = false
 
 ; background and foreground
-background = ${xrdb:*.background}
-foreground = ${xrdb:*.foreground}
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 ; margins around modules
 module-margin = 0
@@ -99,7 +99,8 @@ module-margin = 0
 ; fonts
 font-0 = Inconsolata:size=13;2.5
 font-1 = DejaVu Sans Mono Nerd Font:size=12;3
-font-2 = DejaVu Sans Mono for Powerline:size=26;6
+font-2 = DejaVu Sans Mono for Powerline:size=17;3.5
+font-3 = DejaVu Sans Mono for Powerline:size=28;6.5
 
 ; modules
 modules-left = i3 rsep
@@ -107,9 +108,9 @@ modules-center = rtblock placeholder ltblock
 modules-right = lsep
 
 ; tray
-tray-position = right
-tray-maxsize = 16
-tray-padding = 2
+/* tray-position = right */
+/* tray-maxsize = 16 */
+/* tray-padding = 2 */
 
 [module/xwindow]
 type = internal/xwindow
@@ -444,32 +445,32 @@ menu-2-1-exec = menu-open-0
 [module/placeholder]
 type = custom/text
 content = " - normal"
-content-background = ${xrdb:*.foreground}
-content-foreground = ${xrdb:*.background}
+content-background = ${colors.foreground}
+content-foreground = ${colors.background}
 
 [module/rtblock]
 type = custom/text
-content = %{T3}%{T-}
-content-background = ${xrdb:*.foreground}
-content-foreground = ${xrdb:*.background}
+content = %{T4}%{T-}
+content-background = ${colors.foreground}
+content-foreground = ${colors.background}
 
 [module/ltblock]
 type = custom/text
-content = %{T3}%{T-}
-content-background = ${xrdb:*.foreground}
-content-foreground = ${xrdb:*.background}
+content = %{T4}%{T-}
+content-background = ${colors.foreground}
+content-foreground = ${colors.background}
 
 [module/rsep]
 type = custom/text
 content = %{T3}%{T-}
-content-background = ${xrdb:*.background}
-content-foreground = ${xrdb:*.foreground}
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
 
 [module/lsep]
 type = custom/text
 content = %{T3}%{T-}
-content-background = ${xrdb:*.background}
-content-foreground = ${xrdb:*.foreground}
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
 
 [settings]
 screenchange-reload = true
