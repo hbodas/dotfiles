@@ -152,6 +152,9 @@ set completeopt=menu
 hi NonText ctermbg=none
 hi Normal guibg=NONE ctermbg=NONE
 
+" clipboard
+set clipboard=unnamedplus
+
 
 " GLOBAL KEYBINDINGS
 

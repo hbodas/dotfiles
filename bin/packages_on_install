@@ -1,1 +1,2 @@
 ncurses5-compat-libs (required for YCM - vim)           AUR
+gvim (get vim with clipboard support)
