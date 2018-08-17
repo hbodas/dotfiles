@@ -78,6 +78,33 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[bar/top]
+; dimensions for the bar
+width = 100%
+height = 32
+
+; corners
+radius = 0.0
+
+; location
+override-redirect = false
+
+; background and foreground
+background = ${xrdb:*.background}
+foreground = ${xrdb:*.foreground}
+
+; margins around modules
+module-margin = 5
+
+; fonts 
+font-0 = Inconsolata:size=13;2.5
+font-1 = DejaVu Sans Mono Nerd Font:size=12;3
+
+; modules
+modules-left = i3
+modules-center = placeholder
+modules-right =
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
@@ -407,6 +434,10 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/placeholder]
+type = custom/text
+content = " - normal" 
 
 [settings]
 screenchange-reload = true
