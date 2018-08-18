@@ -9,7 +9,7 @@ URxvt.depth: 32
 
 ! hard contrast: *background: #1d2021
 *background: #1d2021
-URxvt.background: [90]#1d2021
+URxvt.background: [83]#1d2021
 ! *background: #282828
 ! URxvt.background: [80]#282828
 ! soft contrast: *background: #32302f
