@@ -9,6 +9,7 @@ set $term urxvt
 set $browser firefox
 set $file_manager urxvt -e ranger
 set $launcher rofi -show run
+set $bar polybar_start
 
 # Locker
 set $Locker lockscreen
@@ -46,23 +47,23 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # bar
-bar {
-        status_command i3status -c $HOME/.config/i3/i3status.conf
-        position top
-        font pango:sans-serif 11
-        # font -xos4-terminus-medium-r-normal--12-120-72-72-C-60-iso8859-1
-        # font -*-proggysquaresz-medium-r-normal-*-11-80-*-*-*-*-iso8859-1
-    workspace_buttons yes
-        colors  {
-        background #0F0F0F
-        statusline #D5D5D5
-        focused_workspace #F5F5FF #7FB256
-        active_workspace #E5E5E5 #5697B2
-        inactive_workspace #E5E5E5 #5697B2
-        urgent_workspace #E5E5E5 #BC9B54
-        binding_mode #E5E5E5 #FF4233
-}
-}
+# bar {
+        # status_command i3status -c $HOME/.config/i3/i3status.conf
+        # position top
+        # font pango:sans-serif 11
+        # # font -xos4-terminus-medium-r-normal--12-120-72-72-C-60-iso8859-1
+        # # font -*-proggysquaresz-medium-r-normal-*-11-80-*-*-*-*-iso8859-1
+    # workspace_buttons yes
+        # colors  {
+        # background #0F0F0F
+        # statusline #D5D5D5
+        # focused_workspace #F5F5FF #7FB256
+        # active_workspace #E5E5E5 #5697B2
+        # inactive_workspace #E5E5E5 #5697B2
+        # urgent_workspace #E5E5E5 #BC9B54
+        # binding_mode #E5E5E5 #FF4233
+# }
+# }
 
 # border settings
 default_border pixel 0
@@ -81,6 +82,7 @@ focus_wrapping yes
 # client.urgent
 # client.placeholder
 # client.background
+
 
 ### KEYBINDINGS ###
 
@@ -206,4 +208,7 @@ exec --no-startup-id blueman-applet
 
 # redshift - two settings based on location
 # exec --no-startup-id redshift-gtk
+
+# polybar
+exec --no-startup-id $bar
 
