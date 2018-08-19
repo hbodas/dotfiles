@@ -1,0 +1,19 @@
+#!/bin/bash
+
+while true; do
+    wget -q --tries=3 --timeout=10 --spider http://google.com
+    if [[ $? -eq 0 ]]; then
+        # Online
+        break
+    else
+        # Offline
+        echo "- / -"
+        sleep 2
+    fi
+done
+
+repos=$(checkupdates | wc -l)
+aur=$(yay --aur -Pn)
+
+echo "$repos / $aur"
+
