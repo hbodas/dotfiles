@@ -1,7 +1,7 @@
 # i3 config file (v4)
 
 ### GENERAL ###
-font pango: Cantarell 11
+font pango: Noto Sans 11
 
 # default applications
 set $term urxvt
@@ -18,33 +18,9 @@ set $Locker lockscreen
 set $alt Mod1
 set $win Mod4
 
-# Directions #
-set $up j
-set $down k
-set $left h
-set $right l
-
 # exec bindings
 set $exec exec
 set $execa exec_always
-
-# Display Brightness #
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
-
-# Media Player #
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioNext exec playerctl next
-
-# Screenshot #
-bindsym Print exec scrot -q 100 -e 'mv $f ~/screenshots/'
-
-# Volume Controls #
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # bar
 # bar {
@@ -67,24 +43,70 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # border settings
 default_border pixel 0
-hide_edge_borders smart
+# hide_edge_borders no
 
 # gaps settings
-gaps inner 15 
+gaps inner 15
 gaps outer -5
 focus_wrapping yes
 
+# setting some colors
+set_from_resource $bg background
+set_from_resource $fg foreground
+set_from_resource $color0 color0
+set_from_resource $color1 color1
+set_from_resource $color2 color2
+set_from_resource $color3 color3
+set_from_resource $color4 color4
+set_from_resource $color5 color5
+set_from_resource $color6 color6
+set_from_resource $color7 color7
+set_from_resource $color8 color8
+set_from_resource $color9 color9
+set_from_resource $color10 color10
+set_from_resource $color11 color11
+set_from_resource $color12 color12
+set_from_resource $color13 color13
+set_from_resource $color14 color14
+set_from_resource $color15 color15
+set $tra #00000000
+
+
 # some color settings
-# colorclass               border  backgr. text    indica. ch._bo.
-# client.focused
-# client.focused_inactive
-# client.unfocused
-# client.urgent
-# client.placeholder
-# client.background
+# colorclass               border    backgr. text    indica. ch._bo.
+client.focused             $color4  $color4   $color15   $color12  $color15
+client.focused_inactive    $color0  $color0   $color8  $color12    $color8
+client.unfocused           $color0  $color0   $color8  $color12   $color8
+client.urgent              $color1  $color1   $color15  $color12    $color8
+client.placeholder         $color0  $color0   $color8  $color12    $color8
+client.background          $tra
 
 
 ### KEYBINDINGS ###
+
+# Directions #
+set $up j
+set $down k
+set $left h
+set $right l
+
+# Display Brightness #
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# Media Player #
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+
+# Screenshot #
+bindsym Print exec scrot -q 100 -e 'mv $f ~/screenshots/'
+
+# Volume Controls #
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # floating modifier
 floating_modifier $alt
@@ -139,6 +161,9 @@ bindsym $win+e exec --no-startup-id lockscreen
 bindsym $win+s exec --no-startup-id lockscreen && systemctl suspend
 bindsym $win+Shift+r exec --no-startup-id systemctl reboot
 bindsym $win+Shift+s exec --no-startup-id systemctl poweroff -i
+
+# scratchpad stuff - will have a terminal window
+bindsym $alt+F12 scratchpad show
 
 ### WORKSPACES ###
 
@@ -211,4 +236,10 @@ exec --no-startup-id blueman-applet
 
 # polybar
 exec --no-startup-id $bar
+
+# scratchpad terminal
+for_window [instance="__scratchpad"] floating enable
+for_window [instance="__scratchpad"] resize 800 500
+for_window [instance="__scratchpad"] move scratchpad
+exec --no-startup-id urxvt -name __scratchpad
 
