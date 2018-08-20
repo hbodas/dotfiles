@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while true; do
-    wget -q --tries=3 --timeout=10 --spider http://google.com
+    wget -q --tries=7 --timeout=20 --spider http://google.com
     if [[ $? -eq 0 ]]; then
         # Online
         break
