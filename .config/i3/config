@@ -212,7 +212,7 @@ bindsym $win+$right workspace next
 
 # bind to workspaces
 assign [class="Firefox"] $ws1
-for_window [class="Spotify"] move container to workspace $ws2
+for_window [class="Spotify"] move container to workspace $ws10
 
 ### STARTUP APPLICATIONS ###
 
