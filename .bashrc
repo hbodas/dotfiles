@@ -20,5 +20,3 @@ export BROWSER=firefox
 export TERMINAL=urxvt
 export READER=zathura
 
-# home directory
-export $HOME=/home/hrishikesh/
