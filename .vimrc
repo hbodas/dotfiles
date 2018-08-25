@@ -152,8 +152,8 @@ set splitright
 set completeopt=menu
 
 " overriding background color
-" hi NonText ctermbg=none
-" hi Normal guibg=NONE ctermbg=NONE
+hi NonText ctermbg=none
+hi Normal guibg=NONE ctermbg=NONE
 
 set clipboard=unnamedplus
 
