@@ -1,5 +1,5 @@
 #ssh CMU network
-alias cmuunix="ssh hbodas@unix.andrew.cmu.edu"
+alias sunix="ssh hbodas@unix.andrew.cmu.edu"
 
 # yay aliases
 alias ys="yay -S"
