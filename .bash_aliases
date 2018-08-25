@@ -17,3 +17,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+
+# mounted drives
+alias Alpaca="/media/Alpaca"
+alias Alpaca2="/media/Alpaca2"
+alias Win="/media/Win"
