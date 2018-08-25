@@ -6,7 +6,8 @@ alias ys="yay -S"
 alias yrs="yay -Rs"
 
 # sudo vim alias
-alias svim="sudo vim"
+alias v="vim"
+alias sv="sudoedit"
 
 # alias for ls
 alias ls="ls --color=auto"
