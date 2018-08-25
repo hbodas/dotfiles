@@ -113,7 +113,7 @@ floating_modifier $alt
 
 # some launching
 bindsym $alt+Return $exec $term
-bindsym $alt+Shift+q kill
+bindsym $alt+Shift+q [con_id="__focused__" instance="^(?!__scratchpad).*$"] kill
 bindsym $alt+x $exec $launcher
 bindsym $alt+f $exec $file_manager
 bindsym $alt+d $exec $browser
@@ -151,10 +151,13 @@ bindsym $alt+Shift+c reload
 bindsym $alt+Shift+r restart
 
 # resizing
-bindsym $alt+y resize shrink width 2 px
-bindsym $alt+u resize grow height 2 px
-bindsym $alt+i resize shrink height 2 px
-bindsym $alt+o resize grow width 2 px
+bindsym $alt+y resize shrink width 1 px
+bindsym $alt+u resize grow height 1 px
+bindsym $alt+i resize shrink height 1 px
+bindsym $alt+o resize grow width 1 px
+
+# reload polybar
+bindsym $alt+p exec polybar_start
 
 # power options
 bindsym $win+e exec --no-startup-id lockscreen

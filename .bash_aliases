@@ -13,7 +13,7 @@ alias ls="ls --color=auto"
 alias lsa="ls -Ahpls"
 
 # directory navigation
-alias ..=".."
-alias ...="../.."
-alias ....="../../.."
-alias .....="../../../.."
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
