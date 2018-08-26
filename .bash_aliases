@@ -18,6 +18,10 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+# check updates
+alias cu="check_updates"
+alias cul="check_updates -l"
+
 # mounted drives
 alias Alpaca="/media/Alpaca"
 alias Alpaca2="/media/Alpaca2"
