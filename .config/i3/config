@@ -239,7 +239,7 @@ exec --no-startup-id $bar
 
 # scratchpad terminal
 for_window [instance="__scratchpad"] floating enable
-for_window [instance="__scratchpad"] resize 800 500
+for_window [instance="__scratchpad"] resize 1000 600
 for_window [instance="__scratchpad"] move scratchpad
 exec --no-startup-id urxvt -name __scratchpad
 

@@ -3,7 +3,7 @@ URxvt.font: xft:Inconsolata:pixelsize=20,\
             xft:Droid Sans Mono:pixelsize=20,\
             xft:Liberation Mono for Powerline, \
             xft:DejaVu Sans Mono Nerd Font
-urxvt.scrollBar: false
+URxvt.scrollBar: false
 URxvt.depth: 32
 
 
