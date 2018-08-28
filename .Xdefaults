@@ -1,8 +1,5 @@
 !! Appearance
-URxvt.font: xft:Inconsolata:pixelsize=20,\
-            xft:Droid Sans Mono:pixelsize=20,\
-            xft:Liberation Mono for Powerline, \
-            xft:DejaVu Sans Mono Nerd Font
+URxvt.font: xft:Inconsolata Nerd Font Mono:pixelsize=20
 URxvt.scrollBar: false
 URxvt.depth: 32
 

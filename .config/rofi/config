@@ -1,10 +1,10 @@
 rofi.font : "Noto Sans" 16
 rofi.lines : 12
 rofi.fixed-num-lines : true
-rofi.eh : 2
+rofi.eh : 1
 rofi.opacity : 60
 rofi.fullscreen : true
-rofi.line-margin : 1
+rofi.line-margin : 10
 rofi.padding : 200
 
 ! Color scheme for normal row
