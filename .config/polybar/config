@@ -85,13 +85,58 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[bar/top]
+[bar/bottom]
 ; dimensions for the bar
 width = 100%
 height = 24
 
 ; center
 fixed-center = false
+
+; corners
+radius = 0.0
+
+; bottom
+bottom = true
+
+; location
+override-redirect = false
+
+; background and foreground
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; margins around modules
+padding = 1
+module-margin = 1
+
+; fonts
+font-0 = Inconsolata:size=13;3
+font-1 = DejaVu Sans Mono Nerd Font:size=12;3
+font-2 = DejaVu Sans Mono for Powerline:size=17;3.5
+font-3 = DejaVu Sans Mono for Powerline:size=28;6.5
+font-4 = Inconsolata:size=1;2.5
+
+; modules
+modules-left =
+modules-center =
+modules-right = updates wlan cpu memory temperature xbacklight pulseaudio battery
+
+; tray
+tray-position = right
+tray-maxsize = 16
+tray-padding = 2
+
+[bar/top]
+; dimensions for the bar
+width = 100%
+height = 24
+
+; center
+fixed-center = true
+
+; bottom
+/* bottom = true */
 
 ; corners
 radius = 0.0
@@ -108,16 +153,16 @@ padding = 1
 module-margin = 1
 
 ; fonts
-font-0 = Inconsolata:size=12;3
-font-1 = DejaVu Sans Mono Nerd Font:size=12;2.75
+font-0 = Inconsolata:size=13;3
+font-1 = DejaVu Sans Mono Nerd Font:size=12;3
 font-2 = DejaVu Sans Mono for Powerline:size=17;3.5
 font-3 = DejaVu Sans Mono for Powerline:size=28;6.5
 font-4 = Inconsolata:size=1;2.5
 
 ; modules
-modules-left = i3 rsep
-modules-center =  xwindow
-modules-right = lsep updates wlan cpu memory temperature xbacklight pulseaudio battery lsep time date lsep
+modules-left = i3
+modules-center = 
+modules-right = updates wlan cpu memory temperature xbacklight pulseaudio battery time date
 
 ; tray
 tray-position = right
@@ -126,7 +171,7 @@ tray-padding = 2
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:70:...%
+label = %title%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -158,9 +203,9 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.blue}
+label-focused-background = ${colors.green}
 label-focused-underline= ${colors.yellow}
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-occupied = %index%
 label-occupied-padding = 1
@@ -199,7 +244,7 @@ label-focused-padding = ${module/bspwm.label-focused-padding}
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-background = ${colors.background}
+label-unfocused-background = ${colors.blue}
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
@@ -241,7 +286,7 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 
-ramp-foreground = ${colors.red-alt}
+ramp-foreground = ${colors.aqua}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -252,7 +297,7 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 format-prefix = ﬙
-format-prefix-foreground = ${colors.aqua}
+format-prefix-foreground = ${colors.yellow}
 label = " %percentage%%"
 
 [module/memory]
@@ -270,11 +315,11 @@ interval = 2
 format-connected = <label-connected>
 label-connected = %essid%
 format-connected-prefix = "直 "
-format-connected-prefix-foreground = ${colors.purple}
+format-connected-prefix-foreground = ${colors.green}
 
 format-disconnected = <label-disconnected>
 label-disconnected = 睊
-label-disconnected-foreground = ${colors.purple}
+label-disconnected-foreground = ${colors.green}
 
 [module/eth]
 type = internal/network
@@ -282,7 +327,7 @@ interface = enp57
 interval = 5
 
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.purple}
+format-connected-prefix-foreground = ${colors.green}
 label-connected = %local_ip%
 
 format-disconnected =
@@ -309,9 +354,9 @@ interval = 10
 date = %b %d, %Y
 
 format-prefix = " "
-format-prefix-foreground = ${colors.green-alt}
+format-prefix-foreground = ${colors.blue}
 
-label = %date%
+label = %date% 
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -326,7 +371,7 @@ label-muted-foreground = ${colors.gray}
 ramp-volume-0 = 奄
 ramp-volume-1 = 奔
 ramp-volume-2 = 墳
-ramp-volume-foreground = ${colors.purple}
+ramp-volume-foreground = ${colors.red}
 
 [module/alsa]
 type = internal/alsa
@@ -366,7 +411,7 @@ time-format = (%H:%M)
 format-charging = <label-charging>
 label-charging = %percentage%% %time%
 format-charging-prefix = " "
-format-charging-prefix-foreground = ${colors.blue}
+format-charging-prefix-foreground = ${colors.green}
 
 format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %percentage%% %time%
@@ -376,14 +421,14 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.blue}
+ramp-capacity-foreground = ${colors.green}
 
 /* animation-charging-0 =  */
 /* animation-charging-1 =  */
 /* animation-charging-2 =  */
 /* animation-charging-3 =  */
 /* animation-charging-4 =  */
-/* animation-charging-foreground = ${colors.blue-alt} */
+/* animation-charging-foreground = ${colors.aqua} */
 /* animation-charging-framerate = 750 */
 
 [module/temperature]
@@ -396,12 +441,12 @@ format-warn = <ramp> <label-warn>
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.red}
+label-warn-foreground = ${colors.red-alt}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.yellow}
+ramp-foreground = ${colors.purple}
 
 [module/powermenu]
 type = custom/menu
@@ -471,7 +516,7 @@ tail = true
 interval = 3600
 label = %output%
 format-prefix = " "
-format-prefix-foreground = ${colors.red-alt}
+format-prefix-foreground = ${colors.red}
 
 [settings]
 screenchange-reload = true

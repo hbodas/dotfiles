@@ -42,7 +42,7 @@ set $execa exec_always
 # }
 
 # border settings
-default_border pixel 0
+default_border pixel 2
 # hide_edge_borders no
 
 # gaps settings
@@ -74,7 +74,7 @@ set $tra #00000000
 
 # some color settings
 # colorclass               border    backgr. text    indica. ch._bo.
-client.focused             $color4  $color4   $color15   $color12  $color15
+client.focused             $color15  $color15   $color0   $color12  $color15
 client.focused_inactive    $color0  $color0   $color8  $color12    $color8
 client.unfocused           $color0  $color0   $color8  $color12   $color8
 client.urgent              $color1  $color1   $color15  $color12    $color8
