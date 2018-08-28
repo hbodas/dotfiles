@@ -6,4 +6,4 @@ Dotfiles maintained using [Yet Another Dotfiles Manager] (https://github.com/The
 
 ---
 
-The master branch is the stable one, and the devel branch is the one where I try stuff. I merge devel onto master when I'm done messing with particular parts of my configuration.
+The master branch is the stable one, and the devel branch is the one where I try stuff. I merge devel onto master when I'm done messing with particular parts of my configuration. Test
