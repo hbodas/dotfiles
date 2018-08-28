@@ -2,7 +2,7 @@
 
 These are the dotfiles from my current Arch/i3 setup. Don't have a defined install procedure, but I will write one in the future. 
 
-Dotfiles maintained using [Yet Another Dotfiles Manager] (https://github.com/TheLocehiliosan/yadm)
+Dotfiles maintained using [Yet Another Dotfiles Manager](https://github.com/TheLocehiliosan/yadm)
 
 ---
 
