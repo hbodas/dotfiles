@@ -163,7 +163,7 @@ font-4 = Inconsolata:size=1;2.5
 
 ; modules
 modules-left = i3
-modules-center = 
+modules-center = spotify
 modules-right = updates wlan cpu memory temperature xbacklight pulseaudio battery time date
 
 ; tray
@@ -204,9 +204,9 @@ font-3 = DejaVu Sans Mono for Powerline:size=28;6.5
 font-4 = Inconsolata:size=1;2.5
 
 ; modules
-modules-left = 
+modules-left =
 modules-center = placeholder
-modules-right = 
+modules-right =
 
 [module/xwindow]
 type = internal/xwindow
@@ -395,7 +395,7 @@ date = %b %d, %Y
 format-prefix = " "
 format-prefix-foreground = ${colors.blue}
 
-label = %date% 
+label = %date%
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -518,7 +518,7 @@ menu-2-1-exec = menu-open-0
 
 [module/placeholder]
 type = custom/text
-content = " " 
+content = " "
 content-background = #00000000
 content-foreground = #00000000
 
@@ -556,6 +556,18 @@ interval = 3600
 label = %output%
 format-prefix = " "
 format-prefix-foreground = ${colors.red}
+
+[module/spotify]
+type = custom/script
+exec = spotify_song
+exec-if = pgrep -x spotify
+tail = false
+interval = 1
+
+format = <label>
+label = %output%
+
+padding = 2
 
 [settings]
 screenchange-reload = true
