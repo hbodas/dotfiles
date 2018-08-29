@@ -1,1 +1,17 @@
-rofi.theme: /usr/share/rofi/themes/Adapta-Nokto.rasi
+rofi.font : "Noto Sans" 16
+rofi.lines : 12
+rofi.fixed-num-lines : true
+rofi.eh : 1
+rofi.opacity : 60
+rofi.fullscreen : true
+rofi.line-margin : 10
+rofi.padding : 200
+
+! Color scheme for normal row
+rofi.color-normal: argb:00000000,argb:60FFFFFF,argb:00000000,argb:00000000,argb:FFFFFFFF
+! Color scheme for urgent row
+rofi.color-urgent: argb:00000000,argb:60FFFFFF,argb:00000000,argb:00000000,argb:FFFFFFFF
+! Color scheme for active row
+rofi.color-active: argb:00000000,argb:FFFFFFFF,argb:00000000,argb:FFFFFFFF,argb:00000000
+! Color scheme window
+rofi.color-window:                   argb:A0000000,argb:00000000,argb:00000000

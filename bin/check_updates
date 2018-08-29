@@ -12,8 +12,15 @@ while true; do
     fi
 done
 
-repos=$(checkupdates | wc -l)
-aur=$(yay --aur -Pn)
+if [[ $1 = "-l" ]]; then
+    checkupdates
+    yay --aur -Qu
+else
+    repos=$(checkupdates | wc -l)
+    aur=$(yay --aur -Pn)
+    aurout="${aur:0:1}"
+    echo "$repos / $aur"
+fi
 
-echo "$repos / $aur"
+
 

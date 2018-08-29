@@ -152,8 +152,8 @@ set splitright
 set completeopt=menu
 
 " overriding background color
-" hi NonText ctermbg=none
-" hi Normal guibg=NONE ctermbg=NONE
+hi NonText ctermbg=none
+hi Normal guibg=NONE ctermbg=NONE
 
 set clipboard=unnamedplus
 
@@ -252,7 +252,7 @@ let g:ycm_python_binary_path = '/usr/bin/python'
 let g:airline_powerline_fonts = 1
 
 " theme setting
-let g:airline_theme = 'simple'
+let g:airline_theme = 'violet'
 
 " what sections get truncated and at what width
 let g:airline#extensions#default#section_truncate_width = {
