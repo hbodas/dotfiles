@@ -4,7 +4,10 @@
 call plug#begin('~/.vim/plug')
 
 " gruvbox theme
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+
+" pywal
+Plug 'dylanaraps/wal.vim'
 
 " Nerd Commenter
 Plug 'scrooloose/nerdcommenter'
@@ -55,9 +58,9 @@ set encoding=utf-8
 
 " set colorscheme
 syntax enable
-set background=dark
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
+" set background=dark
+colorscheme wal
+" let g:gruvbox_contrast_dark='hard'
 
 " filetype plugins
 filetype indent on
@@ -252,7 +255,7 @@ let g:ycm_python_binary_path = '/usr/bin/python'
 let g:airline_powerline_fonts = 1
 
 " theme setting
-let g:airline_theme = 'violet'
+let g:airline_theme = 'wal'
 
 " what sections get truncated and at what width
 let g:airline#extensions#default#section_truncate_width = {
