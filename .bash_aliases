@@ -18,6 +18,11 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias cdc="cd ~/documents/Courses"
+
+# latex editing (to accomodate vimtex requirements)
+alias tk="vim --servername VIM"
+
 # check updates
 alias cu="check_updates"
 alias cul="check_updates -l"
