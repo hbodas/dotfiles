@@ -1,5 +1,5 @@
 !! Appearance
-URxvt.font: xft:Inconsolata Nerd Font Mono:pixelsize=20
+URxvt.font: xft:Inconsolata Nerd Font Mono:pixelsize=22
 URxvt.scrollBar: false
 URxvt.depth: 32
 

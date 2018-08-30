@@ -22,7 +22,7 @@ Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe' , {'do': './install.py --clang-completer'}
 
 " Vimtex
-Plug 'lervag/vimtex', {'for' : 'latex'}
+Plug 'lervag/vimtex', {'for' : 'tex'}
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -58,9 +58,7 @@ set encoding=utf-8
 
 " set colorscheme
 syntax enable
-" set background=dark
 colorscheme wal
-" let g:gruvbox_contrast_dark='hard'
 
 " filetype plugins
 filetype indent on
@@ -127,7 +125,7 @@ set undodir=~/.vim/undo
 set so=10
 
 " line break at 80 characters and wrap
-set wrap
+set wrap 
 set textwidth=80
 
 " viewoptions
@@ -167,7 +165,7 @@ set clipboard=unnamedplus
 let mapleader= ";"
 
 " sudo save a file
-command W w !sudo tee % > /dev/null
+command S w !sudo tee % > /dev/null
 
 " exit insert mode by pressing [;
 inoremap wj <Esc>
@@ -240,11 +238,11 @@ let g:ycm_filepath_blacklist = {
       \ 'bib' : 1
       \ }
 
-" use YCM with latex
+" use YCM with tex
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
-autocmd filetype latex let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+autocmd filetype tex let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 " using with python
 let g:ycm_python_binary_path = '/usr/bin/python'
@@ -288,9 +286,9 @@ let g:airline#extensions#vimtex#viewer = "v"
 " VIMTEX
 
 " latex compilation
-autocmd filetype latex nnoremap <F5> <plug>(vimtex-view)
-autocmd filetype latex nnoremap <F6> <plug>(vimtex-clean)
-autocmd filetype latex nnoremap <F7> <plug>(vimtex-compile)
+autocmd filetype tex nmap <F5> <plug>(vimtex-view)
+autocmd filetype tex nmap <F8> <plug>(vimtex-clean)
+autocmd filetype tex nmap <F6> <plug>(vimtex-compile)
 
 " disable recursive searching for mainfile
 let g:vimtex_disable_recursive_main_file_detection = 1

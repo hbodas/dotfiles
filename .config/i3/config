@@ -234,6 +234,9 @@ exec --no-startup-id blueman-applet
 # redshift - two settings based on location
 # exec --no-startup-id redshift-gtk
 
+# wal 
+exec_always wal -R
+
 # polybar
 exec --no-startup-id $bar
 
