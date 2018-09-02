@@ -1,0 +1,64 @@
+# snippet file for tex
+
+global !p
+def replace(text, d):
+    # replaces all occurences of key in string with value (keys and values must
+    # be strings
+    for k in d:
+        text = text.replace(k, d[k])
+    return text
+endglobal
+
+snippet pre "The preamble snippet" b
+
+\documentclass[${1:11pt}]{${2:article}}
+
+% Name: ${3:Hrishikesh Bodas}
+% Andrew ID: ${4:hbodas}
+% Course: ${5:course code}
+% Homework number: ${6:hwnum}
+
+`!p
+pth = vim.eval('expand("%:p")')
+revpath = pth[::-1]
+pfile = pth[:(len(pth) - revpath.find("/",revpath.find("/")+1))] + \
+"preamble.txt"
+te = open(pfile, "r")
+contents = te.read()
+replacements = {
+    "***name***" : str(t[3]),
+    "***andrewid***" : str(t[4]),
+    "***class***" : str(t[5]),
+    "***hwnum***" : str(t[6])
+    }
+snip.rv = replace(contents,replacements)
+`
+
+${0:write stuff here}
+
+\end{document}
+endsnippet
+
+snippet prob "Problem trigger" b
+% {{{ problem ${1:number}
+\problem{$1}
+
+$0 
+% }}}
+endsnippet
+
+snippet fo "insert a pair of fold markers for vim" b
+% {{{ ${1:title of the fold}
+$0
+endsnippet
+
+snippet fc "Close fold marker latex" b
+% }}}
+$0
+endsnippet
+
+snippet vsp "Insert vertical space" 
+\vspace{$1}
+
+$0
+endsnippet
