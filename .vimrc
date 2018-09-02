@@ -1,6 +1,5 @@
 
-" PLUGIN
-
+" {{{ PLUGINS
 call plug#begin('~/.vim/plug')
 
 " gruvbox theme
@@ -49,10 +48,9 @@ Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 " Plug 'airblade/vim-gitgutter'
 
 call plug#end()
+" }}}
 
-
-" GENERAL
-
+" {{{ GENERAL STUFF
 " encoding
 set encoding=utf-8
 
@@ -131,15 +129,8 @@ set textwidth=80
 set viewoptions=folds,cursor,slash,unix
 set sessionoptions=folds
 
-" restore folds upon save and reload
-augroup AutoSaveFolds
-  autocmd!
-  " view files are about 500 bytes
-  " bufleave but not bufwinleave captures closing 2nd tab
-  " nested is needed by bufwrite* (if triggered via other autocmd)
-  autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
-  autocmd BufWinEnter ?* silent loadview
-augroup end
+" fold method
+set foldmethod=marker
 
 " autoload file changes
 set autoread
@@ -161,10 +152,9 @@ set clipboard=unnamedplus
 " some speedups
 set ttyfast
 set lazyredraw
+" }}}
 
-
-" GLOBAL KEYBINDINGS
-
+" {{{ GLOBAL KEYBINDINGS
 " setting a leader
 let mapleader= ";"
 
@@ -194,10 +184,11 @@ nnoremap ;e /<++><Enter><Esc>:noh<Enter>4xi
 
 " unhighlight, cause it's annoying
 nnoremap nh :noh<cr>
+" }}}
 
-" PLUGIN SETTINGS
+" {{{ PLUGIN SETTINGS
 
-" NERDCOMMENTER
+" {{{ NERDCOMMENTER
 
 " comment empty lines
 let g:NERDCommentEmptyLines = 0
@@ -213,8 +204,9 @@ let g:NERDRemoveExtraSpaces = 1
 
 " remove trailing whitespace
 let g:NERDTrimTrailingWhitespace = 1
+" }}}
 
-" VIM-AUTO-ORIGAMI
+" {{{ VIM-AUTO-ORIGAMI
 
 " function to enable this plugin
 augroup autofoldcolumn
@@ -223,8 +215,9 @@ augroup autofoldcolumn
   " Or whatever autocmd-events you want
   au CursorHold,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
 augroup END
+" }}}
 
-" YOU COMPLETE ME
+" {{{ YOU COMPLETE ME
 
 " minimum number of characters to trigger identifier based completer. High value
 " to effectively turn it off
@@ -250,8 +243,9 @@ autocmd filetype tex let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 " using with python
 let g:ycm_python_binary_path = '/usr/bin/python'
+" }}}
 
-" AIRLINE
+" {{{ AIRLINE
 
 " use powerline fonts
 let g:airline_powerline_fonts = 1
@@ -286,8 +280,9 @@ let g:airline#extensions#vimtex#enabled = 1
 let g:airline#extensions#vimtex#compiled = "c₁"
 let g:airline#extensions#vimtex#continuous = "c"
 let g:airline#extensions#vimtex#viewer = "v"
+" }}}
 
-" VIMTEX
+" {{{ VIMTEX
 
 " latex compilation
 autocmd filetype tex nmap <F5> <plug>(vimtex-view)
@@ -322,9 +317,9 @@ let g:vimtex_fold_types = {
 
 " start a vim server if the filetype is tex
 autocmd filetype tex call remote_startserver("VIM")
+" }}}
 
-
-" ULTISNIPS
+" {{{ ULTISNIPS
 
 " defines how edit window is opened
 let g:UltiSnipsEditSplit = 'vertical'
@@ -342,8 +337,9 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-l>'
 
 " view snippets
 let g:UltiSnipsListSnippets = '<C-v>'
+" }}}
 
-" VIM-INDENT-GUIDES
+" {{{ VIM-INDENT-GUIDES
 
 " guide width
 let g:indent_guides_guide_size = 1
@@ -354,7 +350,12 @@ let g:indent_guides_start_level = 2
 " enable plugin on vim startup
 let g:indent_guides_enable_on_vim_startup = 1
 
-" GOYO
+" set the indent guide colors
+hi IndentGuidesOdd  ctermbg=8
+hi IndentGuidesEven ctermbg=8
+" }}}
+
+" {{{ GOYO
 
 " mapping to trigger goyo
 nnoremap <F2> :Goyo<cr>
@@ -373,9 +374,10 @@ let g:goyo_linenr = 0
 
 " autocmd! User GoyoEnter nested call <SID>goyo_enter()
 " autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" }}}
+" }}}
 
-
-" FUNCTIONS
+" {{{ FUNCTIONS
 
 " trim whitespace
 fun! TrimWhitespace()
@@ -385,4 +387,4 @@ fun! TrimWhitespace()
 endfun
 
 :noremap <F4> :call TrimWhitespace()<CR>
-
+" }}}
