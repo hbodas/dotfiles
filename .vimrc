@@ -92,12 +92,11 @@ set nomodeline
 
 " indentation options
 set autoindent
+set tabstop=8
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=0
 set expandtab
 set smarttab
-set autoindent
-set smartindent
 
 " backspace works like standard backspace
 set backspace=indent,eol,start
@@ -156,7 +155,12 @@ set completeopt=menu
 hi NonText ctermbg=none
 hi Normal guibg=NONE ctermbg=NONE
 
+" clipboard
 set clipboard=unnamedplus
+
+" some speedups
+set ttyfast
+set lazyredraw
 
 
 " GLOBAL KEYBINDINGS
@@ -301,7 +305,7 @@ let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_manual = 1
 
 " aligning on ampersands
-let g:vimtex_indent_on_ampersands = 1
+let g:vimtex_indent_on_ampersands = 0
 
 " index mode
 let g:vimtex_index_mode = 1
@@ -311,6 +315,14 @@ let g:vimtex_labels_enabled = 0
 
 " vimtex view method
 let g:vimtex_view_method = 'zathura'
+
+let g:vimtex_fold_types = {
+    \   'markers' : {'enabled' : 1}
+    \ }
+
+" start a vim server if the filetype is tex
+autocmd filetype tex call remote_startserver("VIM")
+
 
 " ULTISNIPS
 
