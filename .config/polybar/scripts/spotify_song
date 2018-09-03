@@ -1,8 +1,8 @@
 #!/bin/bash
 
 player_status=$(playerctl status 2> /dev/null)
-playing_color=$(appres foo | grep color6 | awk '{print $NF}')
-paused_color=$(appres foo | grep color7 | awk '{print $NF}')
+playing_color=$(appres foo | grep color6: | awk '{print $NF}')
+paused_color=$(appres foo | grep color7: | awk '{print $NF}')
 
 if [ "$player_status" = "Playing" ]; then
     echo "%{F$playing_color}契%{F-} $(playerctl metadata artist) - $(playerctl metadata title)"
