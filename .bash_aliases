@@ -25,6 +25,6 @@ alias cu="check_updates"
 alias cul="check_updates -l"
 
 # mounted drives
-alias Alpaca="/media/Alpaca"
-alias Alpaca2="/media/Alpaca2"
-alias Win="/media/Win"
+alias Alpaca="cd /media/Alpaca"
+alias Alpaca2="cd /media/Alpaca2"
+alias Win="cd /media/Win"

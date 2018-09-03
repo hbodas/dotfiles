@@ -16,6 +16,7 @@
 ;
 ;==========================================================
 
+/* {{{ colors */
 [colors]
 background = ${xrdb:color0}
 foreground = ${xrdb:color15}
@@ -34,6 +35,9 @@ aqua-alt = ${xrdb:color14}
 gray = ${xrdb:color7}
 gray-alt = ${xrdb:color8}
 
+/* }}} */
+
+/* {{{ bar/example */
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
@@ -85,6 +89,9 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+/* }}} */
+
+/* {{{ bar/bottom */
 [bar/bottom]
 ; dimensions for the bar
 width = 100%
@@ -127,6 +134,9 @@ tray-position = right
 tray-maxsize = 16
 tray-padding = 2
 
+/* }}} */
+
+/* {{{ bar/top */
 [bar/top]
 ; dimensions for the bar
 width = 1900
@@ -151,7 +161,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 ; margins around modules
-padding-right = 8
+padding-right = 10
 module-margin = 1
 
 ; fonts
@@ -171,6 +181,9 @@ tray-detached = true
 /* tray-offset-x = ${bar/top.radius} */
 tray-offset-x = -4
 
+/* }}} */
+
+/* {{{ bar/top2 */
 [bar/top2]
 ; dimensions for the bar
 width = 100%
@@ -205,10 +218,16 @@ modules-left =
 modules-center = placeholder
 modules-right =
 
+/* }}} */
+
+/* {{{ module/xwindow */
 [module/xwindow]
 type = internal/xwindow
 label = %title%
 
+/* }}} */
+
+/* {{{ module/xkeyboard */
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
@@ -225,6 +244,9 @@ label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
+/* }}} */
+
+/* {{{ module/filesystem */
 [module/filesystem]
 type = internal/fs
 interval = 25
@@ -235,6 +257,9 @@ label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
+/* }}} */
+
+/* {{{ module/bspwm */
 [module/bspwm]
 type = internal/bspwm
 
@@ -257,6 +282,9 @@ label-empty-padding = 1
 ; Separator in between workspaces
 ; label-separator = |
 
+/* }}} */
+
+/* {{{ module/i3 */
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -300,6 +328,9 @@ label-separator-foreground = ${colors.background}
 label-separator-background = ${colors.background}
 
 
+/* }}} */
+
+/* {{{ module/mpd */
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
@@ -313,6 +344,9 @@ icon-next = 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
+/* }}} */
+
+/* {{{ module/xbacklight */
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = false
@@ -324,11 +358,17 @@ ramp-2 = 
 
 ramp-foreground = ${colors.aqua}
 
+/* }}} */
+
+/* {{{ module/backlight-acpi */
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
+/* }}} */
+
+/* {{{ module/cpu */
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -336,6 +376,9 @@ format-prefix = ﬙
 format-prefix-foreground = ${colors.yellow}
 label = " %percentage%%"
 
+/* }}} */
+
+/* {{{ module/memory */
 [module/memory]
 type = internal/memory
 interval = 2
@@ -343,6 +386,9 @@ format-prefix = " "
 format-prefix-foreground = ${colors.blue}
 label = %percentage_used%%
 
+/* }}} */
+
+/* {{{ module/wlan */
 [module/wlan]
 type = internal/network
 interface = wlp58s0
@@ -357,6 +403,9 @@ format-disconnected = <label-disconnected>
 label-disconnected = 睊
 label-disconnected-foreground = ${colors.green}
 
+/* }}} */
+
+/* {{{ module/eth */
 [module/eth]
 type = internal/network
 interface = enp57
@@ -372,6 +421,9 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
+/* }}} */
+
+/* {{{ module/time */
 [module/time]
 type = internal/date
 interval = 10
@@ -383,6 +435,9 @@ format-prefix-foreground = ${colors.yellow}
 
 label = %time%
 
+/* }}} */
+
+/* {{{ module/date */
 [module/date]
 type = internal/date
 interval = 10
@@ -394,6 +449,9 @@ format-prefix-foreground = ${colors.blue}
 
 label = %date%
 
+/* }}} */
+
+/* {{{ module/pulseaudio */
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -409,6 +467,9 @@ ramp-volume-1 = 奔
 ramp-volume-2 = 墳
 ramp-volume-foreground = ${colors.red}
 
+/* }}} */
+
+/* {{{ module/alsa */
 [module/alsa]
 type = internal/alsa
 
@@ -437,6 +498,9 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
+/* }}} */
+
+/* {{{ module/battery */
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -467,6 +531,9 @@ ramp-capacity-foreground = ${colors.green}
 /* animation-charging-foreground = ${colors.aqua} */
 /* animation-charging-framerate = 750 */
 
+/* }}} */
+
+/* {{{ module/temperature */
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -484,6 +551,9 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.purple}
 
+/* }}} */
+
+/* {{{ module/powermenu */
 [module/powermenu]
 type = custom/menu
 
@@ -513,24 +583,36 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
+/* }}} */
+
+/* {{{ module/placeholder */
 [module/placeholder]
 type = custom/text
 content = " "
 content-background = #00000000
 content-foreground = #00000000
 
+/* }}} */
+
+/* {{{ module/rtblock */
 [module/rtblock]
 type = custom/text
 content = %{T4}%{T-}
 content-background = ${colors.foreground}
 content-foreground = ${colors.background}
 
+/* }}} */
+
+/* {{{ module/ltblock */
 [module/ltblock]
 type = custom/text
 content = %{T4}%{T-}
 content-background = ${colors.foreground}
 content-foreground = ${colors.background}
 
+/* }}} */
+
+/* {{{ module/rsep */
 [module/rsep]
 type = custom/text
 content = %{T3}%{T-}
@@ -538,6 +620,9 @@ content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 padding = 1
 
+/* }}} */
+
+/* {{{ module/lsep */
 [module/lsep]
 type = custom/text
 content = %{T3}%{T-}
@@ -545,6 +630,9 @@ padding = 1
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 
+/* }}} */
+
+/* {{{ module/updates */
 [module/updates]
 type = custom/script
 exec = check_updates
@@ -554,6 +642,9 @@ label = %output%
 format-prefix = " "
 format-prefix-foreground = ${colors.red}
 
+/* }}} */
+
+/* {{{ module/spotify */
 [module/spotify]
 type = custom/script
 exec = ~/.config/polybar/scripts/spotify_song
@@ -566,6 +657,9 @@ label = %output%
 
 padding = 2
 
+/* }}} */
+
+/* {{{ settings */
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -573,8 +667,13 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 
+/* }}} */
+
+/* {{{ global/wm */
 [global/wm]
 margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
+/* }}} */
