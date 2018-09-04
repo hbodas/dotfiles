@@ -165,7 +165,9 @@ padding-right = 11
 module-margin = 1
 
 ; fonts
-font-0 = Inconsolata Nerd Font:size=13;3
+/* font-0 = Inconsolata Nerd Font:size=12;3 */
+/* font-1 = Inconsolata:size=1;2.5 */
+font-0 = MesloLGSDZ Nerd Font:size=10;3
 font-1 = Inconsolata:size=1;2.5
 
 ; modules

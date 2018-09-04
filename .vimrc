@@ -122,7 +122,7 @@ set undodir=~/.vim/undo
 set so=10
 
 " line break at 80 characters and wrap
-set wrap 
+set wrap
 set textwidth=80
 
 " viewoptions
@@ -152,6 +152,11 @@ set clipboard=unnamedplus
 " some speedups
 set ttyfast
 set lazyredraw
+
+" restore cursor position from last time
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
 " }}}
 
 " {{{ GLOBAL KEYBINDINGS
@@ -160,6 +165,9 @@ let mapleader= ";"
 
 " sudo save a file
 command S w !sudo tee % > /dev/null
+
+" some common mistakes
+command W write
 
 " exit insert mode by pressing [;
 inoremap wj <Esc>
