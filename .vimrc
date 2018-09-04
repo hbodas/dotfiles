@@ -2,9 +2,6 @@
 " {{{ PLUGINS
 call plug#begin('~/.vim/plug')
 
-" gruvbox theme
-" Plug 'morhetz/gruvbox'
-
 " pywal
 Plug 'dylanaraps/wal.vim'
 
@@ -40,6 +37,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 " goyo
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
+
+" multiple cursors
+" Plug 'terryma/vim-multiple-cursors'
 
 " " vim-fugitive
 " Plug 'tpope/vim-fugitive'
