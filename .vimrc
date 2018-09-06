@@ -368,6 +368,10 @@ hi IndentGuidesEven ctermbg=8
 " mapping to trigger goyo
 nnoremap <F2> :Goyo<cr>
 
+" width and height
+let g:goyo_width = 90
+let g:goyo_height = 90
+
 " show line number in goyo
 let g:goyo_linenr = 0
 

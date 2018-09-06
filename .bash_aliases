@@ -1,5 +1,5 @@
 #ssh CMU network
-alias sunix="ssh -X hbodas@unix.andrew.cmu.edu"
+alias sun="ssh -Y hbodas@unix.andrew.cmu.edu"
 
 # yay aliases
 alias ys="yay -S"
@@ -28,3 +28,6 @@ alias cul="check_updates -l"
 alias Alpaca="cd /media/Alpaca"
 alias Alpaca2="cd /media/Alpaca2"
 alias Win="cd /media/Win"
+
+# clear the terminal
+alias cl="clear"

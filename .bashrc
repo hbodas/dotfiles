@@ -7,6 +7,7 @@
 
 # get all the aliases
 source ~/.bash_aliases
+source ~/.bash_aliases_tmp
 
 # path variable
 export PATH=$PATH":$HOME/bin:$HOME/.local/bin"
@@ -18,7 +19,7 @@ export TERMINAL=urxvt
 export READER=zathura
 
 # prompt
-PS1='\[\033[01;92m\]\u@\h\[\033[00m\]: \[\033[01;94m\]\w\[\033[00m\] $ '
+PS1='\[\033[01;92m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[00m\]$ '
 
 # pywal settings 
 (cat ~/.cache/wal/sequences &)

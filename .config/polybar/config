@@ -161,7 +161,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 ; margins around modules
-padding-left = 1
+padding-left = 0
 padding-right = 2
 module-margin = 1
 
