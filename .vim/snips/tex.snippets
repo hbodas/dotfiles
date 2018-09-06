@@ -45,7 +45,7 @@ snippet prob "Problem trigger" b
 
 $0 
 % }}}
-endsnippet
+endsnippetj
 
 snippet fo "insert a pair of fold markers for vim" b
 % {{{ ${1:title of the fold}
@@ -61,4 +61,24 @@ snippet vsp "Insert vertical space"
 \vspace{$1}
 
 $0
+endsnippet
+
+snippet itt "Intertext" b
+\intertext{$1} $0
+endsnippet
+
+snippet cal "Mathcal" 
+\mathcal{$1} $0
+endsnippet
+
+snippet doc "document class thing" b
+\documentclass[${1:11pt}]{${2:article}}$0
+endsnippet
+
+snippet pac "Package definition" b
+\usepackage${1:[${2:option}]}{${3:package}}$0
+endsnippet
+
+snippet sec "Section snippet" b
+\section{$1}$0
 endsnippet
