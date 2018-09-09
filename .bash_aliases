@@ -1,5 +1,5 @@
-#ssh CMU network
-alias sun="ssh -Y hbodas@unix.andrew.cmu.edu"
+# some secrets
+source ~/.bash_secrets
 
 # yay aliases
 alias ys="yay -S"
