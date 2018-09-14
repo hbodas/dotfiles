@@ -139,18 +139,18 @@ tray-padding = 2
 /* {{{ bar/top */
 [bar/top]
 ; dimensions for the bar
-width = 1900
+width = 1892
 height = 28
 
 ; center
 fixed-center = false
 
 ; offset
-offset-x = 10
-offset-y = 10
+offset-x = 14
+offset-y = 15
 
 ; corners
-radius = 4.0
+radius = 3
 
 ; location
 override-redirect = true
@@ -166,9 +166,8 @@ padding-right = 2
 module-margin = 1
 
 ; fonts
-/* font-0 = Inconsolata Nerd Font:size=12;3 */
-/* font-1 = Inconsolata:size=1;2.5 */
-font-0 = MesloLGSDZ Nerd Font:size=10;3
+font-0 = MesloLGSDZ Nerd Font:size=9;3
+/* font-0 = MesloLGSDZ Nerd Font:size=10;3 */
 font-1 = Inconsolata:size=1;2.5
 
 ; modules
@@ -190,7 +189,7 @@ modules-right = updates wlan cpu memory temperature xbacklight pulseaudio batter
 [bar/top2]
 ; dimensions for the bar
 width = 100%
-height = 38
+height = 43
 
 ; center
 fixed-center = true
@@ -431,7 +430,7 @@ format-disconnected =
 type = internal/date
 interval = 10
 
-time = %I:%M
+time = %H:%M
 
 format-prefix = " "
 format-prefix-foreground = ${colors.yellow}
@@ -518,6 +517,10 @@ format-charging-prefix-foreground = ${colors.green}
 
 format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %percentage%% %time%
+
+label-full = %percentage%%
+format-full-prefix = " " 
+format-full-prefix-foreground = ${colors.green}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 

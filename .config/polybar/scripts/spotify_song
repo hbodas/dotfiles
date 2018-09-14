@@ -9,6 +9,7 @@ if [ "$player_status" = "Playing" ]; then
     metadata artist)"
 elif [ "$player_status" = "Paused" ]; then
     echo "%{F$paused_color}%{F-} $(playerctl metadata title) - $(playerctl \
-    metadata artist)"else
+    metadata artist)"
+else
     echo " "
 fi

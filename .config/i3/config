@@ -46,8 +46,8 @@ default_border pixel 0
 # hide_edge_borders no
 
 # gaps settings
-gaps inner 15
-gaps outer -5
+gaps inner 5
+gaps outer 10
 focus_wrapping yes
 
 # setting some colors
@@ -113,7 +113,7 @@ floating_modifier $alt
 # some launching
 bindsym $alt+Return $exec $term
 bindsym $alt+Shift+q [con_id="__focused__" instance="^(?!__scratchpad).*$"] kill
-bindsym $alt+x $exec $launcher
+bindsym $win+d $exec $launcher
 bindsym $alt+f $exec $file_manager
 bindsym $alt+d $exec $browser
 
@@ -165,7 +165,7 @@ bindsym $win+Shift+r exec --no-startup-id systemctl reboot
 bindsym $win+Shift+s exec --no-startup-id systemctl poweroff -i
 
 # scratchpad stuff - will have a terminal window
-bindsym $alt+F12 scratchpad show
+bindsym F12 scratchpad show
 # }}}
 
 # {{{ WORKSPACE
@@ -238,7 +238,7 @@ exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 # redshift - two settings based on location
 exec --no-startup-id redshift-gtk
 
-# wal 
+# wal
 exec_always wal -R
 
 # polybar
