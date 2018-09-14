@@ -39,7 +39,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 
 " multiple cursors
-" Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
 " " vim-fugitive
 " Plug 'tpope/vim-fugitive'
@@ -51,6 +51,11 @@ call plug#end()
 " }}}
 
 " {{{ GENERAL STUFF
+" not really useful, but it's just there
+set nocompatible
+set hidden
+set noshowmode
+
 " encoding
 set encoding=utf-8
 
@@ -64,10 +69,6 @@ filetype plugin on
 
 " enable syntax coloring
 syntax on
-
-" not really useful, but it's just there
-set nocompatible
-set hidden
 
 " better command line completion
 set wildmenu
@@ -187,8 +188,8 @@ inoremap ;r <++>
 nnoremap ;r i<++><Esc>l
 
 " navigate to next guide
-inoremap ;e <Esc>/<++><Enter><Esc>:noh<Enter>4xi
-nnoremap ;e /<++><Enter><Esc>:noh<Enter>4xi
+inoremap ;e <Esc>/<++><Enter><Esc>:noh<Enter>4xa
+nnoremap ;e /<++><Enter><Esc>:noh<Enter>4xa
 
 " unhighlight, cause it's annoying
 nnoremap nh :noh<cr>
@@ -223,6 +224,9 @@ augroup autofoldcolumn
   " Or whatever autocmd-events you want
   au CursorHold,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
 augroup END
+
+let g:auto_origami_foldcolumn=0
+let g:auto_origami_default=0
 " }}}
 
 " {{{ YOU COMPLETE ME
@@ -292,10 +296,20 @@ let g:airline#extensions#vimtex#viewer = "v"
 
 " {{{ VIMTEX
 
-" latex compilation
-autocmd filetype tex nmap <F5> <plug>(vimtex-view)
-autocmd filetype tex nmap <F8> <plug>(vimtex-clean)
-autocmd filetype tex nmap <F6> <plug>(vimtex-compile)
+augroup tex
+    au!
+
+    " latex compilation
+    autocmd filetype tex nmap <F5> <plug>(vimtex-view)
+    autocmd filetype tex nmap <F8> <plug>(vimtex-clean)
+    autocmd filetype tex nmap <F6> <plug>(vimtex-compile)
+
+    " start a vim server
+    let serv = v:servername
+    if serv == ""
+        autocmd BufWinEnter *.tex silent call SServer()
+    endif
+augroup END
 
 " disable recursive searching for mainfile
 let g:vimtex_disable_recursive_main_file_detection = 1
@@ -322,9 +336,6 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_fold_types = {
     \   'markers' : {'enabled' : 1}
     \ }
-
-" start a vim server if the filetype is tex
-autocmd filetype tex call remote_startserver("VIM")
 " }}}
 
 " {{{ ULTISNIPS
@@ -387,6 +398,23 @@ let g:goyo_linenr = 0
 " autocmd! User GoyoEnter nested call <SID>goyo_enter()
 " autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " }}}
+
+" {{{ MULTIPLE CURSORS
+
+" " exiting can be done only from normal mode
+" let g:multi_cursor_exit_from_insert_mode=0
+" let g:multi_cursor_exit_from_visual_mode=0
+
+" " keys that will be listened to for mappings
+" let g:multi_cursor_normal_maps = `{'@': 1, 'F': 1, 'T': 1, '[': 1, '\': 1, ']':
+    " \ 1, '!': 1, '"': 1, 'c': 1, 'd': 1, 'f': 1, 'g': 1, 'm': 1, 'q': 1, 'r': 1,
+    " \ 't': 1, 'y': 1, 'z': 1, '<': 1, '=': 1, '>': 1, 'j': 1, 'w': 1, ';': 1,
+    " \ 'n': 1}`
+
+" let g:multi_cursor_visual_maps = `{'T': 1, 'a': 1, 't': 1, 'F': 1, 'f': 1, 'i':
+    " \ 1}`
+
+" }}}
 " }}}
 
 " {{{ FUNCTIONS
@@ -399,4 +427,13 @@ fun! TrimWhitespace()
 endfun
 
 :noremap <F4> :call TrimWhitespace()<CR>
+
+" servers for tex
+fun! SServer()
+    let serv=v:servername
+    if serv == ''
+        call remote_startserver('tex')
+    endif
+endfun
+
 " }}}
