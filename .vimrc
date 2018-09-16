@@ -275,20 +275,31 @@ let g:airline#extensions#default#section_truncate_width = {
   \ 'error': 80,
   \ }
 
+" ignore empty sections
+let g:airline_skip_empty_sections = 1
+
 " ignore if the filetype says utf-8[unix]
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+" whitespace detection
+let g:airline#extensions#whitespace#enabled = 1
 
 " tabline
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_close_button = 0
+
+" mappings to switch tabs
+nmap <leader>l <Plug>AirlineSelectNextTab
+nmap <leader>h <Plug>AirlineSelectPrevTab
 
 " fugitive tab
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#displayed_head_limit = 10
 
 " vimtex
-let g:airline#extensions#vimtex#enabled = 1
+let g:airline#extensions#vimtex#enabled = 0
 let g:airline#extensions#vimtex#compiled = "c₁"
 let g:airline#extensions#vimtex#continuous = "c"
 let g:airline#extensions#vimtex#viewer = "v"

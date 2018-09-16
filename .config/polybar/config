@@ -139,18 +139,18 @@ tray-padding = 2
 /* {{{ bar/top */
 [bar/top]
 ; dimensions for the bar
-width = 1892
-height = 28
+width = 1910
+height = 32
 
 ; center
 fixed-center = false
 
 ; offset
-offset-x = 14
-offset-y = 15
+offset-x = 5
+offset-y = 5
 
 ; corners
-radius = 3
+radius = 5
 
 ; location
 override-redirect = true
@@ -189,7 +189,7 @@ modules-right = updates wlan cpu memory temperature xbacklight pulseaudio batter
 [bar/top2]
 ; dimensions for the bar
 width = 100%
-height = 43
+height = 37
 
 ; center
 fixed-center = true
@@ -266,23 +266,23 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.green}
+label-focused-background = ${colors.blue}
 label-focused-underline= ${colors.yellow}
-label-focused-padding = 1
+label-focused-padding = 2
 
 label-occupied = %index%
-label-occupied-padding = 1
+label-occupied-padding = 2
 
 label-urgent = %index%!
 label-urgent-background = ${colors.red-alt}
-label-urgent-padding = 1
+label-urgent-padding = 2
 
 label-empty = %index%
 label-empty-foreground = ${colors.foreground}
-label-empty-padding = 1
+label-empty-padding = 2
 
 ; Separator in between workspaces
-; label-separator = |
+label-separator = |
 
 /* }}} */
 
@@ -519,7 +519,7 @@ format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %percentage%% %time%
 
 label-full = %percentage%%
-format-full-prefix = " " 
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.green}
 
 ramp-capacity-0 = 

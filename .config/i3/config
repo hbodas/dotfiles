@@ -42,12 +42,12 @@ set $execa exec_always
 # }
 
 # border settings
-default_border pixel 0
+default_border pixel 2
 # hide_edge_borders no
 
 # gaps settings
 gaps inner 5
-gaps outer 10
+gaps outer 0
 focus_wrapping yes
 
 # setting some colors
