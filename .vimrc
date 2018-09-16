@@ -1,10 +1,9 @@
 
-" PLUGIN
-
+" {{{ PLUGINS
 call plug#begin('~/.vim/plug')
 
-" gruvbox theme
-Plug 'morhetz/gruvbox'
+" pywal
+Plug 'dylanaraps/wal.vim'
 
 " Nerd Commenter
 Plug 'scrooloose/nerdcommenter'
@@ -19,7 +18,7 @@ Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe' , {'do': './install.py --clang-completer'}
 
 " Vimtex
-Plug 'lervag/vimtex', {'for' : 'latex'}
+Plug 'lervag/vimtex', {'for' : 'tex'}
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -39,6 +38,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 " goyo
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 
+" multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+
 " " vim-fugitive
 " Plug 'tpope/vim-fugitive'
 
@@ -46,18 +48,20 @@ Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 " Plug 'airblade/vim-gitgutter'
 
 call plug#end()
+" }}}
 
-
-" GENERAL
+" {{{ GENERAL STUFF
+" not really useful, but it's just there
+set nocompatible
+set hidden
+set noshowmode
 
 " encoding
 set encoding=utf-8
 
 " set colorscheme
 syntax enable
-set background=dark
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
+colorscheme wal
 
 " filetype plugins
 filetype indent on
@@ -65,10 +69,6 @@ filetype plugin on
 
 " enable syntax coloring
 syntax on
-
-" not really useful, but it's just there
-set nocompatible
-set hidden
 
 " better command line completion
 set wildmenu
@@ -91,12 +91,11 @@ set nomodeline
 
 " indentation options
 set autoindent
+set tabstop=8
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=0
 set expandtab
 set smarttab
-set autoindent
-set smartindent
 
 " backspace works like standard backspace
 set backspace=indent,eol,start
@@ -131,15 +130,8 @@ set textwidth=80
 set viewoptions=folds,cursor,slash,unix
 set sessionoptions=folds
 
-" restore folds upon save and reload
-augroup AutoSaveFolds
-  autocmd!
-  " view files are about 500 bytes
-  " bufleave but not bufwinleave captures closing 2nd tab
-  " nested is needed by bufwrite* (if triggered via other autocmd)
-  autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
-  autocmd BufWinEnter ?* silent loadview
-augroup end
+" fold method
+set foldmethod=marker
 
 " autoload file changes
 set autoread
@@ -155,16 +147,28 @@ set completeopt=menu
 hi NonText ctermbg=none
 hi Normal guibg=NONE ctermbg=NONE
 
+" clipboard
 set clipboard=unnamedplus
 
+" some speedups
+set ttyfast
+set lazyredraw
 
-" GLOBAL KEYBINDINGS
+" restore cursor position from last time
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+" }}}
 
+" {{{ GLOBAL KEYBINDINGS
 " setting a leader
 let mapleader= ";"
 
 " sudo save a file
-command W w !sudo tee % > /dev/null
+command S w !sudo tee % > /dev/null
+
+" some common mistakes
+command W write
 
 " exit insert mode by pressing [;
 inoremap wj <Esc>
@@ -184,15 +188,16 @@ inoremap ;r <++>
 nnoremap ;r i<++><Esc>l
 
 " navigate to next guide
-inoremap ;e <Esc>/<++><Enter><Esc>:noh<Enter>4xi
-nnoremap ;e /<++><Enter><Esc>:noh<Enter>4xi
+inoremap ;e <Esc>/<++><Enter><Esc>:noh<Enter>4xa
+nnoremap ;e /<++><Enter><Esc>:noh<Enter>4xa
 
 " unhighlight, cause it's annoying
 nnoremap nh :noh<cr>
+" }}}
 
-" PLUGIN SETTINGS
+" {{{ PLUGIN SETTINGS
 
-" NERDCOMMENTER
+" {{{ NERDCOMMENTER
 
 " comment empty lines
 let g:NERDCommentEmptyLines = 0
@@ -208,8 +213,9 @@ let g:NERDRemoveExtraSpaces = 1
 
 " remove trailing whitespace
 let g:NERDTrimTrailingWhitespace = 1
+" }}}
 
-" VIM-AUTO-ORIGAMI
+" {{{ VIM-AUTO-ORIGAMI
 
 " function to enable this plugin
 augroup autofoldcolumn
@@ -219,7 +225,11 @@ augroup autofoldcolumn
   au CursorHold,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
 augroup END
 
-" YOU COMPLETE ME
+let g:auto_origami_foldcolumn=0
+let g:auto_origami_default=0
+" }}}
+
+" {{{ YOU COMPLETE ME
 
 " minimum number of characters to trigger identifier based completer. High value
 " to effectively turn it off
@@ -237,22 +247,23 @@ let g:ycm_filepath_blacklist = {
       \ 'bib' : 1
       \ }
 
-" use YCM with latex
+" use YCM with tex
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
-autocmd filetype latex let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+autocmd filetype tex let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 " using with python
 let g:ycm_python_binary_path = '/usr/bin/python'
+" }}}
 
-" AIRLINE
+" {{{ AIRLINE
 
 " use powerline fonts
 let g:airline_powerline_fonts = 1
 
 " theme setting
-let g:airline_theme = 'violet'
+let g:airline_theme = 'wal'
 
 " what sections get truncated and at what width
 let g:airline#extensions#default#section_truncate_width = {
@@ -264,30 +275,52 @@ let g:airline#extensions#default#section_truncate_width = {
   \ 'error': 80,
   \ }
 
+" ignore empty sections
+let g:airline_skip_empty_sections = 1
+
 " ignore if the filetype says utf-8[unix]
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+" whitespace detection
+let g:airline#extensions#whitespace#enabled = 1
 
 " tabline
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_close_button = 0
+
+" mappings to switch tabs
+nmap <leader>l <Plug>AirlineSelectNextTab
+nmap <leader>h <Plug>AirlineSelectPrevTab
 
 " fugitive tab
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#displayed_head_limit = 10
 
 " vimtex
-let g:airline#extensions#vimtex#enabled = 1
+let g:airline#extensions#vimtex#enabled = 0
 let g:airline#extensions#vimtex#compiled = "c₁"
 let g:airline#extensions#vimtex#continuous = "c"
 let g:airline#extensions#vimtex#viewer = "v"
+" }}}
 
-" VIMTEX
+" {{{ VIMTEX
 
-" latex compilation
-autocmd filetype latex nnoremap <F5> <plug>(vimtex-view)
-autocmd filetype latex nnoremap <F6> <plug>(vimtex-clean)
-autocmd filetype latex nnoremap <F7> <plug>(vimtex-compile)
+augroup tex
+    au!
+
+    " latex compilation
+    autocmd filetype tex nmap <F5> <plug>(vimtex-view)
+    autocmd filetype tex nmap <F8> <plug>(vimtex-clean)
+    autocmd filetype tex nmap <F6> <plug>(vimtex-compile)
+
+    " start a vim server
+    let serv = v:servername
+    if serv == ""
+        autocmd BufWinEnter *.tex silent call SServer()
+    endif
+augroup END
 
 " disable recursive searching for mainfile
 let g:vimtex_disable_recursive_main_file_detection = 1
@@ -300,7 +333,7 @@ let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_manual = 1
 
 " aligning on ampersands
-let g:vimtex_indent_on_ampersands = 1
+let g:vimtex_indent_on_ampersands = 0
 
 " index mode
 let g:vimtex_index_mode = 1
@@ -311,7 +344,12 @@ let g:vimtex_labels_enabled = 0
 " vimtex view method
 let g:vimtex_view_method = 'zathura'
 
-" ULTISNIPS
+let g:vimtex_fold_types = {
+    \   'markers' : {'enabled' : 1}
+    \ }
+" }}}
+
+" {{{ ULTISNIPS
 
 " defines how edit window is opened
 let g:UltiSnipsEditSplit = 'vertical'
@@ -329,8 +367,9 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-l>'
 
 " view snippets
 let g:UltiSnipsListSnippets = '<C-v>'
+" }}}
 
-" VIM-INDENT-GUIDES
+" {{{ VIM-INDENT-GUIDES
 
 " guide width
 let g:indent_guides_guide_size = 1
@@ -341,10 +380,19 @@ let g:indent_guides_start_level = 2
 " enable plugin on vim startup
 let g:indent_guides_enable_on_vim_startup = 1
 
-" GOYO
+" set the indent guide colors
+hi IndentGuidesOdd  ctermbg=8
+hi IndentGuidesEven ctermbg=8
+" }}}
+
+" {{{ GOYO
 
 " mapping to trigger goyo
 nnoremap <F2> :Goyo<cr>
+
+" width and height
+let g:goyo_width = 90
+let g:goyo_height = 90
 
 " show line number in goyo
 let g:goyo_linenr = 0
@@ -360,9 +408,27 @@ let g:goyo_linenr = 0
 
 " autocmd! User GoyoEnter nested call <SID>goyo_enter()
 " autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" }}}
 
+" {{{ MULTIPLE CURSORS
 
-" FUNCTIONS
+" " exiting can be done only from normal mode
+" let g:multi_cursor_exit_from_insert_mode=0
+" let g:multi_cursor_exit_from_visual_mode=0
+
+" " keys that will be listened to for mappings
+" let g:multi_cursor_normal_maps = `{'@': 1, 'F': 1, 'T': 1, '[': 1, '\': 1, ']':
+    " \ 1, '!': 1, '"': 1, 'c': 1, 'd': 1, 'f': 1, 'g': 1, 'm': 1, 'q': 1, 'r': 1,
+    " \ 't': 1, 'y': 1, 'z': 1, '<': 1, '=': 1, '>': 1, 'j': 1, 'w': 1, ';': 1,
+    " \ 'n': 1}`
+
+" let g:multi_cursor_visual_maps = `{'T': 1, 'a': 1, 't': 1, 'F': 1, 'f': 1, 'i':
+    " \ 1}`
+
+" }}}
+" }}}
+
+" {{{ FUNCTIONS
 
 " trim whitespace
 fun! TrimWhitespace()
@@ -373,3 +439,12 @@ endfun
 
 :noremap <F4> :call TrimWhitespace()<CR>
 
+" servers for tex
+fun! SServer()
+    let serv=v:servername
+    if serv == ''
+        call remote_startserver('tex')
+    endif
+endfun
+
+" }}}
