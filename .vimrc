@@ -378,7 +378,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 " enable plugin on vim startup
-let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_enable_on_vim_startup = 0
 
 " set the indent guide colors
 hi IndentGuidesOdd  ctermbg=8

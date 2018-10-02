@@ -28,6 +28,3 @@ alias cul="check_updates -l"
 alias Alpaca="cd /media/Alpaca"
 alias Alpaca2="cd /media/Alpaca2"
 alias Win="cd /media/Win"
-
-# clear the terminal
-alias cl="clear"
