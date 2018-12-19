@@ -16,10 +16,7 @@
 ;
 ;==========================================================
 
-/* {{{ colors */
 [colors]
-/* bar-background = #00000000 */
-bar-background = ${xrdb:color0}
 background = ${xrdb:color0}
 foreground = ${xrdb:color15}
 red = ${xrdb:color1}
@@ -37,9 +34,6 @@ aqua-alt = ${xrdb:color14}
 gray = ${xrdb:color7}
 gray-alt = ${xrdb:color8}
 
-/* }}} */
-
-/* {{{ bar/example */
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
@@ -74,7 +68,7 @@ modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan 
 
 tray-position = right
 tray-padding = 2
-/* tray-transparent = true */
+;tray-transparent = true
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -91,12 +85,7 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-pseudo-transparency = true
-
-/* }}} */
-
-/* {{{ bar/bottom */
-[bar/bottom]
+[bar/top]
 ; dimensions for the bar
 width = 100%
 height = 24
@@ -107,9 +96,6 @@ fixed-center = false
 ; corners
 radius = 0.0
 
-; bottom
-bottom = true
-
 ; location
 override-redirect = false
 
@@ -122,179 +108,26 @@ padding = 1
 module-margin = 1
 
 ; fonts
-font-0 = Inconsolata:size=13;3
+font-0 = Inconsolata:size=12;3
 font-1 = DejaVu Sans Mono Nerd Font:size=12;3
 font-2 = DejaVu Sans Mono for Powerline:size=17;3.5
 font-3 = DejaVu Sans Mono for Powerline:size=28;6.5
 font-4 = Inconsolata:size=1;2.5
-
-; modules
-modules-left =
-modules-center =
-modules-right = updates wlan cpu memory temperature xbacklight pulseaudio battery
-
-; tray
-tray-position = right
-tray-maxsize = 16
-tray-padding = 2
-
-/* }}} */
-
-/* {{{ bar/top */
-[bar/top]
-; dimensions for the bar
-width = 1900
-height = 27
-
-; center
-fixed-center = false
-
-; offset
-offset-x = 10
-offset-y = 10
-
-; corners
-radius = 5
-
-; location
-override-redirect = true
-wm-restack = i3
-
-; background and foreground
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-; margins around modules
-padding-left = 0
-padding-right = 0
-module-margin = 2
-
-; fonts
-font-0 = MesloLGSDZ Nerd Font:size=8;3.2
-/* font-0 = MesloLGSDZ Nerd Font:size=10;3 */
-font-1 = Inconsolata:size=1;2.5
 
 ; modules
 modules-left = i3
-modules-center = spotify
-modules-right = updates wlan cpu memory xbacklight pulseaudio battery time date
-
-; tray
-/* tray-position = right */
-/* tray-maxsize = 16 */
-/* tray-padding = 2 */
-/* tray-detached = true */
-/* [> tray-offset-x = ${bar/top.radius} <] */
-/* tray-offset-x = -4 */
-
-/* }}} */
-
-/* {{{ bar/top2 */
-[bar/top2]
-; dimensions for the bar
-width = 100%
-height = 37
-
-; center
-fixed-center = true
-
-; corners
-radius = 0.0
-
-; location
-override-redirect = false
-
-; background and foreground
-background = #00000000
-foreground = ${colors.foreground}
-
-; margins around modules
-padding = 1
-module-margin = 1
-
-; fonts
-font-0 = Inconsolata:size=13;3
-font-1 = DejaVu Sans Mono Nerd Font:size=12;3
-font-2 = DejaVu Sans Mono for Powerline:size=17;3.5
-font-3 = DejaVu Sans Mono for Powerline:size=28;6.5
-font-4 = Inconsolata:size=1;2.5
-
-; modules
-modules-left =
-modules-center = placeholder
-modules-right =
-
-tray-position = right
-tray-maxsize = 16
-tray-padding = 2
-/* tray-detached = true */
-/* [> tray-offset-x = ${bar/top.radius} <] */
-/* tray-offset-x = -4 */
-
-/* }}} */
-
-/* {{{ bar/top3 */
-[bar/top3]
-; dimensions for the bar
-width = 1920
-height = 30
-
-; center
-fixed-center = false
-
-; offset
-offset-x = 0
-offset-y = 0
-
-; corners
-radius = 0
-
-; location
-override-redirect = false
-wm-restack = i3
-
-; background and foreground
-background = ${colors.bar-background}
-foreground = ${colors.foreground}
-
-; margins around modules
-padding-left = 0
-padding-right = 0
-module-margin = 2
-
-; fonts
-font-0 = Roboto Thin:size=9;4
-font-1 = MesloLGSDZ Nerd Font:size=8;2.5
-/* font-1 = MesloLGSDZ Nerd Font:size=10;3 */
-font-2 = Inconsolata:size=1;2.5
-font-3 = MesloLGSDZ Nerd Font:size=8;3
-font-4 = MesloLGSDZ Nerd Font:size=8;4
-font-5 = MesloLGSDZ Nerd Font:size=17;4
-font-6 = MesloLGSDZ Nerd Font:size=11;4
-
-; modules
-modules-left = i3 rsep 
-modules-center = spotify
-modules-right = lsep updates lsep wlan lsep cpu lsep memory lsep xbacklight lsep pulseaudio lsep battery lsep time lsep date lsep
+modules-center = xwindow
+modules-right = wlan lsep cpu memory temperature lsep xbacklight lsep pulseaudio lsep battery lsep time date lsep
 
 ; tray
 tray-position = right
 tray-maxsize = 16
 tray-padding = 2
-/* tray-detached = true */
-/* [> tray-offset-x = ${bar/top.radius} <] */
-/* tray-offset-x = -4 */
 
-/* }}} */
-
-/* {{{ module/xwindow */
 [module/xwindow]
 type = internal/xwindow
-label = %title%
+label = %title:0:40:...%
 
-/* }}} */
-
-/* {{{ module/xkeyboard */
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
@@ -311,9 +144,6 @@ label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
-/* }}} */
-
-/* {{{ module/filesystem */
 [module/filesystem]
 type = internal/fs
 interval = 25
@@ -324,34 +154,28 @@ label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
-/* }}} */
-
-/* {{{ module/bspwm */
 [module/bspwm]
 type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.green}
 label-focused-underline= ${colors.yellow}
-label-focused-padding = 4
+label-focused-padding = 1
 
 label-occupied = %index%
-label-occupied-padding = 4
+label-occupied-padding = 1
 
 label-urgent = %index%!
 label-urgent-background = ${colors.red-alt}
-label-urgent-padding = 4
+label-urgent-padding = 1
 
 label-empty = %index%
 label-empty-foreground = ${colors.foreground}
-label-empty-padding = 4
+label-empty-padding = 1
 
 ; Separator in between workspaces
-label-separator = " | "
+; label-separator = |
 
-/* }}} */
-
-/* {{{ module/i3 */
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -366,38 +190,34 @@ label-mode-foreground = #000
 label-mode-background = ${colors.yellow}
 
 ; focused = Active workspace on focused monitor
-label-focused = %name%
+label-focused = %index%
 label-focused-foreground = ${colors.foreground}
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %name%
+label-unfocused = %index%
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-background = ${colors.background}
+label-unfocused-background = ${colors.blue}
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %name%
+label-visible = %index%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %name%
+label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ; Separator in between workspaces
-label-separator = " "
+label-separator = %{T5}" "%{T-}
 label-separator-foreground = ${colors.background}
 label-separator-background = ${colors.background}
 
-
-/* }}} */
-
-/* {{{ module/mpd */
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
@@ -411,51 +231,36 @@ icon-next = 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
-/* }}} */
-
-/* {{{ module/xbacklight */
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = false
-format = "<ramp>  <label>"
+format = "<ramp> <label>"
 
-ramp-0 = %{T4}%{T-}
-ramp-1 = %{T4}%{T-}
-ramp-2 = %{T4}%{T-}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 
-ramp-foreground = ${colors.aqua}
+ramp-foreground = ${colors.red-alt}
 
-/* }}} */
-
-/* {{{ module/backlight-acpi */
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-/* }}} */
-
-/* {{{ module/cpu */
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = %{T4}﬙ %{T-}
-format-prefix-foreground = ${colors.yellow}
-label = "%percentage%%"
+format-prefix = ﬙
+format-prefix-foreground = ${colors.aqua}
+label = " %percentage%%"
 
-/* }}} */
-
-/* {{{ module/memory */
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = %{T5} %{T-}
+format-prefix = " "
 format-prefix-foreground = ${colors.blue}
 label = %percentage_used%%
 
-/* }}} */
-
-/* {{{ module/wlan */
 [module/wlan]
 type = internal/network
 interface = wlp58s0
@@ -463,23 +268,20 @@ interval = 2
 
 format-connected = <label-connected>
 label-connected = %essid%
-format-connected-prefix = %{T4}直 %{T-}
-format-connected-prefix-foreground = ${colors.green}
+format-connected-prefix = "直 "
+format-connected-prefix-foreground = ${colors.purple}
 
 format-disconnected = <label-disconnected>
 label-disconnected = 睊
-label-disconnected-foreground = ${colors.green}
+label-disconnected-foreground = ${colors.purple}
 
-/* }}} */
-
-/* {{{ module/eth */
 [module/eth]
 type = internal/network
-interface = enp57
+interface = net0
 interval = 5
 
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.green}
+format-connected-prefix-foreground = ${colors.purple}
 label-connected = %local_ip%
 
 format-disconnected =
@@ -488,55 +290,49 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-/* }}} */
-
-/* {{{ module/time */
 [module/time]
 type = internal/date
 interval = 10
 
-time = %H:%M
+time = %I:%M
 
-format-prefix = %{T5} %{T-}
+format-prefix = " "
 format-prefix-foreground = ${colors.yellow}
 
+<<<<<<< HEAD
 label = %time%
 
-/* }}} */
-
-/* {{{ module/date */
 [module/date]
 type = internal/date
-interval = 10
+interval = 120
+=======
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+>>>>>>> 46a49e0ccfad4ce12250c58df69dc0bde8c38ffc
 
-date = %a %b %d, %Y
+date = %b %m, %Y
 
-format-prefix =%{T1}  %{T-}
-format-prefix-foreground = ${colors.blue}
+format-prefix = " "
+format-prefix-foreground = ${colors.green-alt}
 
 label = %date%
 
-/* }}} */
-
-/* {{{ module/pulseaudio */
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume>  <label-volume>
+format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${colors.foreground}
 
-label-muted = %{T4}婢 %{T-}mute
+label-muted = 婢 mute
 label-muted-foreground = ${colors.gray}
 
-ramp-volume-0 = %{T4}奄%{T-}
-ramp-volume-1 = %{T4}奔%{T-}
-ramp-volume-2 = %{T4}墳%{T-} 
-ramp-volume-foreground = ${colors.red}
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+ramp-volume-foreground = ${colors.purple}
 
-/* }}} */
 
-/* {{{ module/alsa */
 [module/alsa]
 type = internal/alsa
 
@@ -565,46 +361,35 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-/* }}} */
-
-/* {{{ module/battery */
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = AC
 
-time-format = (%H:%M)
+time-format = (%H:%m)
 
-format-charging = <label-charging>
-label-charging = %percentage%% %time%
-format-charging-prefix = %{T4} %{T-}
-format-charging-prefix-foreground = ${colors.green}
+format-charging = <animation-charging> <label-charging>
+label-charging = %percentage% %time%
 
-format-discharging = <ramp-capacity>  <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %percentage%% %time%
 
-label-full = %percentage%%
-format-full-prefix = %{T4} %{T-}
-format-full-prefix-foreground = ${colors.green}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.blue}
 
-ramp-capacity-0 = %{T4}%{T-}
-ramp-capacity-1 = %{T4}%{T-}
-ramp-capacity-2 = %{T4}%{T-}
-ramp-capacity-3 = %{T4}%{T-}
-ramp-capacity-4 = %{T4}%{T-}
-ramp-capacity-foreground = ${colors.green}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.blue-alt}
+animation-charging-framerate = 1000
 
-/* animation-charging-0 =  */
-/* animation-charging-1 =  */
-/* animation-charging-2 =  */
-/* animation-charging-3 =  */
-/* animation-charging-4 =  */
-/* animation-charging-foreground = ${colors.aqua} */
-/* animation-charging-framerate = 750 */
 
-/* }}} */
-
-/* {{{ module/temperature */
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -615,16 +400,13 @@ format-warn = <ramp> <label-warn>
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.red-alt}
+label-warn-foreground = ${colors.red}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.purple}
+ramp-foreground = ${colors.yellow}
 
-/* }}} */
-
-/* {{{ module/powermenu */
 [module/powermenu]
 type = custom/menu
 
@@ -654,85 +436,38 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-/* }}} */
-
-/* {{{ module/placeholder */
 [module/placeholder]
 type = custom/text
-content = " "
-content-background = #00000000
-content-foreground = #00000000
+content = " - normal"
+content-background = ${colors.foreground}
+content-foreground = ${colors.background}
 
-/* }}} */
-
-/* {{{ module/rtblock */
 [module/rtblock]
 type = custom/text
 content = %{T4}%{T-}
 content-background = ${colors.foreground}
 content-foreground = ${colors.background}
 
-/* }}} */
-
-/* {{{ module/ltblock */
 [module/ltblock]
 type = custom/text
-content = %{T6}%{T-}
-content-background = ${colors.bar-background}
+content = %{T4}%{T-}
+content-background = ${colors.foreground}
 content-foreground = ${colors.background}
 
-/* }}} */
-
-/* {{{ module/rsep */
 [module/rsep]
 type = custom/text
-content = %{T7}%{T-}
+content = %{T3}%{T-}
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 padding = 1
 
-/* }}} */
-
-/* {{{ module/lsep */
 [module/lsep]
 type = custom/text
-content = %{T7}%{T-}
+content = %{T3}%{T-}
 padding = 1
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 
-/* }}} */
-
-/* {{{ module/updates */
-[module/updates]
-type = custom/script
-exec = check_updates
-tail = true
-interval = 1000
-label = "%output%"
-label-background = ${colors.background}
-format-prefix = %{T5} %{T-}
-format-prefix-foreground = ${colors.red}
-format-prefix-background = ${colors.background}
-
-/* }}} */
-
-/* {{{ module/spotify */
-[module/spotify]
-type = custom/script
-exec = ~/.config/polybar/scripts/spotify_song
-exec-if = pgrep -x spotify
-tail = false
-interval = 1
-
-format = <label>
-label = %output%
-
-padding = 2
-
-/* }}} */
-
-/* {{{ settings */
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -740,13 +475,8 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 
-/* }}} */
-
-/* {{{ global/wm */
 [global/wm]
 margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
-
-/* }}} */

@@ -12,6 +12,9 @@ alias svim="sudoedit"
 alias ls="ls --color=auto"
 alias lsa="ls -Ahpls"
 
+# ranger
+alias ran='ranger'
+
 # directory navigation
 alias ..="cd .."
 alias ...="cd ../.."
@@ -19,6 +22,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias cdc="cd ~/documents/Courses"
+
+# visualboy
+alias vba="visualboyadvance-m"
 
 # check updates
 alias cu="check_updates"

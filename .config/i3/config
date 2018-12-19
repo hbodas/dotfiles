@@ -109,6 +109,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # floating modifier
 floating_modifier $alt
+bindcode $alt+Shift+65 floating toggle
 
 # some launching
 bindsym $alt+Return $exec $term
@@ -246,7 +247,7 @@ exec --no-startup-id $bar
 
 # scratchpad terminal
 for_window [instance="__scratchpad"] floating enable
-for_window [instance="__scratchpad"] resize 1000 600
+for_window [instance="__scratchpad"] resize 1400 800
 for_window [instance="__scratchpad"] move scratchpad
 exec --no-startup-id urxvt -name __scratchpad
 # }}}

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# remove the lockscreen file if it exists
+if [[ -f ~/.config/i3/lock.png ]]; then
+    rm ~/.config/i3/lock.png
+fi
+
+# make it your background and whatnot
+wal -c
+wal -i ~/.config/i3/wall.png -q -g

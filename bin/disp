@@ -1,0 +1,44 @@
+#!/bin/bash 
+
+# script for me to setup my i3 with multiple displays. Has an parameter that if
+# passed sets up files as I want for my monitor at home.
+
+# three main options: split (add side), mirror, and switch
+if [[ "$1" = "sp" ]];
+then
+    echo "split option is being worked on"
+elif [[ "$1" =  "mi" ]]
+then
+    echo "mirror option is being worked on"
+elif [[ "$1" = "sw" ]]
+then
+    echo "switch option picked"
+    # if I'm at my home setup, it also applies these settings. I generally don't
+    # need two screens
+    if [[ "$2" = "home" ]]; then
+        echo "home settings picked"
+    fi
+else
+    echo "please pick a valid (sp)lit/(sw)itch/(mi)rror option"
+fi
+
+# second options - if exists - home - and if first option sw
+
+    # will have to use sed style thingamajig
+
+    # change Xdefaults font to 18
+
+    # also kill and reload scratchpad terminal if nothing is running
+
+    # change polybar font to Inconsolata 11 (?) also probably change systray
+    # settings. Also remove xbacklight module?
+
+    # change mozilla zoom - settings in
+    # .mozilla/firefox/gcetssig.default/prefs.js
+
+    # change rofi settings
+
+    # not decided - change i3 settings - gaps and font?
+
+# also add "normal option - return settings to normal - possibly make backup
+# files and restore the files.

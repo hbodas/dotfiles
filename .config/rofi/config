@@ -1,19 +1,5 @@
-rofi.font : "Noto Sans" 14
-rofi.lines : 12
-rofi.fixed-num-lines : true
-rofi.eh : 1
-rofi.opacity : 60
-rofi.width : 50
-rofi.fullscreen : false
-rofi.line-margin : 10
-rofi.padding : 40
-rofi.blur : true
+rofi.theme: test
 
-! Color scheme for normal row
-rofi.color-normal: argb:00000000,argb:60FFFFFF,argb:00000000,argb:00000000,argb:FFFFFFFF
-! Color scheme for urgent row
-rofi.color-urgent: argb:00000000,argb:60FFFFFF,argb:00000000,argb:00000000,argb:FFFFFFFF
-! Color scheme for active row
-rofi.color-active: argb:00000000,argb:FFFFFFFF,argb:00000000,argb:FFFFFFFF,argb:00000000
-! Color scheme window
-rofi.color-window: argb:D0000000,argb:00000000,argb:00000000
+rofi.font: sans 13
+rofi.blur-background = true
+rofi.fullscreen: true
