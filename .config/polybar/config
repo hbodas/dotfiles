@@ -263,7 +263,7 @@ padding-right = 0
 module-margin = 2
 
 ; fonts
-font-0 = Roboto Thin:size=9;4
+font-0 = Roboton:size=9;4
 font-1 = MesloLGSDZ Nerd Font:size=8;2.5
 /* font-1 = MesloLGSDZ Nerd Font:size=10;3 */
 font-2 = Inconsolata:size=1;2.5
