@@ -273,7 +273,7 @@ font-5 = MesloLGSDZ Nerd Font:size=17;4
 font-6 = MesloLGSDZ Nerd Font:size=11;4
 
 ; modules
-modules-left = i3 rsep 
+modules-left = i3 rsep
 modules-center = spotify
 modules-right = lsep updates lsep wlan lsep cpu lsep memory lsep xbacklight lsep pulseaudio lsep battery lsep time lsep date lsep
 
@@ -281,6 +281,60 @@ modules-right = lsep updates lsep wlan lsep cpu lsep memory lsep xbacklight lsep
 tray-position = right
 tray-maxsize = 16
 tray-padding = 2
+/* tray-detached = true */
+/* [> tray-offset-x = ${bar/top.radius} <] */
+/* tray-offset-x = -4 */
+
+/* }}} */
+
+/* {{{ bar/top4 */
+[bar/top4]
+; dimensions for the bar
+width = 1920
+height = 30
+
+; center
+fixed-center = false
+
+; offset
+offset-x = 0
+offset-y = 0
+
+; corners
+radius = 0
+
+; location
+override-redirect = false
+wm-restack = i3
+
+; background and foreground
+background = ${colors.bar-background}
+foreground = ${colors.foreground}
+
+; margins around modules
+padding-left = 0
+padding-right = 10
+module-margin = 2
+
+; fonts
+font-0 = Roboton:size=9;4
+font-1 = MesloLGSDZ Nerd Font:size=8;2.5
+/* font-1 = MesloLGSDZ Nerd Font:size=10;3 */
+font-2 = Inconsolata:size=1;2.5
+font-3 = MesloLGSDZ Nerd Font:size=8;3
+font-4 = MesloLGSDZ Nerd Font:size=8;4
+font-5 = MesloLGSDZ Nerd Font:size=17;4
+font-6 = MesloLGSDZ Nerd Font:size=11;4
+
+; modules
+modules-left =
+modules-center =
+modules-right = test
+
+; tray
+/* tray-position = right */
+/* tray-maxsize = 16 */
+/* tray-padding = 2 */
 /* tray-detached = true */
 /* [> tray-offset-x = ${bar/top.radius} <] */
 /* tray-offset-x = -4 */
@@ -531,7 +585,7 @@ label-muted-foreground = ${colors.gray}
 
 ramp-volume-0 = %{T4}奄%{T-}
 ramp-volume-1 = %{T4}奔%{T-}
-ramp-volume-2 = %{T4}墳%{T-} 
+ramp-volume-2 = %{T4}墳%{T-}
 ramp-volume-foreground = ${colors.red}
 
 /* }}} */
@@ -729,6 +783,14 @@ format = <label>
 label = %output%
 
 padding = 2
+
+/* }}} */
+
+/* {{{ module/test */
+[module/test]
+type = custom/text
+content = "text"
+content-prefix = "some "
 
 /* }}} */
 

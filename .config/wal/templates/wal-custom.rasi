@@ -1,7 +1,6 @@
-* {
-    accent: #F4E3D6BB;
-    foreground:         		@accent;
-    background:         		rgba(0, 0, 0, 0.80);
+* {{
+    foreground:         		#{foreground.strip}BB;
+    background:         		#{background.strip}BB;
     transparent:			rgba(0, 0, 0, 0);
 
     normal-background: 			@transparent;
@@ -11,11 +10,11 @@
     active-background: 			@transparent;
     active-foreground:			@foreground;
 
-    selected-normal-background:  @foreground;
+    selected-normal-background:  #{color3.strip}BB;
     selected-normal-foreground:  @background;
-    selected-urgent-background:  @foreground;
+    selected-urgent-background:  #{color1.strip}BB;
     selected-urgent-foreground:  @background;
-    selected-active-background:  @foreground;
+    selected-active-background:  #{color3.strip}BB;
     selected-active-foreground:  @background;
 
     alternate-normal-background: @transparent;
@@ -29,103 +28,130 @@
     separatorcolor:              @foreground;
     background-color:            @transparent;
     spacing:                     20;
-}
+}}
 
-#window {
+#window {{
     background-color: 		@background;
     border:   				0;
     padding: 				0;
-}
-#mainbox {
+}}
+
+#mainbox {{
     border:   				0;
-    padding: 				20%;
-}
-#message {
+    padding: 				10%;
+}}
+
+#message {{
     border:       			2px 0px 0px ;
     border-color: 			@separatorcolor;
     padding: 				10 1% 10;
-}
-#textbox {
+}}
+
+#textbox {{
     text-color: 			@foreground;
-}
-#listview {
+}}
+
+#listview {{
     fixed-height: 			0;
     border:       			2px 0px 0px ;
     border-color: 			@separatorcolor;
     spacing:      			10px;
     padding: 				10 1% 10;
-}
+}}
 
-#element {
+#element {{
     border:  				0;
     border-radius:          30;
     padding: 				10 30 10;
-}
-#element.normal.normal {
+}}
+
+#element.normal.normal {{
     background-color: 		@normal-background;
     text-color:       		@normal-foreground;
-}
-#element.normal.urgent {
+}}
+
+#element.normal.urgent {{
     background-color: 		@urgent-background;
     text-color:       		@urgent-foreground;
-}
-#element.normal.active {
+}}
+
+#element.normal.active {{
     background-color: 		@active-background;
     text-color:       		@active-foreground;
-}
-#element.selected.normal {
+}}
+
+#element.selected.normal {{
     background-color: 		@selected-normal-background;
     text-color:       		@selected-normal-foreground;
-}
-#element.selected.urgent {
+}}
+
+#element.selected.urgent {{
     background-color: 		@selected-urgent-background;
     text-color:       		@selected-urgent-foreground;
-}
-#element.selected.active {
+}}
+
+#element.selected.active {{
     background-color: 		@selected-active-background;
     text-color:       		@selected-active-foreground;
-}
-#element.alternate.normal {
+}}
+
+#element.alternate.normal {{
     background-color: 		@alternate-normal-background;
     text-color:       		@alternate-normal-foreground;
-}
-#element.alternate.urgent {
+}}
+
+#element.alternate.urgent {{
     background-color: 		@alternate-urgent-background;
     text-color:       		@alternate-urgent-foreground;
-}
-#element.alternate.active {
+}}
+
+#element.alternate.active {{
     background-color: 		@alternate-active-background;
     text-color:       		@alternate-active-foreground;
-}
+}}
 
-#scrollbar {
+#scrollbar {{
     width:        			4px ;
     border:       			0;
     handle-width: 			8px ;
     padding:      			0;
-}
-#sidebar {
+}}
+
+#sidebar {{
     border:       			2px 0px 0px ;
     border-color: 			@separatorcolor;
-}
-#button.selected {
+}}
+
+#button.selected {{
     background-color: 		@selected-normal-background;
     text-color:       		@selected-normal-foreground;
-}
-#inputbar {
+}}
+
+#inputbar {{
     spacing:    			0;
     text-color: 			@normal-foreground;
     padding:    			1px ;
-}
-#case-indicator {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}}
+
+#case-indicator {{
     spacing:    			0;
     text-color: 			@normal-foreground;
-}
-#entry {
+}}
+
+#entry {{
     spacing:    			0;
     text-color: 			@normal-foreground;
-}
-#prompt, button{
+}}
+
+#prompt, button{{
     spacing:    			0;
     text-color: 			@normal-foreground;
-}
+}}
+
+textbox-prompt-colon {{
+    expand: false;
+    str: ": ";
+    margin: 0px 0.3em 0em 0em;
+    text-color: @normal-foreground;
+}}
