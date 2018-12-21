@@ -1,5 +1,0 @@
-ncurses5-compat-libs            AUR         required for YCM 
-gvim                                        get vim with clipboard support
-nerd-fonts-complete             AUR         symbol font
-polybar                         AUR         top bar
-cups                                        andrew printing

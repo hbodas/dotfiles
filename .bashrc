@@ -27,3 +27,5 @@ PS1='\[\033[01;92m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[00m\]$ '
 # export pywal colors
 ~/.cache/wal/colors.sh
 
+# tmux
+tmux

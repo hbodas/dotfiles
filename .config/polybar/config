@@ -18,7 +18,6 @@
 
 /* {{{ colors */
 [colors]
-/* bar-background = #00000000 */
 bar-background = ${xrdb:color0}
 background = ${xrdb:color0}
 foreground = ${xrdb:color15}
@@ -255,89 +254,29 @@ wm-restack = i3
 
 ; background and foreground
 background = ${colors.bar-background}
-foreground = ${colors.foreground}
+foreground = ${env:POLYBAR_BACKGROUND_LIGHT}
 
 ; margins around modules
 padding-left = 0
 padding-right = 0
-module-margin = 2
+module-margin = 0
+
+; borders
+line-size = 5
 
 ; fonts
-font-0 = Roboton:size=9;4
-font-1 = MesloLGSDZ Nerd Font:size=8;2.5
-/* font-1 = MesloLGSDZ Nerd Font:size=10;3 */
-font-2 = Inconsolata:size=1;2.5
-font-3 = MesloLGSDZ Nerd Font:size=8;3
-font-4 = MesloLGSDZ Nerd Font:size=8;4
-font-5 = MesloLGSDZ Nerd Font:size=17;4
-font-6 = MesloLGSDZ Nerd Font:size=11;4
+font-0 = ProFontWindows Nerd Font:size=10;3
+font-1 = MesloLGSDZ Nerd Font:size=13;3
 
 ; modules
 modules-left = i3 rsep
 modules-center = spotify
-modules-right = lsep updates lsep wlan lsep cpu lsep memory lsep xbacklight lsep pulseaudio lsep battery lsep time lsep date lsep
+modules-right = updates wlan cpu memory xbacklight pulseaudio battery time lsep
 
 ; tray
 tray-position = right
 tray-maxsize = 16
 tray-padding = 2
-/* tray-detached = true */
-/* [> tray-offset-x = ${bar/top.radius} <] */
-/* tray-offset-x = -4 */
-
-/* }}} */
-
-/* {{{ bar/top4 */
-[bar/top4]
-; dimensions for the bar
-width = 1920
-height = 30
-
-; center
-fixed-center = false
-
-; offset
-offset-x = 0
-offset-y = 0
-
-; corners
-radius = 0
-
-; location
-override-redirect = false
-wm-restack = i3
-
-; background and foreground
-background = ${colors.bar-background}
-foreground = ${colors.foreground}
-
-; margins around modules
-padding-left = 0
-padding-right = 10
-module-margin = 2
-
-; fonts
-font-0 = Roboton:size=9;4
-font-1 = MesloLGSDZ Nerd Font:size=8;2.5
-/* font-1 = MesloLGSDZ Nerd Font:size=10;3 */
-font-2 = Inconsolata:size=1;2.5
-font-3 = MesloLGSDZ Nerd Font:size=8;3
-font-4 = MesloLGSDZ Nerd Font:size=8;4
-font-5 = MesloLGSDZ Nerd Font:size=17;4
-font-6 = MesloLGSDZ Nerd Font:size=11;4
-
-; modules
-modules-left =
-modules-center =
-modules-right = test
-
-; tray
-/* tray-position = right */
-/* tray-maxsize = 16 */
-/* tray-padding = 2 */
-/* tray-detached = true */
-/* [> tray-offset-x = ${bar/top.radius} <] */
-/* tray-offset-x = -4 */
 
 /* }}} */
 
@@ -385,23 +324,19 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.green}
-label-focused-underline= ${colors.yellow}
-label-focused-padding = 4
+label-focused-background = ${env:POLYBAR_BACKGROUND_LIGHT}
+label-focused-padding = 2
 
 label-occupied = %index%
-label-occupied-padding = 4
+label-occupied-padding = 2
 
 label-urgent = %index%!
-label-urgent-background = ${colors.red-alt}
-label-urgent-padding = 4
+label-urgent-background = ${env:POLYBAR_COLOR1}
+label-urgent-padding = 2
 
 label-empty = %index%
-label-empty-foreground = ${colors.foreground}
-label-empty-padding = 4
-
-; Separator in between workspaces
-label-separator = " | "
+label-empty-foreground = ${env:POLYBAR_BACKGROUND}
+label-empty-padding = 2
 
 /* }}} */
 
@@ -415,39 +350,31 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.yellow}
+label-mode-padding = 0
+label-mode-foreground = ${env:POLYBAR_BACKGROUND}
+label-mode-background = ${env:POLYBAR_COLOR3_LIGHT}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-foreground = ${colors.foreground}
+label-focused-foreground = ${env:POLYBAR_FOREGROUND}
 label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-foreground = ${colors.foreground}
-label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${env:POLYBAR_FOREGROUND}
+label-unfocused-background = ${env:POLYBAR_BACKGROUND}
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
-
-; Separator in between workspaces
-label-separator = " "
-label-separator-foreground = ${colors.background}
-label-separator-background = ${colors.background}
-
 
 /* }}} */
 
@@ -471,13 +398,13 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = false
-format = "<ramp>  <label>"
+format = ${env:POLYBAR_XBK:check}
+format-underline = ${env:POLYBAR_BACKGROUND}
+format-overline = ${env:POLYBAR_BACKGROUND}
 
-ramp-0 = %{T4}%{T-}
-ramp-1 = %{T4}%{T-}
-ramp-2 = %{T4}%{T-}
-
-ramp-foreground = ${colors.aqua}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 
 /* }}} */
 
@@ -493,9 +420,9 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = %{T4}﬙ %{T-}
-format-prefix-foreground = ${colors.yellow}
-label = "%percentage%%"
+label = ${env:POLYBAR_CPU}
+label-overline = ${env:POLYBAR_BACKGROUND}
+label-underline = ${env:POLYBAR_BACKGROUND}
 
 /* }}} */
 
@@ -503,9 +430,9 @@ label = "%percentage%%"
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = %{T5} %{T-}
-format-prefix-foreground = ${colors.blue}
-label = %percentage_used%%
+label = ${env:POLYBAR_MEM}
+label-overline = ${env:POLYBAR_BACKGROUND}
+label-underline = ${env:POLYBAR_BACKGROUND}
 
 /* }}} */
 
@@ -516,13 +443,15 @@ interface = wlp58s0
 interval = 2
 
 format-connected = <label-connected>
-label-connected = %essid%
-format-connected-prefix = %{T4}直 %{T-}
-format-connected-prefix-foreground = ${colors.green}
+label-connected = ${env:POLYBAR_WLAN_CONN}
+label-connected-overline = ${env:POLYBAR_BACKGROUND}
+label-connected-underline = ${env:POLYBAR_BACKGROUND}
 
 format-disconnected = <label-disconnected>
-label-disconnected = 睊
-label-disconnected-foreground = ${colors.green}
+label-disconnected = ${env:POLYBAR_WLAN_DISC}
+label-disconnected-overline = ${env:POLYBAR_BACKGROUND}
+label-disconnected-underline = ${env:POLYBAR_BACKGROUND}
+
 
 /* }}} */
 
@@ -550,25 +479,11 @@ type = internal/date
 interval = 10
 
 time = %H:%M
-
-format-prefix = %{T5} %{T-}
-format-prefix-foreground = ${colors.yellow}
-
-label = %time%
-
-/* }}} */
-
-/* {{{ module/date */
-[module/date]
-type = internal/date
-interval = 10
-
 date = %a %b %d, %Y
 
-format-prefix =%{T1}  %{T-}
-format-prefix-foreground = ${colors.blue}
-
-label = %date%
+label = ${env:POLYBAR_TIME}
+label-overline = ${env:POLYBAR_BACKGROUND}
+label-underline = ${env:POLYBAR_BACKGROUND}
 
 /* }}} */
 
@@ -576,17 +491,18 @@ label = %date%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume>  <label-volume>
+format-volume = ${env:POLYBAR_VOL}
 label-volume = %percentage%%
-label-volume-foreground = ${colors.foreground}
+format-volume-overline = ${env:POLYBAR_BACKGROUND}
+format-volume-underline = ${env:POLYBAR_BACKGROUND}
 
-label-muted = %{T4}婢 %{T-}mute
-label-muted-foreground = ${colors.gray}
+label-muted = ${env:POLYBAR_MUTE}
+label-muted-overline = ${env:POLYBAR_BACKGROUND}
+label-muted-underline = ${env:POLYBAR_BACKGROUND}
 
-ramp-volume-0 = %{T4}奄%{T-}
-ramp-volume-1 = %{T4}奔%{T-}
-ramp-volume-2 = %{T4}墳%{T-}
-ramp-volume-foreground = ${colors.red}
+ramp-volume-0 = "奄 "
+ramp-volume-1 = "奔 "
+ramp-volume-2 = "墳 "
 
 /* }}} */
 
@@ -629,32 +545,26 @@ adapter = AC
 
 time-format = (%H:%M)
 
-format-charging = <label-charging>
-label-charging = %percentage%% %time%
-format-charging-prefix = %{T4} %{T-}
-format-charging-prefix-foreground = ${colors.green}
+format-charging = ${env:POLYBAR_BATT_CHA}
+label-charging = ${env:POLYBAR_LABEL_CHA}
+format-charging-overline = ${env:POLYBAR_BACKGROUND}
+format-charging-underline = ${env:POLYBAR_BACKGROUND}
 
-format-discharging = <ramp-capacity>  <label-discharging>
-label-discharging = %percentage%% %time%
+format-discharging = ${env:POLYBAR_BATT_DIS}
+label-discharging = ${env:POLYBAR_LABEL_DIS}
+format-discharging-overline = ${env:POLYBAR_BACKGROUND}
+format-discharging-underline = ${env:POLYBAR_BACKGROUND}
 
-label-full = %percentage%%
-format-full-prefix = %{T4} %{T-}
-format-full-prefix-foreground = ${colors.green}
+format-full = ${env:POLYBAR_BATT_FULL}
+label-full = ${env:POLYBAR_LABEL_FULL}
+format-full-overline = ${env:POLYBAR_BACKGROUND}
+format-full-underline = ${env:POLYBAR_BACKGROUND}
 
-ramp-capacity-0 = %{T4}%{T-}
-ramp-capacity-1 = %{T4}%{T-}
-ramp-capacity-2 = %{T4}%{T-}
-ramp-capacity-3 = %{T4}%{T-}
-ramp-capacity-4 = %{T4}%{T-}
-ramp-capacity-foreground = ${colors.green}
-
-/* animation-charging-0 =  */
-/* animation-charging-1 =  */
-/* animation-charging-2 =  */
-/* animation-charging-3 =  */
-/* animation-charging-4 =  */
-/* animation-charging-foreground = ${colors.aqua} */
-/* animation-charging-framerate = 750 */
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 /* }}} */
 
@@ -678,97 +588,15 @@ ramp-foreground = ${colors.purple}
 
 /* }}} */
 
-/* {{{ module/powermenu */
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.blue}
-label-close =  cancel
-label-close-foreground = ${colors.yellow}
-label-separator = |
-label-separator-foreground = ${colors.foreground}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
-/* }}} */
-
-/* {{{ module/placeholder */
-[module/placeholder]
-type = custom/text
-content = " "
-content-background = #00000000
-content-foreground = #00000000
-
-/* }}} */
-
-/* {{{ module/rtblock */
-[module/rtblock]
-type = custom/text
-content = %{T4}%{T-}
-content-background = ${colors.foreground}
-content-foreground = ${colors.background}
-
-/* }}} */
-
-/* {{{ module/ltblock */
-[module/ltblock]
-type = custom/text
-content = %{T6}%{T-}
-content-background = ${colors.bar-background}
-content-foreground = ${colors.background}
-
-/* }}} */
-
-/* {{{ module/rsep */
-[module/rsep]
-type = custom/text
-content = %{T7}%{T-}
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
-padding = 1
-
-/* }}} */
-
-/* {{{ module/lsep */
-[module/lsep]
-type = custom/text
-content = %{T7}%{T-}
-padding = 1
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
-
-/* }}} */
-
 /* {{{ module/updates */
 [module/updates]
 type = custom/script
-exec = check_updates
+exec = ~/.config/polybar/scripts/polybar_check_updates
 tail = true
 interval = 1000
-label = "%output%"
-label-background = ${colors.background}
-format-prefix = %{T5} %{T-}
-format-prefix-foreground = ${colors.red}
-format-prefix-background = ${colors.background}
-
+label = %output%
+label-overline = ${env:POLYBAR_BACKGROUND}
+label-underline = ${env:POLYBAR_BACKGROUND}
 /* }}} */
 
 /* {{{ module/spotify */
@@ -783,14 +611,6 @@ format = <label>
 label = %output%
 
 padding = 2
-
-/* }}} */
-
-/* {{{ module/test */
-[module/test]
-type = custom/text
-content = "text"
-content-prefix = "some "
 
 /* }}} */
 
