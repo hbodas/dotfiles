@@ -59,10 +59,10 @@ modules-center = spotify
 modules-right = lbl updates wlan cpu memory xbacklight pulseaudio battery time lsep
 
 ; tray
-tray-position = right
-tray-maxsize = 16
-tray-padding = 2
-tray-background = ${env:POLYBAR_BACKGROUND}
+/* tray-position = right */
+/* tray-maxsize = 16 */
+/* tray-padding = 2 */
+/* tray-background = ${env:POLYBAR_BACKGROUND} */
 
 /* }}} */
 
