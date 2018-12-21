@@ -1,15 +1,13 @@
 #!/bin/bash
 
 player_status=$(playerctl status 2> /dev/null)
-playing_color=$(appres foo | grep color6: | awk '{print $NF}')
-paused_color=$(appres foo | grep color7: | awk '{print $NF}')
 
 if [ "$player_status" = "Playing" ]; then
-    echo "%{T5}%{F$playing_color}契%{F-}%{T-} $(playerctl metadata title) - $(playerctl \
-    metadata artist)"
+    echo " 契 $(playerctl metadata title) - $(playerctl \
+    metadata artist) "
 elif [ "$player_status" = "Paused" ]; then
-    echo "%{T5}%{F$paused_color}%{F-}%{T-} $(playerctl metadata title) - $(playerctl \
-    metadata artist)"
+    echo "   $(playerctl metadata title) - $(playerctl \
+    metadata artist) "
 else
     echo " "
 fi

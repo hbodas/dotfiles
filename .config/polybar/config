@@ -16,28 +16,6 @@
 ;
 ;==========================================================
 
-/* {{{ colors */
-[colors]
-bar-background = ${xrdb:color0}
-background = ${xrdb:color0}
-foreground = ${xrdb:color15}
-red = ${xrdb:color1}
-red-alt = ${xrdb:color9}
-green = ${xrdb:color2}
-green-alt = ${xrdb:color10}
-yellow = ${xrdb:color3}
-yellow-alt = ${xrdb:color11}
-blue = ${xrdb:color4}
-blue-alt = ${xrdb:color12}
-purple = ${xrdb:color5}
-purple-alt = ${xrdb:color13}
-aqua = ${xrdb:color6}
-aqua-alt = ${xrdb:color14}
-gray = ${xrdb:color7}
-gray-alt = ${xrdb:color8}
-
-/* }}} */
-
 /* {{{ bar/example */
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -253,7 +231,7 @@ override-redirect = false
 wm-restack = i3
 
 ; background and foreground
-background = ${colors.bar-background}
+background = ${env:POLYBAR_TRANSPARENT}
 foreground = ${env:POLYBAR_BACKGROUND_LIGHT}
 
 ; margins around modules
@@ -267,16 +245,18 @@ line-size = 5
 ; fonts
 font-0 = ProFontWindows Nerd Font:size=10;3
 font-1 = MesloLGSDZ Nerd Font:size=13;3
+font-2 = MesloLGSDZ Nerd Font:size=17;3
 
 ; modules
-modules-left = i3 rsep
-modules-center = spotify
-modules-right = updates wlan cpu memory xbacklight pulseaudio battery time lsep
+modules-left = i3 rbl
+modules-center = lbl spotify rbl
+modules-right = lbl updates wlan cpu memory xbacklight pulseaudio battery time lsep
 
 ; tray
 tray-position = right
 tray-maxsize = 16
 tray-padding = 2
+tray-background = ${env:POLYBAR_BACKGROUND}
 
 /* }}} */
 
@@ -609,9 +589,27 @@ interval = 1
 
 format = <label>
 label = %output%
+label-background = ${env:POLYBAR_BACKGROUND}
+label-foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
 
 padding = 2
 
+/* }}} */
+
+/* {{{ module/lbl */
+[module/lbl]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${env:POLYBAR_TRANSPARENT}
+content-foreground = ${env:POLYBAR_BACKGROUND}
+/* }}} */
+
+/* {{{ module/rbl */
+[module/rbl]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${env:POLYBAR_TRANSPARENT}
+content-foreground = ${env:POLYBAR_BACKGROUND}
 /* }}} */
 
 /* {{{ settings */

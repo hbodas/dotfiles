@@ -38,7 +38,7 @@
 
 #mainbox {{
     border:   				0;
-    padding: 				10%;
+    padding: 				25%;
 }}
 
 #message {{
@@ -55,14 +55,14 @@
     fixed-height: 			0;
     border:       			2px 0px 0px ;
     border-color: 			@separatorcolor;
-    spacing:      			10px;
-    padding: 				10 1% 10;
+    spacing:      			7px;
+    padding: 				7 1% 7;
 }}
 
 #element {{
     border:  				0;
     border-radius:          30;
-    padding: 				10 30 10;
+    padding: 				7 30 7;
 }}
 
 #element.normal.normal {{
