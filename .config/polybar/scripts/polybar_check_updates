@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# wait till there is a network connection
+while true; do
+    wget -q --tries=7 --timeout=20 --spider http://google.com
+    if [[ $? -eq 0 ]]; then
+        # Online
+        break
+    else
+        # Offline
+        sleep 2
+    fi
+done
+
 UPD=$(check_updates)
 REPOS=$(echo $UPD | awk '{print $1}')
 AUR=$(echo $UPD | awk '{print $3}')
