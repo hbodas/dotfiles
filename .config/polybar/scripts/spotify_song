@@ -1,15 +1,24 @@
 #!/bin/bash
 
+COLORS_FILE=~/.config/polybar/poly_colors
 player_status=$(playerctl status 2> /dev/null)
-playing_color=$(appres foo | grep color6: | awk '{print $NF}')
-paused_color=$(appres foo | grep color7: | awk '{print $NF}')
+polyback=$(grep "background #" $COLORS_FILE | awk '{print $NF}')
+trans=#00000000
+polyfore=$(grep "foreground #" $COLORS_FILE | awk '{print $NF}')
+
+# polyback=#0f0
+
+lbl="%{B$trans}%{F$polyback}%{T3}%{T-}%{F-}%{B-}"
+rbl="%{B$trans}%{F$polyback}%{T3}%{T-}%{F-}%{B-}"
+ltmp="%{B$polyback}%{F$polyfore}"
+rtmp="%{B-}%{F-}"
+# lbl=
+# rbl=
 
 if [ "$player_status" = "Playing" ]; then
-    echo "%{F$playing_color}契%{F-} $(playerctl metadata title) - $(playerctl \
-    metadata artist)"
+    echo "$lbl$ltmp   契 $(playerctl metadata title) - $(playerctl metadata artist)   $rtmp$rbl"
 elif [ "$player_status" = "Paused" ]; then
-    echo "%{F$paused_color}%{F-} $(playerctl metadata title) - $(playerctl \
-    metadata artist)"
+    echo "$lbl$ltmp    $(playerctl metadata title) - $(playerctl metadata artist)   $rtmp$rbl"
 else
     echo " "
 fi

@@ -15,7 +15,7 @@ Plug 'benknoble/vim-auto-origami'
 Plug 'tpope/vim-surround'
 
 " YouCompleteMe
-Plug 'Valloric/YouCompleteMe' , {'do': './install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe' , {'do': './install.py --clang-completer', 'for' : 'tex'}
 
 " Vimtex
 Plug 'lervag/vimtex', {'for' : 'tex'}
@@ -35,17 +35,11 @@ Plug 'honza/vim-snippets'
 " indent guides
 Plug 'nathanaelkane/vim-indent-guides'
 
-" goyo
-Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
-
 " multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
-" " vim-fugitive
-" Plug 'tpope/vim-fugitive'
-
-" " gitgutter
-" Plug 'airblade/vim-gitgutter'
+" tmux-vim-navigation
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 " }}}
@@ -110,7 +104,7 @@ set laststatus=2
 set confirm
 
 "show line numbers on the left
-set number relativenumber
+set number
 
 " number of undo levels
 set undolevels=1000
@@ -378,54 +372,13 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 " enable plugin on vim startup
-let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_enable_on_vim_startup = 0
 
 " set the indent guide colors
 hi IndentGuidesOdd  ctermbg=8
 hi IndentGuidesEven ctermbg=8
 " }}}
 
-" {{{ GOYO
-
-" mapping to trigger goyo
-nnoremap <F2> :Goyo<cr>
-
-" width and height
-let g:goyo_width = 90
-let g:goyo_height = 90
-
-" show line number in goyo
-let g:goyo_linenr = 0
-
-" Goyo enter and leave actions
-" function! s:goyo_enter()
-  " Limelight
-" endfunction
-
-" function! s:goyo_leave()
-  " Limelight!
-" endfunction
-
-" autocmd! User GoyoEnter nested call <SID>goyo_enter()
-" autocmd! User GoyoLeave nested call <SID>goyo_leave()
-" }}}
-
-" {{{ MULTIPLE CURSORS
-
-" " exiting can be done only from normal mode
-" let g:multi_cursor_exit_from_insert_mode=0
-" let g:multi_cursor_exit_from_visual_mode=0
-
-" " keys that will be listened to for mappings
-" let g:multi_cursor_normal_maps = `{'@': 1, 'F': 1, 'T': 1, '[': 1, '\': 1, ']':
-    " \ 1, '!': 1, '"': 1, 'c': 1, 'd': 1, 'f': 1, 'g': 1, 'm': 1, 'q': 1, 'r': 1,
-    " \ 't': 1, 'y': 1, 'z': 1, '<': 1, '=': 1, '>': 1, 'j': 1, 'w': 1, ';': 1,
-    " \ 'n': 1}`
-
-" let g:multi_cursor_visual_maps = `{'T': 1, 'a': 1, 't': 1, 'F': 1, 'f': 1, 'i':
-    " \ 1}`
-
-" }}}
 " }}}
 
 " {{{ FUNCTIONS

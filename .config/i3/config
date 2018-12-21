@@ -42,7 +42,7 @@ set $execa exec_always
 # }
 
 # border settings
-default_border pixel 2
+default_border pixel 0
 # hide_edge_borders no
 
 # gaps settings
@@ -109,6 +109,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # floating modifier
 floating_modifier $alt
+bindcode $alt+Shift+65 floating toggle
 
 # some launching
 bindsym $alt+Return $exec $term
@@ -150,10 +151,10 @@ bindsym $alt+Shift+c reload
 bindsym $alt+Shift+r restart
 
 # resizing
-bindsym $alt+y resize shrink width 1px
-bindsym $alt+u resize grow height 1px
-bindsym $alt+i resize shrink height 1px
-bindsym $alt+o resize grow width 1px
+bindsym $alt+y resize shrink width 10px
+bindsym $alt+u resize grow height 10px
+bindsym $alt+i resize shrink height 10px
+bindsym $alt+o resize grow width 10px
 
 # reload polybar
 bindsym $alt+p exec polybar_start
@@ -246,7 +247,7 @@ exec --no-startup-id $bar
 
 # scratchpad terminal
 for_window [instance="__scratchpad"] floating enable
-for_window [instance="__scratchpad"] resize 1000 600
+for_window [instance="__scratchpad"] resize 1400 800
 for_window [instance="__scratchpad"] move scratchpad
 exec --no-startup-id urxvt -name __scratchpad
 # }}}

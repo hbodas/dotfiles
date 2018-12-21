@@ -47,8 +47,8 @@ endsnippet
 
 snippet sprob "Part trigger" b
 % {{{ part ${1:part}
-\subprob{$1} $0
-% }}}
+\subprob{$1} $2
+% }}} ${0:end here}
 endsnippet
 
 snippet fo "insert a pair of fold markers for vim" b
@@ -87,4 +87,12 @@ endsnippet
 
 snippet imp "implies symbol" 
 \implies
+endsnippet
+
+snippet tbd "TBD marker - huge text" b
+{\Huge TBD!!!}
+endsnippet
+
+snippet lr( "Left and right parentheses" 
+\left( $1 \right) $0
 endsnippet
