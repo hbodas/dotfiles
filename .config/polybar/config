@@ -329,7 +329,7 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 
-time-format = (%H:%M)
+time-format = %H:%M
 
 format-charging = ${env:POLYBAR_BATT_CHA}
 label-charging = ${env:POLYBAR_LABEL_CHA}
