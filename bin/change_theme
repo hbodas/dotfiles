@@ -7,7 +7,7 @@ fi
 
 # make it your background and whatnot
 wal -c
-wal --backend wal -i ~/.config/i3/wall.png -q -g -e
+wal --backend wal -i ~/.config/i3/wall.png -q -g
 
 # make the shell script executable
 chmod +x ~/.cache/wal/colors.sh
