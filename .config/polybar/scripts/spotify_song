@@ -8,12 +8,12 @@ polyfore=$(grep "foreground #" $COLORS_FILE | awk '{print $NF}')
 
 # polyback=#0f0
 
-lbl="%{B$trans}%{F$polyback}%{T3}%{T-}%{F-}%{B-}"
-rbl="%{B$trans}%{F$polyback}%{T3}%{T-}%{F-}%{B-}"
+# lbl="%{B$trans}%{F$polyback}%{T3}%{T-}%{F-}%{B-}"
+# rbl="%{B$trans}%{F$polyback}%{T3}%{T-}%{F-}%{B-}"
 ltmp="%{B$polyback}%{F$polyfore}"
 rtmp="%{B-}%{F-}"
-# lbl=
-# rbl=
+lbl=
+rbl=
 
 if [ "$player_status" = "Playing" ]; then
     echo "$lbl$ltmp   契 $(playerctl metadata title) - $(playerctl metadata artist)   $rtmp$rbl"

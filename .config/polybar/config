@@ -37,7 +37,7 @@ override-redirect = false
 wm-restack = i3
 
 ; background and foreground
-background = ${env:POLYBAR_TRANSPARENT}
+background = ${env:POLYBAR_BACKGROUND}
 foreground = ${env:POLYBAR_BACKGROUND_LIGHT}
 
 ; margins around modules
@@ -54,9 +54,9 @@ font-1 = MesloLGSDZ Nerd Font:size=13;3
 font-2 = MesloLGSDZ Nerd Font:size=19;4
 
 ; modules
-modules-left = i3 rbl
+modules-left = i3 
 modules-center = spotify
-modules-right = lbl updates wlan cpu memory xbacklight pulseaudio battery time lsep
+modules-right = updates wlan cpu memory xbacklight pulseaudio battery time
 
 ; tray
 /* tray-position = right */
