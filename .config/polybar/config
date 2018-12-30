@@ -49,14 +49,15 @@ module-margin = 0
 line-size = 5
 
 ; fonts
-font-0 = ProFontWindows Nerd Font:size=10;3
+font-0 = Anonymice Nerd Font Mono:size=10;2
 font-1 = MesloLGSDZ Nerd Font:size=13;3
 font-2 = MesloLGSDZ Nerd Font:size=19;4
+font-3 = ProFontWindows Nerd Font:size=10;3
 
 ; modules
-modules-left = i3 
+modules-left = i3
 modules-center = spotify
-modules-right = updates wlan cpu memory xbacklight pulseaudio battery time
+modules-right = updates wlan cpu memory xbacklight volume battery time
 
 ; tray
 /* tray-position = right */
@@ -397,6 +398,24 @@ format = <label>
 label = %output%
 label-background = ${env:POLYBAR_BACKGROUND}
 label-foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
+
+padding = 0
+
+/* }}} */
+
+/* {{{ module/volume */
+[module/volume]
+type = custom/script
+exec = ~/.config/polybar/scripts/volume
+tail = false
+interval = 0.01
+
+format = <label>
+label = %output%
+label-background = ${env:POLYBAR_BACKGROUND}
+label-foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
+label-overline = ${env:POLYBAR_BACKGROUND}
+label-underline = ${env:POLYBAR_BACKGROUND}
 
 padding = 0
 
