@@ -49,7 +49,7 @@ module-margin = 0
 line-size = 5
 
 ; fonts
-font-0 = Anonymice Nerd Font Mono:size=10;2
+font-0 = Anonymice Nerd Font Mono:size=10;2.5
 font-1 = MesloLGSDZ Nerd Font:size=13;3
 font-2 = MesloLGSDZ Nerd Font:size=19;4
 font-3 = ProFontWindows Nerd Font:size=10;3
