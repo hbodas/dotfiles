@@ -38,7 +38,7 @@
 
 #mainbox {{
     border:   				0;
-    padding: 				25%;
+    padding: 				10px;
 }}
 
 #message {{
@@ -62,7 +62,7 @@
 #element {{
     border:  				0;
     border-radius:          30;
-    padding: 				7 30 7;
+    padding: 				5 30 5;
 }}
 
 #element.normal.normal {{
