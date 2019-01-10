@@ -34,19 +34,16 @@ radius = 0
 
 ; location
 override-redirect = false
-wm-restack = i3
 
 ; background and foreground
-background = ${env:POLYBAR_BACKGROUND}
-foreground = ${env:POLYBAR_BACKGROUND_LIGHT}
+background = ${env:POLYBAR_BACKGROUND_80}
+foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
 
 ; margins around modules
 padding-left = 0
-padding-right = 0
-module-margin = 0
-
-; borders
-line-size = 5
+padding-right = 2
+module-margin = 2
+separator = %{T2}%{T-} 
 
 ; fonts
 font-0 = Anonymice Nerd Font Mono:size=10;2.5
@@ -57,13 +54,19 @@ font-3 = ProFontWindows Nerd Font:size=10;3
 ; modules
 modules-left = i3
 modules-center = spotify
-modules-right = updates wlan cpu memory xbacklight volume battery time
+modules-right = empty updates wlan cpu memory xbacklight volume battery time date
 
 ; tray
 /* tray-position = right */
 /* tray-maxsize = 16 */
 /* tray-padding = 2 */
 /* tray-background = ${env:POLYBAR_BACKGROUND} */
+
+; line
+line-size = 2
+
+' inter-process messaging
+enable-ipc = true
 
 /* }}} */
 
@@ -110,19 +113,19 @@ label-unmounted-foreground = ${colors.foreground-alt}
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %index%
-label-focused-background = ${env:POLYBAR_BACKGROUND_LIGHT}
+label-focused = %index%*
+label-focused-background = ${bar/top.background}
 label-focused-padding = 2
 
 label-occupied = %index%
 label-occupied-padding = 2
 
 label-urgent = %index%!
-label-urgent-background = ${env:POLYBAR_COLOR1}
+label-urgent-background = ${bar/top.background}
 label-urgent-padding = 2
 
 label-empty = %index%
-label-empty-foreground = ${env:POLYBAR_BACKGROUND}
+label-empty-foreground = ${bar/top.foreground}
 label-empty-padding = 2
 
 /* }}} */
@@ -142,15 +145,16 @@ label-mode-foreground = ${env:POLYBAR_BACKGROUND}
 label-mode-background = ${env:POLYBAR_COLOR3_LIGHT}
 
 ; focused = Active workspace on focused monitor
-label-focused = %name%
-label-focused-foreground = ${env:POLYBAR_FOREGROUND}
+label-focused = "%name%"
+label-focused-foreground = ${bar/top.foreground}
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-overline = ${env:POLYBAR_FOREGROUND}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %name%
-label-unfocused-foreground = ${env:POLYBAR_FOREGROUND}
-label-unfocused-background = ${env:POLYBAR_BACKGROUND}
+label-unfocused = "%name%"
+label-unfocused-foreground = ${bar/top.foreground}
+label-unfocused-background = ${bar/top.background}
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
@@ -162,6 +166,7 @@ label-visible-padding = ${self.label-focused-padding}
 label-urgent = %name%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-overline = ${env:POLYBAR_COLOR2}
 
 /* }}} */
 
@@ -185,13 +190,12 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = false
-format = ${env:POLYBAR_XBK:check}
-format-underline = ${env:POLYBAR_BACKGROUND}
-format-overline = ${env:POLYBAR_BACKGROUND}
+format = <ramp> <label>
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
+ramp-foreground = ${env:POLYBAR_COLOR5}
 
 /* }}} */
 
@@ -207,9 +211,9 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-label = ${env:POLYBAR_CPU}
-label-overline = ${env:POLYBAR_BACKGROUND}
-label-underline = ${env:POLYBAR_BACKGROUND}
+label = %percentage%%
+format-prefix = "﬙ "
+format-prefix-foreground = ${env:POLYBAR_COLOR3}
 
 /* }}} */
 
@@ -217,9 +221,9 @@ label-underline = ${env:POLYBAR_BACKGROUND}
 [module/memory]
 type = internal/memory
 interval = 2
-label = ${env:POLYBAR_MEM}
-label-overline = ${env:POLYBAR_BACKGROUND}
-label-underline = ${env:POLYBAR_BACKGROUND}
+label = %percentage_used%%
+format-prefix = " "
+format-prefix-foreground = ${env:POLYBAR_COLOR4}
 
 /* }}} */
 
@@ -230,15 +234,14 @@ interface = wlp58s0
 interval = 2
 
 format-connected = <label-connected>
-label-connected = ${env:POLYBAR_WLAN_CONN}
-label-connected-overline = ${env:POLYBAR_BACKGROUND}
-label-connected-underline = ${env:POLYBAR_BACKGROUND}
+label-connected = "%essid%"
+format-connected-prefix = "直 "
+format-connected-prefix-foreground = ${env:POLYBAR_COLOR2}
 
 format-disconnected = <label-disconnected>
-label-disconnected = ${env:POLYBAR_WLAN_DISC}
-label-disconnected-overline = ${env:POLYBAR_BACKGROUND}
-label-disconnected-underline = ${env:POLYBAR_BACKGROUND}
-
+label-disconnected = "---"
+format-disconnected-prefix = "睊 "
+format-disconnected-prefix-foreground = ${env:POLYBAR_COLOR2}
 
 /* }}} */
 
@@ -265,12 +268,26 @@ format-disconnected =
 type = internal/date
 interval = 10
 
-time = %H:%M
-date = %a %b %d, %Y
+time = %I:%M
+date =
 
-label = ${env:POLYBAR_TIME}
-label-overline = ${env:POLYBAR_BACKGROUND}
-label-underline = ${env:POLYBAR_BACKGROUND}
+label = %time%
+format-prefix = " "
+format-prefix-foreground = ${env:POLYBAR_COLOR2}
+
+/* }}} */
+
+/* {{{ module/date */
+[module/date]
+type = internal/date
+interval = 10
+
+time =
+date = %a, %d %b %Y
+
+label = %date%
+format-prefix = " "
+format-prefix-foreground = ${env:POLYBAR_COLOR3}
 
 /* }}} */
 
@@ -332,26 +349,25 @@ adapter = AC
 
 time-format = %H:%M
 
-format-charging = ${env:POLYBAR_BATT_CHA}
-label-charging = ${env:POLYBAR_LABEL_CHA}
-format-charging-overline = ${env:POLYBAR_BACKGROUND}
-format-charging-underline = ${env:POLYBAR_BACKGROUND}
+format-charging = <label-charging>
+label-charging = %percentage%% (%time%)
+format-charging-prefix = " "
+format-charging-prefix-foreground = ${env:POLYBAR_COLOR1}
 
-format-discharging = ${env:POLYBAR_BATT_DIS}
-label-discharging = ${env:POLYBAR_LABEL_DIS}
-format-discharging-overline = ${env:POLYBAR_BACKGROUND}
-format-discharging-underline = ${env:POLYBAR_BACKGROUND}
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%% (%time%)
+format-full-prefix = " "
+format-full-prefix-foreground = ${env:POLYBAR_COLOR1}
 
-format-full = ${env:POLYBAR_BATT_FULL}
-label-full = ${env:POLYBAR_LABEL_FULL}
-format-full-overline = ${env:POLYBAR_BACKGROUND}
-format-full-underline = ${env:POLYBAR_BACKGROUND}
+format-full = <label-full>
+label-full = 100%
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
+ramp-capacity-foreground = ${env:POLYBAR_COLOR1}
 
 /* }}} */
 
@@ -380,10 +396,10 @@ ramp-foreground = ${colors.purple}
 type = custom/script
 exec = ~/.config/polybar/scripts/polybar_check_updates
 tail = true
-interval = 1000
+interval = 3600
 label = %output%
-label-overline = ${env:POLYBAR_BACKGROUND}
-label-underline = ${env:POLYBAR_BACKGROUND}
+/* format-prefix = " " */
+/* format-prefix-foreground = ${env:POLYBAR_COLOR1} */
 /* }}} */
 
 /* {{{ module/spotify */
@@ -396,8 +412,6 @@ interval = 1
 
 format = <label>
 label = %output%
-label-background = ${env:POLYBAR_BACKGROUND}
-label-foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
 
 padding = 0
 
@@ -408,33 +422,19 @@ padding = 0
 type = custom/script
 exec = ~/.config/polybar/scripts/volume
 tail = false
-interval = 0.01
+interval = 1
 
 format = <label>
 label = %output%
-label-background = ${env:POLYBAR_BACKGROUND}
-label-foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
-label-overline = ${env:POLYBAR_BACKGROUND}
-label-underline = ${env:POLYBAR_BACKGROUND}
 
 padding = 0
 
 /* }}} */
 
-/* {{{ module/lbl */
-[module/lbl]
+/* {{{ module/empty */
+[module/empty]
 type = custom/text
-content = %{T3}%{T-}
-content-background = ${env:POLYBAR_TRANSPARENT}
-content-foreground = ${env:POLYBAR_BACKGROUND}
-/* }}} */
-
-/* {{{ module/rbl */
-[module/rbl]
-type = custom/text
-content = %{T3}%{T-}
-content-background = ${env:POLYBAR_TRANSPARENT}
-content-foreground = ${env:POLYBAR_BACKGROUND}
+content = " " 
 /* }}} */
 
 /* {{{ settings */

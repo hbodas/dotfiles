@@ -42,8 +42,11 @@ colors = pywal.colors.file("/home/hrishikesh/.cache/wal/colors.json")
 
 color_str = ""
 
-# transparent
-color_str += "transparent #00000000\n"
+# transparentize background
+bg_r, bg_g, bg_b = getRGB(colors["special"]["background"])
+for i in [0, 20, 40, 60, 80]:
+    hx = outputToHex(bg_r, bg_g, bg_b, int(i * 2.56))
+    color_str += "bg_" + str(i) + " " + hx + "\n"
 
 cols = ["background", "foreground", "color0", "color1", "color2", "color3", \
         "color4", "color5", "color6", "color7", "color8"]
