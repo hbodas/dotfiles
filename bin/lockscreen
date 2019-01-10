@@ -12,8 +12,8 @@ else
     image="-i $1"
 fi
 
-i3lock -e --force-clock $image --insidevercolor=$trans \
---insidewrongcolor=$back --insidecolor=$back --ringvercolor=$trans  \
+i3lock -e --force-clock $image --insidevercolor=$back \
+--insidewrongcolor=$back --insidecolor=$back --ringvercolor=$fore  \
 --ringwrongcolor=cc241daa --ringcolor=$trans --line-uses-inside \
 --keyhlcolor=$fore --bshlcolor=$bshl --separatorcolor=$trans \
 --indpos="0.5*w:0.4*h" --timecolor=$fore --timestr="%l:%M %p" \

@@ -41,6 +41,9 @@ Plug 'terryma/vim-multiple-cursors'
 " tmux-vim-navigation
 Plug 'christoomey/vim-tmux-navigator'
 
+" haskell highlighting
+Plug 'neovimhaskell/haskell-vim'
+
 call plug#end()
 " }}}
 
@@ -377,6 +380,18 @@ let g:indent_guides_enable_on_vim_startup = 0
 " set the indent guide colors
 hi IndentGuidesOdd  ctermbg=8
 hi IndentGuidesEven ctermbg=8
+" }}}
+
+" {{{ HASKELL-VIM
+
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
 " }}}
 
 " }}}
