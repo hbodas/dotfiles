@@ -36,14 +36,14 @@ radius = 0
 override-redirect = false
 
 ; background and foreground
-background = ${env:POLYBAR_BACKGROUND_80}
-foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
+background = ${env:POLYBAR_BACKGROUND_60}
+foreground = ${env:POLYBAR_FOREGROUND}
 
 ; margins around modules
 padding-left = 0
 padding-right = 2
 module-margin = 2
-separator = %{T2}%{T-} 
+separator = %{T2}%{T-}
 
 ; fonts
 font-0 = Anonymice Nerd Font Mono:size=10;2.5
@@ -114,14 +114,14 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%*
-label-focused-background = ${bar/top.background}
+label-focused-background = ${bar/top.foreground}
 label-focused-padding = 2
 
 label-occupied = %index%
 label-occupied-padding = 2
 
 label-urgent = %index%!
-label-urgent-background = ${bar/top.background}
+label-urgent-background = ${env:POLYBAR_COLOR1}
 label-urgent-padding = 2
 
 label-empty = %index%
@@ -145,11 +145,10 @@ label-mode-foreground = ${env:POLYBAR_BACKGROUND}
 label-mode-background = ${env:POLYBAR_COLOR3_LIGHT}
 
 ; focused = Active workspace on focused monitor
-label-focused = "%name%"
-label-focused-foreground = ${bar/top.foreground}
+label-focused = %name%
+label-focused-foreground = ${bar/top.background}
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-padding = ${module/bspwm.label-focused-padding}
-label-focused-overline = ${env:POLYBAR_FOREGROUND}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = "%name%"
@@ -166,7 +165,6 @@ label-visible-padding = ${self.label-focused-padding}
 label-urgent = %name%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
-label-urgent-overline = ${env:POLYBAR_COLOR2}
 
 /* }}} */
 
@@ -434,7 +432,7 @@ padding = 0
 /* {{{ module/empty */
 [module/empty]
 type = custom/text
-content = " " 
+content = " "
 /* }}} */
 
 /* {{{ settings */
