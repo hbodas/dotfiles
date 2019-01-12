@@ -36,8 +36,8 @@ radius = 0
 override-redirect = false
 
 ; background and foreground
-background = ${env:POLYBAR_BACKGROUND_60}
-foreground = ${env:POLYBAR_FOREGROUND}
+background = ${env:POLYBAR_BACKGROUND_80}
+foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
 
 ; margins around modules
 padding-left = 0
@@ -46,10 +46,10 @@ module-margin = 2
 separator = %{T2}%{T-}
 
 ; fonts
-font-0 = Anonymice Nerd Font Mono:size=10;2.5
-font-1 = MesloLGSDZ Nerd Font:size=13;3
-font-2 = MesloLGSDZ Nerd Font:size=19;4
-font-3 = ProFontWindows Nerd Font:size=10;3
+font-0 = Cousine for Powerline:size=9;2.5
+font-1 = MesloLGSDZ Nerd Font:size=8;2.5
+font-2 = MesloLGSDZ Nerd Font:size=13;3
+font-3 = MesloLGSDZ Nerd Font:size=19;4
 
 ; modules
 modules-left = i3

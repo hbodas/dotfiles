@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # time_color=ffffffbb
-fore=$(appres foo | grep foreground: | awk '{print $NF}')dd
+fore=$(appres foo | grep foreground: | awk '{print $NF}')ff
 back=$(appres foo | grep background: | awk '{print $NF}')88
-bshl=$(appres foo | grep color1: | awk '{print $NF}')dd
+bshl=$(appres foo | grep color1: | awk '{print $NF}')88
 trans='00000000'
 
 if [[ -z "$1" ]]; then
