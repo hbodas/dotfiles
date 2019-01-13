@@ -43,7 +43,7 @@ foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
 padding-left = 0
 padding-right = 2
 module-margin = 2
-separator = %{T2}%{T-}
+separator = %{T3}%{T-}
 
 ; fonts
 font-0 = Cousine for Powerline:size=9;2.5

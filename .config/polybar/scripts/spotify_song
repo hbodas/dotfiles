@@ -18,9 +18,9 @@ ltmp=
 rtmp=
 
 if [ "$player_status" = "Playing" ]; then
-    echo "$lbl$ltmp   契  $(playerctl metadata title) - $(playerctl metadata artist)   $rtmp$rbl"
+    echo "$lbl$ltmp契 $(playerctl metadata title) - $(playerctl metadata artist)   $rtmp$rbl"
 elif [ "$player_status" = "Paused" ]; then
-    echo "$lbl$ltmp     $(playerctl metadata title) - $(playerctl metadata artist)   $rtmp$rbl"
+    echo "$lbl$ltmp $(playerctl metadata title) - $(playerctl metadata artist)   $rtmp$rbl"
 else
     echo " "
 fi
