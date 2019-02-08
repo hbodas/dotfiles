@@ -47,7 +47,7 @@ default_border pixel 0
 
 # gaps settings
 gaps inner 5
-gaps outer 0
+gaps outer 10
 focus_wrapping yes
 
 # setting some colors
@@ -220,7 +220,7 @@ for_window [class="Spotify"] move container to workspace $ws9
 # {{{ STARTUP APPS
 
 # setting background image
-exec --no-startup-id feh --bg-scale $HOME/.config/i3/wall.png
+exec --no-startup-id feh --bg-fill $HOME/.config/i3/wall.png
 
 # compositor
 exec_always compton --config $HOME/.config/compton/compton.conf
@@ -241,14 +241,14 @@ exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift-gtk
 
 # wal
-exec_always wal -R
+# exec_always wal -R
 
 # polybar
 exec --no-startup-id $bar
 
 # scratchpad terminal
 for_window [instance="__scratchpad"] floating enable
-for_window [instance="__scratchpad"] resize 1400 800
+for_window [instance="__scratchpad"] resize 1600 1000
 for_window [instance="__scratchpad"] move scratchpad
 exec --no-startup-id urxvt -name __scratchpad
 # }}}

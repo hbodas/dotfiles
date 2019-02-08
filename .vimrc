@@ -3,13 +3,13 @@
 call plug#begin('~/.vim/plug')
 
 " pywal
-Plug 'dylanaraps/wal.vim'
+" Plug 'dylanaraps/wal.vim'
+
+" gruvbox
+Plug 'morhetz/gruvbox'
 
 " Nerd Commenter
 Plug 'scrooloose/nerdcommenter'
-
-" auto origami (fold column)
-Plug 'benknoble/vim-auto-origami'
 
 " surround
 Plug 'tpope/vim-surround'
@@ -33,16 +33,16 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " indent guides
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
 
 " multiple cursors
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 
 " tmux-vim-navigation
 Plug 'christoomey/vim-tmux-navigator'
 
 " haskell highlighting
-Plug 'neovimhaskell/haskell-vim'
+" Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 " }}}
@@ -57,8 +57,12 @@ set noshowmode
 set encoding=utf-8
 
 " set colorscheme
-syntax enable
-colorscheme wal
+" syntax enable
+" colorscheme wal
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+set t_Co=256
 
 " filetype plugins
 filetype indent on
@@ -212,19 +216,19 @@ let g:NERDRemoveExtraSpaces = 1
 let g:NERDTrimTrailingWhitespace = 1
 " }}}
 
-" {{{ VIM-AUTO-ORIGAMI
+" " {{{ VIM-AUTO-ORIGAMI
 
-" function to enable this plugin
-augroup autofoldcolumn
-  au!
+" " function to enable this plugin
+" augroup autofoldcolumn
+  " au!
 
-  " Or whatever autocmd-events you want
-  au CursorHold,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
-augroup END
+  " " Or whatever autocmd-events you want
+  " au CursorHold,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+" augroup END
 
-let g:auto_origami_foldcolumn=0
-let g:auto_origami_default=0
-" }}}
+" let g:auto_origami_foldcolumn=0
+" let g:auto_origami_default=0
+" " }}}
 
 " {{{ YOU COMPLETE ME
 
@@ -260,7 +264,7 @@ let g:ycm_python_binary_path = '/usr/bin/python'
 let g:airline_powerline_fonts = 1
 
 " theme setting
-let g:airline_theme = 'wal'
+let g:airline_theme = 'minimalist'
 
 " what sections get truncated and at what width
 let g:airline#extensions#default#section_truncate_width = {
@@ -290,10 +294,6 @@ let g:airline#extensions#tabline#show_close_button = 0
 " mappings to switch tabs
 nmap <leader>l <Plug>AirlineSelectNextTab
 nmap <leader>h <Plug>AirlineSelectPrevTab
-
-" fugitive tab
-let g:airline#extensions#branch#empty_message = ''
-let g:airline#extensions#branch#displayed_head_limit = 10
 
 " vimtex
 let g:airline#extensions#vimtex#enabled = 0
@@ -366,31 +366,35 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-l>'
 let g:UltiSnipsListSnippets = '<C-v>'
 " }}}
 
-" {{{ VIM-INDENT-GUIDES
+" " {{{ VIM-INDENT-GUIDES
 
-" guide width
-let g:indent_guides_guide_size = 1
+" " guide width
+" let g:indent_guides_guide_size = 1
 
-" guide start level
-let g:indent_guides_start_level = 2
+" " guide start level
+" let g:indent_guides_start_level = 2
 
-" enable plugin on vim startup
-let g:indent_guides_enable_on_vim_startup = 0
+" " enable plugin on vim startup
+" let g:indent_guides_enable_on_vim_startup = 0
 
-" set the indent guide colors
-hi IndentGuidesOdd  ctermbg=8
-hi IndentGuidesEven ctermbg=8
-" }}}
+" " set the indent guide colors
+" hi IndentGuidesOdd  ctermbg=8
+" hi IndentGuidesEven ctermbg=8
+" " }}}
 
-" {{{ HASKELL-VIM
+" " {{{ HASKELL-VIM
 
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+" let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+" let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+" let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+" let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+" let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+" let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+" let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+" " }}}
+
+" {{{ GRUVBOX
 
 " }}}
 

@@ -19,10 +19,14 @@ export TERMINAL=urxvt
 export READER=zathura
 
 # prompt
-PS1='\[\033[01;92m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[00m\]$ '
+PS1='\[\033[01;93m\]\w\[\033[00m\] \[\033[01;94m\]>\033[00m\] '
+
+# colors fix for tmux
+if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+
 
 # pywal settings 
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
 
 # export pywal colors
-~/.cache/wal/colors.sh
+# ~/.cache/wal/colors.sh

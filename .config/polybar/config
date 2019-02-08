@@ -22,6 +22,9 @@
 width = 1920
 height = 30
 
+; specify the monitor to use
+monitor = "eDP1"
+
 ; center
 fixed-center = false
 
@@ -36,8 +39,8 @@ radius = 0
 override-redirect = false
 
 ; background and foreground
-background = ${env:POLYBAR_BACKGROUND_80}
-foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
+background = ${env:POLYBAR_BACKGROUND}
+foreground = ${env:POLYBAR_FOREGROUND}
 
 ; margins around modules
 padding-left = 0
@@ -55,6 +58,63 @@ font-3 = MesloLGSDZ Nerd Font:size=19;4
 modules-left = i3
 modules-center = spotify
 modules-right = empty updates wlan cpu memory xbacklight volume battery time date
+
+; tray
+/* tray-position = right */
+/* tray-maxsize = 16 */
+/* tray-padding = 2 */
+/* tray-background = ${env:POLYBAR_BACKGROUND} */
+
+; line
+line-size = 2
+
+' inter-process messaging
+enable-ipc = true
+
+/* }}} */
+
+/* {{{ bar/top2 */
+[bar/top2]
+; dimensions for the bar
+width = 1920
+height = 30
+
+; specify the monitor to use
+monitor = "DP1"
+
+; center
+fixed-center = false
+
+; offset
+offset-x = 0
+offset-y = 0
+
+; corners
+radius = 0
+
+; location
+override-redirect = false
+
+; background and foreground
+background = ${env:POLYBAR_BACKGROUND}
+foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
+
+; margins around modules
+padding-left = 0
+padding-right = 2
+module-margin = 2
+separator = %{T3}%{T-}
+
+; fonts
+font-0 = Cousine for Powerline:size=9;2.5
+font-1 = MesloLGSDZ Nerd Font:size=8;2.5
+font-2 = MesloLGSDZ Nerd Font:size=13;3
+font-3 = MesloLGSDZ Nerd Font:size=19;4
+
+; modules
+modules-left = i3
+modules-center = spotify
+modules-right = empty wlan cpu memory volume battery time date
 
 ; tray
 /* tray-position = right */
@@ -142,7 +202,7 @@ wrapping-scroll = false
 
 label-mode-padding = 0
 label-mode-foreground = ${env:POLYBAR_BACKGROUND}
-label-mode-background = ${env:POLYBAR_COLOR3_LIGHT}
+label-mode-background = ${env:POLYBAR_COLOR3}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
@@ -158,7 +218,7 @@ label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
-label-visible-background = ${self.label-focused-background}
+label-visible-background = ${env:POLYBAR_BACKGROUND_LIGHT}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -420,7 +480,7 @@ padding = 0
 type = custom/script
 exec = ~/.config/polybar/scripts/volume
 tail = false
-interval = 1
+interval = 0.1
 
 format = <label>
 label = %output%

@@ -1,7 +1,4 @@
-rofi.theme: rofi-custom 
+rofi.theme: ~/.config/rofi/gruvbox_custom.rasi
 
-rofi.font: sans 13
+rofi.font: mono 12
 rofi.blur-background = true
-rofi.fullscreen: false
-rofi.lines: 12
-rofi.width: 50%
