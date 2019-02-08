@@ -2,6 +2,12 @@
 
 # This script is used to detect the current audio sink, so the appropriate icon
 # can be selected for the volume module
+
+# getting the colors
+iconcolor=$(grep "color6 #" ~/.config/polybar/poly_colors | awk '{print $NF}')
+mutecolor=$(grep "foreground-dark #" ~/.config/polybar/poly_colors | awk '{print $NF}')
+
+# the main script
 blue=$(pacmd list-sinks | grep -e 'name:' -e 'index:' | grep -A2 \*)
 
 if [[ $blue == *"bluez"* ]]
@@ -11,12 +17,15 @@ then
 else
     blue=$(pacmd list-sinks | grep active)
     if [[ $blue == *"headphone"* ]]
-    then 
-        icon=
-    else 
-        icon=墳
+    then icon=
+    else icon=墳
     fi
-    vol=" $(pamixer --get-volume)% "
+    mute=$(pamixer --get-mute)
+    if [[ $mute == "false" ]]
+    then vol="$(pamixer --get-volume)%"
+    else vol="%{F$mutecolor}mute%{F-}"
+    fi
+
 fi
 
 
@@ -25,7 +34,4 @@ fi
 # MIDDLESEP="%{B$POLYBAR_COLOR5}%{F$POLYBAR_COLOR5_DARK}%{T2}%{T-}%{F-}%{B-}"
 # echo $FIRST_SEP$FIRST$MIDDLESEP
 
-color=$(grep "color6 #" ~/.config/polybar/poly_colors | awk '{print $NF}')
-ico=%{F$color}$icon%{F-}
-
-echo $ico$vol
+echo "%{F$iconcolor}$icon%{F-} $vol"

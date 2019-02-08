@@ -5,18 +5,20 @@ if [[ -f ~/.config/i3/lock.png ]]; then
     rm ~/.config/i3/lock.png
 fi
 
+feh -q --bg-fill ~/.config/i3/wall.png
+
 # make it your background and whatnot
-wal -c
-wal --backend wal -i ~/.config/i3/wall.png -q
+# wal -c
+# wal --backend wal -i ~/.config/i3/wall.png -q
 
 # make the shell script executable
-chmod +x ~/.cache/wal/colors.sh
+# chmod +x ~/.cache/wal/colors.sh
 
 # dump colors to a file
-polybar_colors > ~/.config/polybar/poly_colors
+# polybar_colors > ~/.config/polybar/poly_colors
 
 # restart polybar
-nohup polybar_start &
+# nohup polybar_start &
 
 # reload i3
-i3-msg reload &
+# i3-msg reload &
