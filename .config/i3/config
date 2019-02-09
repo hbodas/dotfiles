@@ -47,7 +47,7 @@ default_border pixel 0
 
 # gaps settings
 gaps inner 5
-gaps outer 10
+gaps outer 0
 focus_wrapping yes
 
 # setting some colors
