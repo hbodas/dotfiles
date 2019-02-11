@@ -1,7 +1,7 @@
 # i3 config file (v4)
 
 # {{{ GENERAL
-font pango: Noto Sans 11
+font pango: sans 8
 
 # default applications
 set $term urxvt

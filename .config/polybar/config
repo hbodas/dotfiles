@@ -20,7 +20,7 @@
 [bar/top]
 ; dimensions for the bar
 width = 1920
-height = 30
+height = 25
 
 ; specify the monitor to use
 monitor = "eDP1"
@@ -49,7 +49,8 @@ module-margin = 2
 separator = %{T3}%{T-}
 
 ; fonts
-font-0 = Cousine for Powerline:size=9;2.5
+/* font-0 = Cousine for Powerline:size=9;2.5 */
+font-0 = Fantasque Sans Mono Nerd Font:size=9.25;2.5
 font-1 = MesloLGSDZ Nerd Font:size=8;2.5
 font-2 = MesloLGSDZ Nerd Font:size=13;3
 font-3 = MesloLGSDZ Nerd Font:size=19;4
@@ -97,7 +98,7 @@ override-redirect = false
 
 ; background and foreground
 background = ${env:POLYBAR_BACKGROUND}
-foreground = ${env:POLYBAR_FOREGROUND_LIGHT}
+foreground = ${env:POLYBAR_FOREGROUND}
 
 ; margins around modules
 padding-left = 0

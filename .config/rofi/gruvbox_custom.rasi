@@ -17,7 +17,7 @@
     scrollbar: true;
 
     /* Gruvbox dark colors */
-    gruvbox-dark-bg0-soft:     #32302f;
+    gruvbox-dark-bg0-soft:     #32302fa0;
     gruvbox-dark-bg1:          #3c3836;
     gruvbox-dark-bg3:          #665c54;
     gruvbox-dark-fg0:          #fbf1c7;
@@ -60,8 +60,9 @@
 }
 
 window {
-    background-color: 		@background;
-    border:   				2;
+    background-color: 		@transparent;
+    border-color:               @gruvbox-dark-bg1;
+    border:   				1;
     padding: 				0;
 }
 
@@ -71,11 +72,13 @@ mainbox {
 }
 
 textbox {
+    background-color: 		@transparent;
     highlight:  @highlight;
     text-color: @foreground;
 }
 
 listview {
+    background-color: 		@transparent;
     fixed-height: 			0;
     border:       			2px 0px 0px ;
     border-color: 			@separatorcolor;
@@ -84,6 +87,7 @@ listview {
 }
 
 element {
+    background-color: 		@transparent;
     border:  				0;
     border-radius:                      20;
     padding: 				7 30 7;
@@ -135,23 +139,29 @@ element.alternate.active {
 }
 
 scrollbar {
+    background-color: 		@normal-background;
     width:        			4px ;
     border:       			0;
     handle-width: 			8px ;
     padding:      			0;
+    background:                         @transparent;
+    foreground:                         @transparent;
 }
 
 sidebar {
+    background-color: 		@normal-background;
     border:       			2px 0px 0px ;
     border-color: 			@separatorcolor;
 }
 
 button.selected {
+    background-color: 		@normal-background;
     background-color: 		@selected-normal-background;
     text-color:       		@selected-normal-foreground;
 }
 
 inputbar {
+    background-color: 		@normal-background;
     spacing:    			0;
     text-color: 			@normal-foreground;
     padding:    			1.5% ;
@@ -159,22 +169,26 @@ inputbar {
 }
 
 case-indicator {
+    background-color: 		@normal-background;
     spacing:    			0;
     text-color: 			@normal-foreground;
 }
 
 entry {
+    background-color: 		@normal-background;
     spacing:    			0;
     text-color: 			@normal-foreground;
 }
 
 prompt, button{
     spacing:    			0;
+    background-color: 		@normal-background;
     text-color: 			@normal-foreground;
 }
 
 textbox-prompt-colon {
     expand: false;
+    background-color: 		@normal-background;
     str: " >  ";
     text-color: @normal-foreground;
 }
