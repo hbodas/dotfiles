@@ -20,7 +20,7 @@
 [bar/top]
 ; dimensions for the bar
 width = 1920
-height = 25
+height = 27
 
 ; specify the monitor to use
 monitor = "eDP1"
