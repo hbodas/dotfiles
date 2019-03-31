@@ -15,7 +15,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 
 " YouCompleteMe
-Plug 'Valloric/YouCompleteMe' , {'do': './install.py --clang-completer', 'for' : 'tex'}
+" Plug 'Valloric/YouCompleteMe' , {'do': './install.py --clang-completer', 'for' : 'tex'}
 
 " Vimtex
 Plug 'lervag/vimtex', {'for' : 'tex'}
@@ -230,33 +230,33 @@ let g:NERDTrimTrailingWhitespace = 1
 " let g:auto_origami_default=0
 " " }}}
 
-" {{{ YOU COMPLETE ME
+" " {{{ YOU COMPLETE ME
 
-" minimum number of characters to trigger identifier based completer. High value
-" to effectively turn it off
-let g:ycm_min_num_of_chars_for_completion = 1
+" " minimum number of characters to trigger identifier based completer. High value
+" " to effectively turn it off
+" let g:ycm_min_num_of_chars_for_completion = 1
 
-" minimum number of characters in suggestions
-let g:ycm_min_num_identifier_candidate_chars = 2
+" " minimum number of characters in suggestions
+" let g:ycm_min_num_identifier_candidate_chars = 2
 
-" maximum number of candidates settings
-let g:ycm_max_num_candidates = 20
+" " maximum number of candidates settings
+" let g:ycm_max_num_candidates = 20
 
-" disable filepath completion
-let g:ycm_filepath_blacklist = {
-      \ 'tex' : 1,
-      \ 'bib' : 1
-      \ }
+" " disable filepath completion
+" let g:ycm_filepath_blacklist = {
+      " \ 'tex' : 1,
+      " \ 'bib' : 1
+      " \ }
 
-" use YCM with tex
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-endif
-autocmd filetype tex let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+" " use YCM with tex
+" if !exists('g:ycm_semantic_triggers')
+    " let g:ycm_semantic_triggers = {}
+" endif
+" autocmd filetype tex let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
-" using with python
-let g:ycm_python_binary_path = '/usr/bin/python'
-" }}}
+" " using with python
+" let g:ycm_python_binary_path = '/usr/bin/python'
+" " }}}
 
 " {{{ AIRLINE
 

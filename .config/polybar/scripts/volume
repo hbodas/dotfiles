@@ -28,10 +28,4 @@ else
 
 fi
 
-
-# FIRST_SEP="%{B$POLYBAR_BACKGROUND}%{F$POLYBAR_COLOR5}%{T2}%{T-}%{F-}%{B-}"
-# FIRST="%{B$POLYBAR_COLOR5} $icon %{B-}"
-# MIDDLESEP="%{B$POLYBAR_COLOR5}%{F$POLYBAR_COLOR5_DARK}%{T2}%{T-}%{F-}%{B-}"
-# echo $FIRST_SEP$FIRST$MIDDLESEP
-
 echo "%{F$iconcolor}$icon%{F-} $vol"
