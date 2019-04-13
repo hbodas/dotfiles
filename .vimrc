@@ -2,9 +2,6 @@
 " {{{ PLUGINS
 call plug#begin('~/.vim/plug')
 
-" pywal
-" Plug 'dylanaraps/wal.vim'
-
 " gruvbox
 Plug 'morhetz/gruvbox'
 
@@ -13,9 +10,6 @@ Plug 'scrooloose/nerdcommenter'
 
 " surround
 Plug 'tpope/vim-surround'
-
-" YouCompleteMe
-" Plug 'Valloric/YouCompleteMe' , {'do': './install.py --clang-completer', 'for' : 'tex'}
 
 " Vimtex
 Plug 'lervag/vimtex', {'for' : 'tex'}
@@ -32,17 +26,8 @@ Plug 'SirVer/ultisnips'
 " snippets for ultisnips
 Plug 'honza/vim-snippets'
 
-" indent guides
-" Plug 'nathanaelkane/vim-indent-guides'
-
-" multiple cursors
-" Plug 'terryma/vim-multiple-cursors'
-
 " tmux-vim-navigation
 Plug 'christoomey/vim-tmux-navigator'
-
-" haskell highlighting
-" Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 " }}}
@@ -216,48 +201,6 @@ let g:NERDRemoveExtraSpaces = 1
 let g:NERDTrimTrailingWhitespace = 1
 " }}}
 
-" " {{{ VIM-AUTO-ORIGAMI
-
-" " function to enable this plugin
-" augroup autofoldcolumn
-  " au!
-
-  " " Or whatever autocmd-events you want
-  " au CursorHold,BufWinEnter * let &foldcolumn = auto_origami#Foldcolumn()
-" augroup END
-
-" let g:auto_origami_foldcolumn=0
-" let g:auto_origami_default=0
-" " }}}
-
-" " {{{ YOU COMPLETE ME
-
-" " minimum number of characters to trigger identifier based completer. High value
-" " to effectively turn it off
-" let g:ycm_min_num_of_chars_for_completion = 1
-
-" " minimum number of characters in suggestions
-" let g:ycm_min_num_identifier_candidate_chars = 2
-
-" " maximum number of candidates settings
-" let g:ycm_max_num_candidates = 20
-
-" " disable filepath completion
-" let g:ycm_filepath_blacklist = {
-      " \ 'tex' : 1,
-      " \ 'bib' : 1
-      " \ }
-
-" " use YCM with tex
-" if !exists('g:ycm_semantic_triggers')
-    " let g:ycm_semantic_triggers = {}
-" endif
-" autocmd filetype tex let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-
-" " using with python
-" let g:ycm_python_binary_path = '/usr/bin/python'
-" " }}}
-
 " {{{ AIRLINE
 
 " use powerline fonts
@@ -364,38 +307,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-l>'
 
 " view snippets
 let g:UltiSnipsListSnippets = '<C-v>'
-" }}}
-
-" " {{{ VIM-INDENT-GUIDES
-
-" " guide width
-" let g:indent_guides_guide_size = 1
-
-" " guide start level
-" let g:indent_guides_start_level = 2
-
-" " enable plugin on vim startup
-" let g:indent_guides_enable_on_vim_startup = 0
-
-" " set the indent guide colors
-" hi IndentGuidesOdd  ctermbg=8
-" hi IndentGuidesEven ctermbg=8
-" " }}}
-
-" " {{{ HASKELL-VIM
-
-" let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-" let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-" let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-" let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-" let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-" let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-" let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
-
-" " }}}
-
-" {{{ GRUVBOX
-
 " }}}
 
 " }}}
