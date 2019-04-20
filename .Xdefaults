@@ -1,10 +1,10 @@
 !! Appearance
 ! URxvt.font: xft:Inconsolata Nerd Font Mono:pixelsize=16
-URxvt.font: xft:Meslo LGSDZ Nerd Font Mono:pixelsize=13
-! URxvt.font: xft:Fantasque Sans Mono Nerd Font Mono:pixelsize=13
-! URxvt.font: xft:Roboto Mono Light for Powerline:pixelsize=14
+! URxvt.font: xft:Meslo LGSDZ Nerd Font Mono:pixelsize=13
+URxvt.font: xft:Fantasque Sans Mono Nerd Font Mono:pixelsize=16
+! URxvt.font: xft:Roboto Mono for Powerline:pixelsize=14
 URxvt.scrollBar: false
-URxvt.depth: 256
+URxvt.depth: 32
 URxvt*saveLines:0
 
 !! extensions for urxvt
@@ -18,12 +18,12 @@ URxvt.keysym.C-question:  resize-font:show
 
 ! You can also configure the number of steps to take when changing the size:
 URxvt.resize-font.step: 1
-
 URxvt.internalBorder: 10
 
 ! gruvbox
 ! hard contrast: *background: #1d2021
 *background: #1d2021
+URxvt.background: [70]#000000
 ! *background: #282828
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
