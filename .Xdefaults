@@ -1,7 +1,7 @@
 !! Appearance
 ! URxvt.font: xft:Inconsolata Nerd Font Mono:pixelsize=16
-! URxvt.font: xft:Meslo LGSDZ Nerd Font Mono:pixelsize=13
-URxvt.font: xft:Fantasque Sans Mono Nerd Font Mono:pixelsize=16
+URxvt.font: xft:Meslo LGSDZ Nerd Font Mono:pixelsize=13
+! URxvt.font: xft:Fantasque Sans Mono Nerd Font Mono:pixelsize=16
 ! URxvt.font: xft:Roboto Mono for Powerline:pixelsize=14
 URxvt.scrollBar: false
 URxvt.depth: 32
@@ -23,7 +23,7 @@ URxvt.internalBorder: 10
 ! gruvbox
 ! hard contrast: *background: #1d2021
 *background: #1d2021
-URxvt.background: [60]#000000
+URxvt.background: [60]#1d2021
 ! *background: #282828
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
