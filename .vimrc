@@ -29,6 +29,9 @@ Plug 'honza/vim-snippets'
 " tmux-vim-navigation
 Plug 'christoomey/vim-tmux-navigator'
 
+" After-colors for colorscheme modifications
+Plug 'vim-scripts/AfterColors.vim'
+
 call plug#end()
 " }}}
 
@@ -42,12 +45,15 @@ set noshowmode
 set encoding=utf-8
 
 " set colorscheme
-" syntax enable
-" colorscheme wal
 colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark = 'hard'
 set t_Co=256
+
+augroup vimrc
+    autocmd!
+    autocmd ColorScheme * highlight Folded ctermbg=None
+augroup END
 
 " filetype plugins
 filetype indent on
