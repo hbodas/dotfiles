@@ -15,7 +15,7 @@ export PATH=$PATH":$HOME/bin:$HOME/.local/bin"
 # other variables 
 export EDITOR=vim
 export BROWSER=firefox
-export TERMINAL=urxvt
+export TERMINAL=termite
 export READER=zathura
 
 # prompt

@@ -4,8 +4,8 @@
 font pango: sans 8
 
 # default applications
-set $term urxvt
-# set $term termite
+# set $term urxvt
+set $term termite
 set $browser firefox
 set $file_manager urxvt -e ranger
 set $launcher rofi -show run
