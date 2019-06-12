@@ -4,8 +4,8 @@
 # can be selected for the volume module
 
 # getting the colors
-iconcolor=$(grep "color6 #" ~/.config/polybar/poly_colors | awk '{print $NF}')
-mutecolor=$(grep "foreground-dark #" ~/.config/polybar/poly_colors | awk '{print $NF}')
+iconcolor=$(grep "color6:" ~/.Xdefaults | awk '{print $NF}')
+mutecolor=$(grep "color8:" ~/.Xdefaults | awk '{print $NF}')
 
 # the main script
 blue=$(pacmd list-sinks | grep -e 'name:' -e 'index:' | grep -A2 \*)
