@@ -1,15 +1,17 @@
 [options]
-#allow_bold = true
+allow_bold = true
+# bold_is_bright = true
 #audible_bell = false
-#clickable_url = true
+clickable_url = true
+cursor_blink=on
 #dynamic_title = true
 font = Inconsolata Nerd Font 12
-#fullscreen = true
+fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
-#mouse_autohide = false
-#scroll_on_output = false
-#scroll_on_keystroke = true
+mouse_autohide = true
+scroll_on_output = false
+scroll_on_keystroke = true
 # Length of the scrollback buffer, 0 disabled the scrollback buffer
 # and setting it to a negative value means "infinite scrollback"
 scrollback_lines = 10000

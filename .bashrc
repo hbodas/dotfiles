@@ -15,14 +15,15 @@ export PATH=$PATH":$HOME/bin:$HOME/.local/bin"
 # other variables 
 export EDITOR=vim
 export BROWSER=firefox
-export TERMINAL=termite
+export TERM=screen-256color
 export READER=zathura
 
 # prompt
+export PROMPT_DIRTRIM=2
 PS1='\[\033[01;93m\]\w\[\033[00m\] \[\033[01;94m\]>\033[00m\] '
 
 # colors fix for tmux
-if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+[ -n "$TMUX" ] && export TERM=screen-256color
 
 
 # pywal settings 

@@ -7,6 +7,7 @@ alias yrs="yay -Rs"
 alias upd="yay && polybar-msg cmd restart"
 
 # sudo vim alias
+alias vi="vim"
 alias svim="sudoedit"
 
 # alias for ls

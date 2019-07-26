@@ -1,13 +1,13 @@
 # i3 config file (v4)
 
 # {{{ GENERAL
-font pango: sans 8
+font pango: sans 10
 
 # default applications
 # set $term urxvt
 set $term termite
 set $browser firefox
-set $file_manager urxvt -e ranger
+set $file_manager termite -e ranger
 set $launcher rofi -show run
 set $bar polybar_start
 
@@ -27,7 +27,7 @@ default_border pixel 0
 # hide_edge_borders no
 
 # gaps settings
-gaps inner 5
+gaps inner 3
 gaps outer 0
 focus_wrapping yes
 
@@ -231,6 +231,6 @@ exec --no-startup-id $bar
 for_window [instance="__scratchpad"] floating enable
 for_window [instance="__scratchpad"] resize 1600 1000
 for_window [instance="__scratchpad"] move scratchpad
-exec --no-startup-id urxvt -name __scratchpad
+exec --no-startup-id termite --name="__scratchpad"
 # }}}
 
