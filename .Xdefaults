@@ -23,7 +23,7 @@ URxvt.internalBorder: 10
 ! gruvbox
 ! hard contrast: *background: #1d2021
 *background: #1d2021
-URxvt.background: [80]#1d2021
+URxvt.background: [100]#1d2021
 ! *background: #282828
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
