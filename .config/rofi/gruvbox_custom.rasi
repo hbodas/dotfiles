@@ -17,10 +17,10 @@
     scrollbar: true;
 
     /* Gruvbox dark colors */
-    gruvbox-dark-bg0-soft:     #32302f50;
+    gruvbox-dark-bg0-soft:     #32302fd0;
     gruvbox-dark-bg0-soft2:     #32302f;
     gruvbox-dark-bg1:          #3c3836;
-    gruvbox-dark-bg3:          #665c5450;
+    gruvbox-dark-bg3:          #665c54d0;
     gruvbox-dark-fg0:          #fbf1c7;
     gruvbox-dark-fg1:          #ebdbb2;
     gruvbox-dark-red-dark:     #cc241d;

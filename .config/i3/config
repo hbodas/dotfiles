@@ -27,7 +27,7 @@ default_border pixel 0
 # hide_edge_borders no
 
 # gaps settings
-gaps inner 20
+gaps inner 5
 gaps outer 0
 focus_wrapping yes
 
