@@ -5,6 +5,9 @@ call plug#begin('~/.vim/plug')
 " gruvbox
 Plug 'morhetz/gruvbox'
 
+" badwolf
+Plug 'sjl/badwolf'
+
 " Nerd Commenter
 Plug 'scrooloose/nerdcommenter'
 
@@ -44,10 +47,15 @@ set noshowmode
 " encoding
 set encoding=utf-8
 
-" set colorscheme
-colorscheme gruvbox
+" " set colorscheme gruvbox
+" colorscheme gruvbox
+" set background=dark
+" let g:gruvbox_contrast_dark = 'hard'
+" set t_Co=256
+
+" set colorscheme badwolf
+colorscheme badwolf
 set background=dark
-let g:gruvbox_contrast_dark = 'hard'
 set t_Co=256
 
 augroup vimrc
@@ -150,6 +158,11 @@ set lazyredraw
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
+
+" Enable Italics
+let &t_ZH = "\e[3m"
+let &t_ZR = "\e[23m"
+
 " }}}
 
 " {{{ GLOBAL KEYBINDINGS
@@ -213,7 +226,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:airline_powerline_fonts = 1
 
 " theme setting
-let g:airline_theme = 'minimalist'
+let g:airline_theme = 'badwolf'
 
 " what sections get truncated and at what width
 let g:airline#extensions#default#section_truncate_width = {
@@ -313,6 +326,16 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-l>'
 
 " view snippets
 let g:UltiSnipsListSnippets = '<C-v>'
+" }}}
+
+" {{{ BADWOLF
+
+" gutters are darker than the background
+let g:badwolf_darkgutter = 1
+
+" Make the tab line darker than the background.
+let g:badwolf_tabline = 0
+
 " }}}
 
 " }}}
