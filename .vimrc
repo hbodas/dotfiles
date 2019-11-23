@@ -14,8 +14,9 @@ Plug 'scrooloose/nerdcommenter'
 " surround
 Plug 'tpope/vim-surround'
 
-" Vimtex
+" Vimtex and concealing
 Plug 'lervag/vimtex', {'for' : 'tex'}
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -306,6 +307,14 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_fold_types = {
     \   'markers' : {'enabled' : 1}
     \ }
+
+let g:vimtex_quickfix_mode=0
+" }}}
+
+" {{{ TEX-CONCEAL
+set conceallevel=2
+let g:tex_conceal="abdgms"
+highlight clear Conceal
 " }}}
 
 " {{{ ULTISNIPS
