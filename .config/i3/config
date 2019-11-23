@@ -94,6 +94,7 @@ bindcode $alt+Shift+65 floating toggle
 
 # some launching
 bindsym $alt+Return $exec $term -e tmux
+bindsym $alt+t $exec $term
 bindsym $alt+Shift+q [con_id="__focused__" instance="^(?!__scratchpad).*$"] kill
 bindsym $win+d $exec $launcher
 bindsym $alt+f $exec $file_manager

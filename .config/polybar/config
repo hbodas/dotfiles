@@ -59,6 +59,7 @@ font-3 = MesloLGSDZ Nerd Font:size=19;4
 ; modules
 modules-left = i3
 modules-center = spotify
+/* modules-center =  */
 modules-right = empty updates wlan cpu memory xbacklight volume battery time date
 
 ; tray
