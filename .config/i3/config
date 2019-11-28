@@ -93,7 +93,7 @@ floating_modifier $alt
 bindcode $alt+Shift+65 floating toggle
 
 # some launching
-bindsym $alt+Return $exec $term -e tmux
+bindsym $alt+Return $exec $term -e "env TERM=screen-256color-it tmux"
 bindsym $alt+t $exec $term
 bindsym $alt+Shift+q [con_id="__focused__" instance="^(?!__scratchpad).*$"] kill
 bindsym $win+d $exec $launcher

@@ -16,7 +16,7 @@ Plug 'tpope/vim-surround'
 
 " Vimtex and concealing
 Plug 'lervag/vimtex', {'for' : 'tex'}
-Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+Plug 'Konfekt/tex-conceal.vim', {'for': 'tex'}
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -62,6 +62,7 @@ set t_Co=256
 augroup vimrc
     autocmd!
     autocmd ColorScheme * highlight Folded ctermbg=None
+    autocmd ColorScheme * highlight clear CursorLineNr
 augroup END
 
 " filetype plugins
@@ -113,6 +114,9 @@ set confirm
 "show line numbers on the left
 set number
 
+" highlight current line
+set cursorline
+
 " number of undo levels
 set undolevels=1000
 
@@ -124,8 +128,8 @@ set undodir=~/.vim/undo
 set so=10
 
 " line break at 80 characters and wrap
-set wrap
 set textwidth=80
+set wrap
 
 " viewoptions
 set viewoptions=folds,cursor,slash,unix

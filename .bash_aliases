@@ -15,7 +15,10 @@ alias ls="ls --color=auto"
 alias lsa="ls -Ahpls"
 
 # ranger
-alias ran='ranger'
+alias ran="ranger"
+
+# tmux
+alias tmux="env TERM=screen-256color-it tmux"
 
 # directory navigation
 alias ..="cd .."
@@ -24,9 +27,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias cdc="cd ~/documents/Courses"
-
-# visualboy
-alias vba="visualboyadvance-m"
 
 # check updates
 alias cu="check_updates"
