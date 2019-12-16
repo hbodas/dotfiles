@@ -312,7 +312,7 @@ let g:vimtex_fold_types = {
     \   'markers' : {'enabled' : 1}
     \ }
 
-let g:vimtex_quickfix_mode=0
+let g:vimtex_quickfix_mode=1
 " }}}
 
 " {{{ TEX-CONCEAL
