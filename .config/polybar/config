@@ -45,13 +45,13 @@ foreground = ${env:POLYBAR_FOREGROUND}
 ; margins around modules
 padding-left = 0
 padding-right = 1 
-module-margin = 2
-separator = %{T2}%{T-}
+module-margin = 2.5
+/* separator = %{T2}%{T-} */
 
 ; fonts
 /* font-0 = Cousine for Powerline:size=7.75;2.5 */
 /* font-1 = MesloLGSDZ Nerd Font:size=8;2.5 */
-font-0 = MesloLGSDZ Nerd Font:size=7.85;2.5
+font-0 = Monaco Nerd Font:size=8.5;2
 font-1 = MesloLGSDZ Nerd Font:size=8;2.5
 font-2 = MesloLGSDZ Nerd Font:size=13;3
 font-3 = MesloLGSDZ Nerd Font:size=19;4

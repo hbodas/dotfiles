@@ -219,6 +219,9 @@ exec --no-startup-id blueman-applet
 # geoclue
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 
+# dunst
+exec --no-startup-id dunst
+
 # redshift - two settings based on location
 exec --no-startup-id redshift-gtk
 

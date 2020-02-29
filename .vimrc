@@ -3,7 +3,7 @@
 call plug#begin('~/.vim/plug')
 
 " gruvbox
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
 
 " badwolf
 Plug 'sjl/badwolf'
