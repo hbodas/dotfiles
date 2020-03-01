@@ -20,13 +20,13 @@
 [bar/top]
 ; dimensions for the bar
 width = 1920
-height = 27
+height = 30
 
 ; specify the monitor to use
 monitor = "eDP1"
 
 ; center
-fixed-center = false
+fixed-center = true
 
 ; offset
 offset-x = 0
@@ -44,23 +44,23 @@ foreground = ${env:POLYBAR_FOREGROUND}
 
 ; margins around modules
 padding-left = 0
-padding-right = 1 
-module-margin = 2.5
+padding-right = 0
+module-margin = 0
 /* separator = %{T2}%{T-} */
 
 ; fonts
 /* font-0 = Cousine for Powerline:size=7.75;2.5 */
 /* font-1 = MesloLGSDZ Nerd Font:size=8;2.5 */
-font-0 = Monaco Nerd Font:size=8.5;2
-font-1 = MesloLGSDZ Nerd Font:size=8;2.5
+font-0 = Noto Mono for Powerline:size=10.5;3.25
+font-1 = MesloLGSDZ Nerd Font:size=9;2.5
 font-2 = MesloLGSDZ Nerd Font:size=13;3
-font-3 = MesloLGSDZ Nerd Font:size=19;4
+font-3 = MesloLGSDZ Nerd Font:size=18;4
 
 ; modules
-modules-left = i3
-modules-center = spotify
+modules-left = rofi time date spotify
+modules-center = i3
 /* modules-center =  */
-modules-right = empty updates wlan cpu memory xbacklight volume battery time date
+modules-right = wlan cpu memory xbacklight volume battery power
 
 ; tray
 /* tray-position = right */
@@ -80,7 +80,7 @@ enable-ipc = true
 [bar/top2]
 ; dimensions for the bar
 width = 1920
-height = 30
+height = 50
 
 ; specify the monitor to use
 monitor = "DP1"
@@ -177,14 +177,14 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%*
-label-focused-background = ${bar/top.foreground}
+label-focused-background = ${env:POLYBAR_FONT_LIGHT}
 label-focused-padding = 2
 
 label-occupied = %index%
 label-occupied-padding = 2
 
 label-urgent = %index%!
-label-urgent-background = ${env:POLYBAR_COLOR1}
+label-urgent-background = ${env:POLYBAR_BACKGROUND}
 label-urgent-padding = 2
 
 label-empty = %index%
@@ -199,36 +199,47 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+strip-wsnumbers = true
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
 label-mode-padding = 0
-label-mode-foreground = ${env:POLYBAR_BACKGROUND}
-label-mode-background = ${env:POLYBAR_COLOR3}
+label-mode-foreground = ${env:POLYBAR_FONT_DARK}
+label-mode-background = ${env:POLYBAR_FOREGROUND}
 
 ; focused = Active workspace on focused monitor
-label-focused = %name%
-label-focused-foreground = ${bar/top.background}
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused = %icon%
+label-focused-foreground = ${env:POLYBAR_SHADE2}
+label-focused-background = ${env:POLYBAR_BACKGROUND}
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = "%name%"
-label-unfocused-foreground = ${bar/top.foreground}
-label-unfocused-background = ${bar/top.background}
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused = %icon%
+label-unfocused-foreground = ${env:POLYBAR_FONT_LIGHT}
+label-unfocused-background = ${env:POLYBAR_BACKGROUND}
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %name%
-label-visible-background = ${env:POLYBAR_BACKGROUND_LIGHT}
-label-visible-padding = ${self.label-focused-padding}
+label-visible = %icon%
+label-visible-background = ${env:POLYBAR_BACKGROUND}
+label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %name%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent = %icon%
+label-urgent-background = ${env:POLYBAR_SHADE6}
+label-urgent-padding = 1
 
+ws-icon-0 = 1;%{T4}%{T-}
+ws-icon-1 = 2;%{T4}%{T-}
+ws-icon-2 = 3;%{T4}%{T-}
+ws-icon-3 = 4;%{T4}%{T-}
+ws-icon-4 = 5;%{T4}%{T-}
+ws-icon-5 = 6;%{T4}%{T-}
+ws-icon-6 = 7;%{T4}%{T-}
+ws-icon-7 = 8;%{T4}%{T-}
+ws-icon-8 = 9;%{T4}%{T-}
+ws-icon-default = ♟
 /* }}} */
 
 /* {{{ module/mpd */
@@ -251,12 +262,14 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = false
-format = <ramp> <label>
+format = "<ramp> <label>  "
+format-background = ${env:POLYBAR_SHADE4}
+label-foreground = ${env:POLYBAR_FONT_DARK}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${env:POLYBAR_COLOR5}
+ramp-0 = "  "
+ramp-1 = "  "
+ramp-2 = "  "
+ramp-foreground = ${env:POLYBAR_FONT_DARK}
 
 /* }}} */
 
@@ -268,13 +281,13 @@ card = intel_backlight
 
 /* }}} */
 
-/* {{{ module/cpu */
+/* {{{ module/cpu 
 [module/cpu]
 type = internal/cpu
 interval = 2
-label = %percentage%%
-format-prefix = "﬙ "
-format-prefix-foreground = ${env:POLYBAR_COLOR3}
+label = "   %percentage%%  "
+label-foreground = ${env:POLYBAR_FONT_DARK}
+label-background = ${env:POLYBAR_SHADE6}
 
 /* }}} */
 
@@ -282,9 +295,9 @@ format-prefix-foreground = ${env:POLYBAR_COLOR3}
 [module/memory]
 type = internal/memory
 interval = 2
-label = %percentage_used%%
-format-prefix = " "
-format-prefix-foreground = ${env:POLYBAR_COLOR4}
+label = "  柳 %percentage_used%%  "
+label-foreground = ${env:POLYBAR_FONT_DARK}
+label-background = ${env:POLYBAR_SHADE5}
 
 /* }}} */
 
@@ -295,14 +308,14 @@ interface = wlp58s0
 interval = 2
 
 format-connected = <label-connected>
-label-connected = "%essid%"
-format-connected-prefix = "直 "
-format-connected-prefix-foreground = ${env:POLYBAR_COLOR2}
+label-connected = "  直 %essid%  "
+label-connected-foreground = ${env:POLYBAR_FONT_DARK}
+label-connected-background = ${env:POLYBAR_SHADE7}
 
 format-disconnected = <label-disconnected>
-label-disconnected = "---"
-format-disconnected-prefix = "睊 "
-format-disconnected-prefix-foreground = ${env:POLYBAR_COLOR2}
+label-disconnected = "  睊 ---  "
+label-disconnected-foreground = ${env:POLYBAR_FONT_LIGHT}
+label-disconnected-background = ${env:POLYBAR_SHADE6}
 
 /* }}} */
 
@@ -332,9 +345,9 @@ interval = 1
 time = %I:%M
 date =
 
-label = %time%
-format-prefix = " "
-format-prefix-foreground = ${env:POLYBAR_COLOR2}
+label = "   %time%  "
+label-background = ${env:POLYBAR_SHADE2}
+label-foreground = ${env:POLYBAR_FONT_DARK}
 
 /* }}} */
 
@@ -346,9 +359,9 @@ interval = 1
 time =
 date = %a, %d %b %Y
 
-label = %date%
-format-prefix = " "
-format-prefix-foreground = ${env:POLYBAR_COLOR3}
+label = "   %date%  "
+label-background = ${env:POLYBAR_SHADE3}
+label-foreground = ${env:POLYBAR_FONT_DARK}
 
 /* }}} */
 
@@ -411,24 +424,27 @@ adapter = AC
 time-format = %H:%M
 
 format-charging = <label-charging>
-label-charging = %percentage%% (%time%)
-format-charging-prefix = " "
-format-charging-prefix-foreground = ${env:POLYBAR_COLOR1}
+label-charging = "   %percentage%% (%time%)  "
+label-charging-background = ${env:POLYBAR_SHADE2}
+label-charging-foreground = ${env:POLYBAR_FONT_DARK}
 
-format-discharging = <ramp-capacity> <label-discharging>
-label-discharging = %percentage%% (%time%)
-format-full-prefix = " "
-format-full-prefix-foreground = ${env:POLYBAR_COLOR1}
+format-discharging = <ramp-capacity><label-discharging>
+label-discharging = " %percentage%% (%time%)  "
+label-discharging-background = ${env:POLYBAR_SHADE2}
+label-discharging-foreground = ${env:POLYBAR_FONT_DARK}
 
 format-full = <label-full>
 label-full = 100%
+label-full-background = ${env:POLYBAR_SHADE2}
+label-full-foreground = ${env:POLYBAR_FONT_DARK}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = ${env:POLYBAR_COLOR1}
+ramp-capacity-0 = "  "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
+ramp-capacity-3 = "  "
+ramp-capacity-4 = "  "
+ramp-capacity-foreground = ${env:POLYBAR_FONT_DARK}
+ramp-capacity-background = ${env:POLYBAR_SHADE2}
 
 /* }}} */
 
@@ -472,7 +488,9 @@ tail = false
 interval = 1
 
 format = <label>
-label = %output%
+label = "  %output%  "
+label-background = ${env:POLYBAR_SHADE4}
+label-foreground = ${env:POLYBAR_FONT_DARK}
 
 padding = 0
 
@@ -487,6 +505,8 @@ interval = 0.1
 
 format = <label>
 label = %output%
+label-foreground = ${env:POLYBAR_FONT_LIGHT}
+label-background = ${env:POLYBAR_SHADE3}
 
 padding = 0
 
@@ -497,6 +517,31 @@ padding = 0
 type = custom/text
 content = " "
 /* }}} */
+
+/*{{{*/ module/rofi
+[module/rofi]
+type = custom/text
+content = "  %{T3}%{T-}  "
+content-background = ${env:POLYBAR_SHADE1}
+content-foreground = ${env:POLYBAR_FONT_DARK}
+click-left = rofi -show run
+click-middle = rofi -show run
+click-right = rofi -show run
+/*}}}*/
+
+/*{{{*/ module/power
+[module/power]
+type = custom/menu
+label-open = "  ⏻  "
+menu-0-1 = "suspend"
+menu-0-0 = "lock"
+menu-0-3 = "restart"
+menu-0-2 = "shut down"
+label-close = " "
+label-separator = " "
+label-open-background = ${env:POLYBAR_SHADE1}
+label-open-foreground = ${env:POLYBAR_FONT_DARK}
+/*}}}*/
 
 /* {{{ settings */
 [settings]

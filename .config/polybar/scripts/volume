@@ -4,8 +4,8 @@
 # can be selected for the volume module
 
 # getting the colors
-iconcolor=$(grep "color6:" ~/.Xdefaults | awk '{print $NF}')
-mutecolor=$(grep "color8:" ~/.Xdefaults | awk '{print $NF}')
+iconcolor=#0f0f0f
+mutecolor=#0f0f0f
 
 # the main script
 blue=$(pacmd list-sinks | grep -e 'name:' -e 'index:' | grep -A2 \*)
@@ -23,9 +23,9 @@ else
     mute=$(pamixer --get-mute)
     if [[ $mute == "false" ]]
     then vol="$(pamixer --get-volume)%"
-    else vol="%{F$mutecolor}mute%{F-}"
+    else vol="mute"
     fi
 
 fi
 
-echo "%{F$iconcolor}$icon%{F-} $vol"
+echo "  %{F$iconcolor}$icon $vol%{F-}  "
