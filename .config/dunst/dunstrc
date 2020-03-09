@@ -1,0 +1,73 @@
+
+[global]
+    monitor = 0
+    follow = mouse
+    geometry = "300x3-30+60"
+    indicate_hidden = yes
+    shrink = no
+    notification_height = 0
+    separator_height = 5
+    padding = 10
+    horizontal_padding = 20
+    frame_width = 2
+    frame_color = "#F8F8F2"
+    separator_color = frame
+    sort = true
+    idle_threshold = 0
+    font = Monaco Nerd Font 10
+    line_height = 6
+    markup = full
+
+    # figure this out
+    format = "<b>%a</b>\n%s\n%b"
+
+    alignment = left
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicates_count = false
+    show_indicators = true
+    icon_position = left
+    min_icon_size = 0 
+    max_icon_size = 30
+    icon_path = "~/.config/dunst/icons/"
+    history_length = 20
+    browser = firefox
+    corner_radius = 2
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+mod1+space
+
+[urgency_low]
+    timeout = 1
+    background = "#44475A"
+    foreground = "#F8F8F2"
+
+[urgency_normal]
+    timeout = 3
+    background = "#44475A"
+    foreground = "#F8F8F2"
+
+[urgency_critical]
+    timeout = 0
+    background = "#ff5555"
+    foreground = "#F8F8F2"
+
+[slack]
+    appname = "Slack"
+    new_icon = "~/.config/dunst/icons/slack.png"
+    format = "%s\n%b"
+
+[spotify]
+    appname = "Spotify"
+    new_icon = "~/.config/dunst/icons/spotify.png"
+    format = "%s\n%b"
+    timeout = 1
+
+[firefox]
+    appname = "Firefox"
+    new_icon = "~/.config/dunst/icons/firefox.png"
+    format = "%s\n%b"
+
