@@ -4,8 +4,7 @@
 # can be selected for the volume module
 
 # getting the colors
-iconcolor=#0f0f0f
-mutecolor=#0f0f0f
+iconcolor=$POLYBAR_FONT_LIGHT
 
 # the main script
 blue=$(pacmd list-sinks | grep -e 'name:' -e 'index:' | grep -A2 \*)

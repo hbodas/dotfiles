@@ -1,4 +1,5 @@
-rofi.theme: ~/.config/rofi/gruvbox_custom.rasi
+rofi.theme: ~/.config/rofi/dracula_base16.rasi
+/* rofi.theme: ~/.config/rofi/gruvbox_custom.rasi */
 
-rofi.font: mono 12
+rofi.font: sans 12
 rofi.blur-background = true

@@ -2,11 +2,13 @@
 " {{{ PLUGINS
 call plug#begin('~/.vim/plug')
 
-" gruvbox
-" Plug 'morhetz/gruvbox'
-
-" badwolf
+" colors
+Plug 'dikiaap/minimalist'
+Plug 'morhetz/gruvbox'
 Plug 'sjl/badwolf'
+Plug 'jnurmine/Zenburn'
+Plug 'ayu-theme/ayu-vim'
+Plug 'dracula/vim'
 
 " Nerd Commenter
 Plug 'scrooloose/nerdcommenter'
@@ -48,16 +50,19 @@ set noshowmode
 " encoding
 set encoding=utf-8
 
-" " set colorscheme gruvbox
+" " " set colorscheme gruvbox
 " colorscheme gruvbox
 " set background=dark
 " let g:gruvbox_contrast_dark = 'hard'
 " set t_Co=256
 
-" set colorscheme badwolf
-colorscheme badwolf
-set background=dark
-set t_Co=256
+" " set colorscheme badwolf
+" colorscheme badwolf
+" set background=dark
+" set t_Co=256
+
+" color
+colorscheme dracula
 
 augroup vimrc
     autocmd!
@@ -231,7 +236,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:airline_powerline_fonts = 1
 
 " theme setting
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'dracula'
 
 " what sections get truncated and at what width
 let g:airline#extensions#default#section_truncate_width = {

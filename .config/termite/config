@@ -5,7 +5,7 @@ bold_is_bright = true
 clickable_url = true
 cursor_blink=on
 #dynamic_title = true
-font = Inconsolata Nerd Font Mono 12
+font = VictorMono Nerd Font Mono SemiBold 11
 fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
@@ -51,48 +51,50 @@ scrollback_lines = 10000
 #background = #3f3f3f
 
 # 20% background transparency (requires a compositor)
-background = rgba(10, 10, 10, 0.80)
+background = rgba(10, 10, 10, 1.00)
 
 # If unset, will reverse foreground and background
 highlight = #2f2f2f
 
 [colors]
 
-foreground = #f4e3ba
-foreground_bold = #ebdbb2
+# special
+foreground      = #f8f8f2
+foreground_bold = #f8f8f2
+cursor          = #f8f8f2
+background      = #282a36
 
-# dark0 + gray
-color0 = #141413 
-color8 = #000000
+# black
+color0  = #000000
+color8  = #4d4d4d
 
-# neutral_red + bright_red
-color1 = #ff2c4b
-color9 = #ff2c4b
+# red
+color1  = #ff5555
+color9  = #ff6e67
 
-# neutral_green + bright_green
-color2 = #aeee00
-color10 = #aeee00
+# green
+color2  = #50fa7b
+color10 = #5af78e
 
-# neutral_yellow + bright_yellow
-color3 = #fade3e
-color11 = #ffa724
+# yellow
+color3  = #f1fa8c
+color11 = #f4f99d
 
-# neutral_blue + bright_blue
-color4 = #0a9dff
-color12 = #0a9dff
+# blue
+color4  = #bd93f9
+color12 = #caa9fa
 
-# neutral_purple + bright_purple
-color5 = #ff9eb8
-color13 = #ff9eb8
+# magenta
+color5  = #ff79c6
+color13 = #ff92d0
 
-# neutral_aqua + faded_aqua
-color6 = #8cffba
-color14 = #8cffba
+# cyan
+color6  = #8be9fd
+color14 = #9aedfe
 
-# light4 + light1
-color7 = #d9cec3
-color15 = #ffffff
-
+# white
+color7  = #bfbfbf
+color15 = #e6e6e6
 
 [hints]
 #font = Monospace 12
@@ -100,7 +102,7 @@ color15 = #ffffff
 #background = #3f3f3f
 #active_foreground = #e68080
 #active_background = #3f3f3f
-#padding = 2
+# padding = 10
 #border = #3f3f3f
 #border_width = 0.5
 #roundness = 2.0

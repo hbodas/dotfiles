@@ -205,12 +205,12 @@ strip-wsnumbers = true
 ;pin-workspaces = true
 
 label-mode-padding = 0
-label-mode-foreground = ${env:POLYBAR_FONT_DARK}
+label-mode-foreground = ${env:POLYBAR_FONT_LIGHT}
 label-mode-background = ${env:POLYBAR_FOREGROUND}
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-foreground = ${env:POLYBAR_SHADE2}
+label-focused-foreground = ${env:POLYBAR_SHADE4}
 label-focused-background = ${env:POLYBAR_BACKGROUND}
 label-focused-padding = 1
 
@@ -264,12 +264,12 @@ type = internal/xbacklight
 enable-scroll = false
 format = "<ramp> <label>  "
 format-background = ${env:POLYBAR_SHADE4}
-label-foreground = ${env:POLYBAR_FONT_DARK}
+label-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 ramp-0 = "  "
 ramp-1 = "  "
 ramp-2 = "  "
-ramp-foreground = ${env:POLYBAR_FONT_DARK}
+ramp-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 /* }}} */
 
@@ -286,7 +286,7 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 label = "   %percentage%%  "
-label-foreground = ${env:POLYBAR_FONT_DARK}
+label-foreground = ${env:POLYBAR_FONT_LIGHT}
 label-background = ${env:POLYBAR_SHADE6}
 
 /* }}} */
@@ -296,7 +296,7 @@ label-background = ${env:POLYBAR_SHADE6}
 type = internal/memory
 interval = 2
 label = "  柳 %percentage_used%%  "
-label-foreground = ${env:POLYBAR_FONT_DARK}
+label-foreground = ${env:POLYBAR_FONT_LIGHT}
 label-background = ${env:POLYBAR_SHADE5}
 
 /* }}} */
@@ -309,7 +309,7 @@ interval = 2
 
 format-connected = <label-connected>
 label-connected = "  直 %essid%  "
-label-connected-foreground = ${env:POLYBAR_FONT_DARK}
+label-connected-foreground = ${env:POLYBAR_FONT_LIGHT}
 label-connected-background = ${env:POLYBAR_SHADE7}
 
 format-disconnected = <label-disconnected>
@@ -342,12 +342,12 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-time = %I:%M
+time = %I:%M %p
 date =
 
-label = "   %time%  "
+label = "  %time%  "
 label-background = ${env:POLYBAR_SHADE2}
-label-foreground = ${env:POLYBAR_FONT_DARK}
+label-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 /* }}} */
 
@@ -357,11 +357,11 @@ type = internal/date
 interval = 1
 
 time =
-date = %a, %d %b %Y
+date = %a, %b %d %Y
 
-label = "   %date%  "
+label = "  %date%  "
 label-background = ${env:POLYBAR_SHADE3}
-label-foreground = ${env:POLYBAR_FONT_DARK}
+label-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 /* }}} */
 
@@ -426,24 +426,24 @@ time-format = %H:%M
 format-charging = <label-charging>
 label-charging = "   %percentage%% (%time%)  "
 label-charging-background = ${env:POLYBAR_SHADE2}
-label-charging-foreground = ${env:POLYBAR_FONT_DARK}
+label-charging-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 format-discharging = <ramp-capacity><label-discharging>
 label-discharging = " %percentage%% (%time%)  "
 label-discharging-background = ${env:POLYBAR_SHADE2}
-label-discharging-foreground = ${env:POLYBAR_FONT_DARK}
+label-discharging-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 format-full = <label-full>
-label-full = 100%
+label-full = "   100%  "
 label-full-background = ${env:POLYBAR_SHADE2}
-label-full-foreground = ${env:POLYBAR_FONT_DARK}
+label-full-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 ramp-capacity-0 = "  "
 ramp-capacity-1 = "  "
 ramp-capacity-2 = "  "
 ramp-capacity-3 = "  "
 ramp-capacity-4 = "  "
-ramp-capacity-foreground = ${env:POLYBAR_FONT_DARK}
+ramp-capacity-foreground = ${env:POLYBAR_FONT_LIGHT}
 ramp-capacity-background = ${env:POLYBAR_SHADE2}
 
 /* }}} */
@@ -490,7 +490,7 @@ interval = 1
 format = <label>
 label = "  %output%  "
 label-background = ${env:POLYBAR_SHADE4}
-label-foreground = ${env:POLYBAR_FONT_DARK}
+label-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 padding = 0
 
@@ -523,7 +523,7 @@ content = " "
 type = custom/text
 content = "  %{T3}%{T-}  "
 content-background = ${env:POLYBAR_SHADE1}
-content-foreground = ${env:POLYBAR_FONT_DARK}
+content-foreground = ${env:POLYBAR_FONT_LIGHT}
 click-left = rofi -show run
 click-middle = rofi -show run
 click-right = rofi -show run
@@ -540,7 +540,7 @@ menu-0-2 = "shut down"
 label-close = " "
 label-separator = " "
 label-open-background = ${env:POLYBAR_SHADE1}
-label-open-foreground = ${env:POLYBAR_FONT_DARK}
+label-open-foreground = ${env:POLYBAR_FONT_LIGHT}
 /*}}}*/
 
 /* {{{ settings */
