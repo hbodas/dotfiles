@@ -86,7 +86,7 @@ height = 30
 monitor = "DP1"
 
 ; center
-fixed-center = false
+fixed-center = true
 
 ; offset
 offset-x = 0
