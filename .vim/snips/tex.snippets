@@ -17,20 +17,24 @@ snippet pre "The preamble snippet" b
 % Course: ${5:course code}
 % Homework number: ${6:hwnum}
 
-`!p
+`!p 
+rstr = ''
 pth = vim.eval('expand("%:p")')
 revpath = pth[::-1]
 pfile = pth[:(len(pth) - revpath.find("/",revpath.find("/")+1))] + \
 "preamble.txt"
-te = open(pfile, "r")
-contents = te.read()
-replacements = {
-    "***name***" : str(t[3]),
-    "***andrewid***" : str(t[4]),
-    "***class***" : str(t[5]),
-    "***hwnum***" : str(t[6])
-    }
-snip.rv = replace(contents,replacements)
+try: 
+    te = open(pfile, "r")
+    contents = te.read()
+    replacements = {
+	"***name***" : str(t[3]),
+	"***andrewid***" : str(t[4]),
+	"***class***" : str(t[5]),
+	"***hwnum***" : str(t[6])
+	}
+    snip.rv = replace(contents,replacements)
+except:
+    snip.rv = "\\usepackage{hb_math}\n\n\\begin{document}\\\n"
 `
 ${0:write stuff here}
 

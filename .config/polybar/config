@@ -51,8 +51,8 @@ module-margin = 0
 ; fonts
 /* font-0 = Cousine for Powerline:size=7.75;2.5 */
 /* font-1 = MesloLGSDZ Nerd Font:size=8;2.5 */
-font-0 = Noto Mono for Powerline:size=10.5;3.25
-font-1 = MesloLGSDZ Nerd Font:size=9;2.5
+font-0 = VictorMono Nerd Font Mono:size=10.5;3.25
+font-1 = MesloLGSDZ Nerd Font:size=10;2.5
 font-2 = MesloLGSDZ Nerd Font:size=13;3
 font-3 = MesloLGSDZ Nerd Font:size=18;4
 
@@ -60,7 +60,7 @@ font-3 = MesloLGSDZ Nerd Font:size=18;4
 modules-left = rofi time date spotify
 modules-center = i3
 /* modules-center =  */
-modules-right = wlan cpu memory xbacklight volume battery power
+modules-right = wlan cpu memory xbacklight volume battery
 
 ; tray
 /* tray-position = right */
@@ -80,7 +80,7 @@ enable-ipc = true
 [bar/top2]
 ; dimensions for the bar
 width = 1920
-height = 50
+height = 30
 
 ; specify the monitor to use
 monitor = "DP1"
@@ -104,20 +104,23 @@ foreground = ${env:POLYBAR_FOREGROUND}
 
 ; margins around modules
 padding-left = 0
-padding-right = 2
-module-margin = 2
-separator = %{T3}%{T-}
+padding-right = 0
+module-margin = 0
+/* separator = %{T3}%{T-} */
 
 ; fonts
-font-0 = Cousine for Powerline:size=9;2.5
-font-1 = MesloLGSDZ Nerd Font:size=8;2.5
+/* font-0 = Cousine for Powerline:size=7.75;2.5 */
+/* font-1 = MesloLGSDZ Nerd Font:size=8;2.5 */
+font-0 = VictorMono Nerd Font Mono:size=10.5;3.25
+font-1 = MesloLGSDZ Nerd Font:size=10;2.5
 font-2 = MesloLGSDZ Nerd Font:size=13;3
-font-3 = MesloLGSDZ Nerd Font:size=19;4
+font-3 = MesloLGSDZ Nerd Font:size=18;4
 
 ; modules
-modules-left = i3
-modules-center = spotify
-modules-right = empty wlan cpu memory volume battery time date
+modules-left = rofi time date spotify
+modules-center = i3
+/* modules-center =  */
+modules-right = wlan cpu memory xbacklight volume battery
 
 ; tray
 /* tray-position = right */
@@ -263,7 +266,7 @@ label-song-ellipsis = true
 type = internal/xbacklight
 enable-scroll = false
 format = "<ramp> <label>  "
-format-background = ${env:POLYBAR_SHADE4}
+format-background = ${env:POLYBAR_SHADE3}
 label-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 ramp-0 = "  "
@@ -287,7 +290,7 @@ type = internal/cpu
 interval = 2
 label = "   %percentage%%  "
 label-foreground = ${env:POLYBAR_FONT_LIGHT}
-label-background = ${env:POLYBAR_SHADE6}
+label-background = ${env:POLYBAR_SHADE5}
 
 /* }}} */
 
@@ -297,7 +300,7 @@ type = internal/memory
 interval = 2
 label = "  柳 %percentage_used%%  "
 label-foreground = ${env:POLYBAR_FONT_LIGHT}
-label-background = ${env:POLYBAR_SHADE5}
+label-background = ${env:POLYBAR_SHADE4}
 
 /* }}} */
 
@@ -310,7 +313,7 @@ interval = 2
 format-connected = <label-connected>
 label-connected = "  直 %essid%  "
 label-connected-foreground = ${env:POLYBAR_FONT_LIGHT}
-label-connected-background = ${env:POLYBAR_SHADE7}
+label-connected-background = ${env:POLYBAR_SHADE6}
 
 format-disconnected = <label-disconnected>
 label-disconnected = "  睊 ---  "
@@ -425,17 +428,17 @@ time-format = %H:%M
 
 format-charging = <label-charging>
 label-charging = "   %percentage%% (%time%)  "
-label-charging-background = ${env:POLYBAR_SHADE2}
+label-charging-background = ${env:POLYBAR_SHADE1}
 label-charging-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 format-discharging = <ramp-capacity><label-discharging>
 label-discharging = " %percentage%% (%time%)  "
-label-discharging-background = ${env:POLYBAR_SHADE2}
+label-discharging-background = ${env:POLYBAR_SHADE1}
 label-discharging-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 format-full = <label-full>
 label-full = "   100%  "
-label-full-background = ${env:POLYBAR_SHADE2}
+label-full-background = ${env:POLYBAR_SHADE1}
 label-full-foreground = ${env:POLYBAR_FONT_LIGHT}
 
 ramp-capacity-0 = "  "
@@ -444,7 +447,7 @@ ramp-capacity-2 = "  "
 ramp-capacity-3 = "  "
 ramp-capacity-4 = "  "
 ramp-capacity-foreground = ${env:POLYBAR_FONT_LIGHT}
-ramp-capacity-background = ${env:POLYBAR_SHADE2}
+ramp-capacity-background = ${env:POLYBAR_SHADE1}
 
 /* }}} */
 
@@ -506,7 +509,7 @@ interval = 0.1
 format = <label>
 label = %output%
 label-foreground = ${env:POLYBAR_FONT_LIGHT}
-label-background = ${env:POLYBAR_SHADE3}
+label-background = ${env:POLYBAR_SHADE2}
 
 padding = 0
 
