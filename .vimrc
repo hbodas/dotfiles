@@ -203,8 +203,8 @@ inoremap ;r <++>
 nnoremap ;r i<++><Esc>l
 
 " navigate to next guide
-inoremap ;e <Esc>/<++><Enter><Esc>:noh<Enter>4xa
-nnoremap ;e /<++><Enter><Esc>:noh<Enter>4xa
+inoremap ;e <Esc>/<++><Enter><Esc>:noh<Enter>4xi
+nnoremap ;e /<++><Enter><Esc>:noh<Enter>4xi
 
 " unhighlight, cause it's annoying
 nnoremap nh :noh<cr>

@@ -23,11 +23,11 @@ set $exec exec
 set $execa exec_always
 
 # border settings
-default_border pixel 5
+default_border pixel 0
 # hide_edge_borders no
 
 # gaps settings
-gaps inner 20
+gaps inner :
 gaps outer 0
 focus_wrapping yes
 
@@ -127,7 +127,7 @@ bindsym $alt+c fullscreen toggle
 bindsym $alt+s layout stacked
 bindsym $alt+w layout tabbed
 bindsym $alt+e layout toggle split
-bindsym $alt+a focus parent
+bindsym $alt+n focus parent
 
 # reloading and restarting i3
 bindsym $alt+Shift+c reload
@@ -150,6 +150,9 @@ bindsym $win+Shift+s exec --no-startup-id systemctl poweroff -i
 
 # scratchpad stuff - will have a terminal window
 bindsym F12 scratchpad show
+
+# move a workspace to the next? display
+bindsym $alt+Tab move workspace to output right
 # }}}
 
 # {{{ WORKSPACE

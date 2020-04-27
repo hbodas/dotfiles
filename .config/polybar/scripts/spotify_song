@@ -12,15 +12,15 @@ player_status=$(playerctl status 2> /dev/null)
 # rbl="%{B$trans}%{F$polyback}%{T3}%{T-}%{F-}%{B-}"
 # ltmp="%{B$polyback}%{F$polyfore}"
 # rtmp="%{B-}%{F-}"
-lbl=
-rbl=
-ltmp=
-rtmp=
+lt="%{B$POLYBAR_ORSHADE4}%{F$POLYBAR_ORSHADE3}%{T5}%{T-}%{F-}%{B-}%{B$POLYBAR_ORSHADE4}%{F$POLYBAR_FONT_FORE}"
+rt="%{B-}%{F-}%{B$POLYBAR_BACKGROUND}%{F$POLYBAR_ORSHADE4}%{T5}%{T-}%{F-}%{B-}"
 
 if [ "$player_status" = "Playing" ]; then
-    echo " $(playerctl metadata title) - $(playerctl metadata artist)"
+    outstr="  $(playerctl metadata title) - $(playerctl metadata artist) "
 elif [ "$player_status" = "Paused" ]; then
-    echo " $(playerctl metadata title) - $(playerctl metadata artist)"
+    outstr="  $(playerctl metadata title) - $(playerctl metadata artist) "
 else
-    echo " "
+    outstr=" "
 fi
+
+echo "$lt`echo $outstr|cut -c1-50`$rt"

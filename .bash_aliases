@@ -4,7 +4,7 @@ source ~/.bash_secrets
 # yay aliases
 alias ys="yay -S"
 alias yrs="yay -Rs"
-alias upd="yay && polybar-msg cmd restart"
+alias upd="yay"
 
 # sudo vim alias
 alias vi="vim"

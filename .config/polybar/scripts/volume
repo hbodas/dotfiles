@@ -4,7 +4,7 @@
 # can be selected for the volume module
 
 # getting the colors
-iconcolor=$POLYBAR_FONT_LIGHT
+iconcolor=$POLYBAR_FONT_FORE
 
 # the main script
 blue=$(pacmd list-sinks | grep -e 'name:' -e 'index:' | grep -A2 \*)
@@ -27,4 +27,4 @@ else
 
 fi
 
-echo "  %{F$iconcolor}$icon $vol%{F-}  "
+echo " %{F$iconcolor}$icon $vol%{F-}  "
