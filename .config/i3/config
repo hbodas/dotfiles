@@ -23,11 +23,11 @@ set $exec exec
 set $execa exec_always
 
 # border settings
-default_border pixel 0
+default_border pixel 5
 # hide_edge_borders no
 
 # gaps settings
-gaps inner :
+gaps inner 30
 gaps outer 0
 focus_wrapping yes
 

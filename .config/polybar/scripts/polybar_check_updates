@@ -30,6 +30,5 @@ AUR=$(echo $UPD | awk '{print $3}')
 # get the right color
 color=$(cat ~/.config/polybar/poly_colors | grep "color1 " | awk '{print $NF}')
 
-
 # regular label
-echo "$REPOS  %{F$color}%{F-}  $AUR"
+echo "  $REPOS / $AUR"

@@ -36,7 +36,7 @@ shade8 = ${env:POLYBAR_ORSHADE8}
 [bar/top]
 ; dimensions for the bar
 width = 1920
-height = 30
+height = 32
 
 ; specify the monitor to use
 monitor = "eDP1"
@@ -59,23 +59,24 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 ; margins around modules
-padding-left = 0
-padding-right = 0
-module-margin = 0
+padding-left = 4
+padding-right = 4
+module-margin = 3
+/* separator = %{T3}|%{T-} */
 
 ; fonts
-/* font-0 = Cousine for Powerline:size=7.75;2.5 */
 /* font-1 = MesloLGSDZ Nerd Font:size=8;2.5 */
-font-0 = VictorMono Nerd Font Mono:size=11;3.25
-font-1 = MesloLGSDZ Nerd Font:size=11;2.5
+/* font-0 = VictorMono Nerd Font Mono:size=11;3.25 */
+font-0 = SF UI Display:size=12;3.25
+font-1 = MesloLGSDZ Nerd Font:size=12;3.5
 font-2 = MesloLGSDZ Nerd Font:size=13;3
 font-3 = MesloLGSDZ Nerd Font:size=18;4
 font-4 = Inconsolata for Powerline:size=26;5
 
 ; modules
-modules-left = rofi sep_r12 time sep_r23 date spotify 
-modules-center = i3
-modules-right = sep_l60 wlan sep_l56 cpu sep_l45 memory sep_l34 xbacklight sep_l23 volume sep_l12 battery
+modules-left = date i3
+modules-center = spotify
+modules-right = updates wlan cpu memory xbacklight volume battery 
 
 ; tray
 /* tray-position = right */
@@ -118,24 +119,24 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 ; margins around modules
-padding-left = 0
-padding-right = 0
-module-margin = 0
-/* separator = %{T3}%{T-} */
+padding-left = 2
+padding-right = 2
+module-margin = 3
+/* separator = %{T3}|%{T-} */
 
 ; fonts
-/* font-0 = Cousine for Powerline:size=7.75;2.5 */
 /* font-1 = MesloLGSDZ Nerd Font:size=8;2.5 */
-font-0 = VictorMono Nerd Font Mono:size=10.5;3.25
-font-1 = MesloLGSDZ Nerd Font:size=10;2.5
+/* font-0 = VictorMono Nerd Font Mono:size=11;3.25 */
+font-0 = SF UI Display:size=12;3.25
+font-1 = MesloLGSDZ Nerd Font:size=10;3.25
 font-2 = MesloLGSDZ Nerd Font:size=13;3
 font-3 = MesloLGSDZ Nerd Font:size=18;4
+font-4 = Inconsolata for Powerline:size=26;5
 
 ; modules
-modules-left = rofi time date spotify
+modules-left = rofi date
 modules-center = i3
-/* modules-center =  */
-modules-right = wlan cpu memory volume battery
+modules-right = wlan cpu memory xbacklight volume battery
 
 ; tray
 /* tray-position = right */
@@ -167,27 +168,28 @@ label-mode-foreground = ${colors.font_fore}
 label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
-label-focused = %icon%
-label-focused-foreground = ${colors.shade4}
-label-focused-background = ${colors.background}
-label-focused-padding = 1
+/* label-focused = %icon% */
+label-focused = %index%
+label-focused-foreground = ${colors.font_fore}
+label-focused-background = ${colors.foreground}
+label-focused-padding = 3
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon%
+label-unfocused = %index%
 label-unfocused-foreground = ${colors.font_back}
 label-unfocused-background = ${colors.background}
-label-unfocused-padding = 1
+label-unfocused-padding = 3
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %icon%
-label-visible-background = ${colors.shade4}
+label-visible = %index%
+label-visible-background = ${colors.foreground}
 label-visible-foreground = ${colors.font_fore}
-label-visible-padding = 1
+label-visible-padding = 3
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %icon%
+label-urgent = %index% 
 label-urgent-background = ${colors.shade6}
-label-urgent-padding = 1
+label-urgent-padding = 3
 
 ws-icon-0 = 1;%{T4}%{T-}
 ws-icon-1 = 2;%{T4}%{T-}
@@ -221,14 +223,14 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = false
-format = " <ramp> <label>  "
-format-background = ${colors.shade3}
-label-foreground = ${colors.font_fore}
+format = "<ramp>  <label>"
+/* format-background = ${colors.shade3} */
+label-foreground = ${colors.font_back}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.font_fore}
+ramp-foreground = ${colors.font_back}
 
 /* }}} */
 
@@ -244,9 +246,9 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 1
-label = "  %percentage%%  "
-label-foreground = ${colors.font_fore}
-label-background = ${colors.shade5}
+label = "   %percentage%%  "
+label-foreground = ${colors.font_back}
+/* label-background = ${colors.shade5} */
 
 /* }}} */
 
@@ -254,9 +256,9 @@ label-background = ${colors.shade5}
 [module/memory]
 type = internal/memory
 interval = 1
-label = " 柳 %percentage_used%%  "
-label-foreground = ${colors.font_fore}
-label-background = ${colors.shade4}
+label = " 柳  %percentage_used%%  "
+label-foreground = ${colors.font_back}
+/* label-background = ${colors.shade4} */
 
 /* }}} */
 
@@ -267,14 +269,14 @@ interface = wlp58s0
 interval = 2
 
 format-connected = <label-connected>
-label-connected = " 直 %essid%  "
-label-connected-foreground = ${colors.font_fore}
-label-connected-background = ${colors.shade6}
+label-connected = " 直  %essid%  "
+label-connected-foreground = ${colors.font_back}
+/* label-connected-background = ${colors.shade6} */
 
 format-disconnected = <label-disconnected>
 label-disconnected = " 睊 ---  "
-label-disconnected-foreground = ${colors.font_fore}
-label-disconnected-background = ${colors.shade6}
+label-disconnected-foreground = ${colors.font_back}
+/* label-disconnected-background = ${colors.shade6} */
 
 /* }}} */
 
@@ -287,8 +289,8 @@ time = %I:%M %p
 date =
 
 label = "  %time% "
-label-background = ${colors.shade2}
-label-foreground = ${colors.font_fore}
+/* label-background = ${colors.shade2} */
+label-foreground = ${colors.font_back}
 
 /* }}} */
 
@@ -297,12 +299,15 @@ label-foreground = ${colors.font_fore}
 type = internal/date
 interval = 1
 
-time =
-date = %a, %b %d %Y
+/* time = */
+time = %l:%M
+time-alt = %l:%M %p
+date = %b %d, 
+date-alt = %a, %b %d %Y, 
 
-label = "  %date% "
-label-background = ${colors.shade3}
-label-foreground = ${colors.font_fore}
+label = "%date% %time%"
+/* label-background = ${colors.shade3} */
+label-foreground = ${colors.font_back}
 
 /* }}} */
 
@@ -365,27 +370,27 @@ adapter = AC
 time-format = %H:%M
 
 format-charging = <label-charging>
-label-charging = "  %percentage%% (%time%)  "
-label-charging-background = ${colors.shade1}
-label-charging-foreground = ${colors.font_fore}
+label-charging =  %percentage%% (%time%)
+/* label-charging-background = ${colors.shade1} */
+label-charging-foreground = ${colors.font_back}
 
 format-discharging = <ramp-capacity><label-discharging>
-label-discharging = "%percentage%% (%time%)  "
-label-discharging-background = ${colors.shade1}
-label-discharging-foreground = ${colors.font_fore}
+label-discharging = "%percentage%% (%time%)"
+/* label-discharging-background = ${colors.shade1} */
+label-discharging-foreground = ${colors.font_back}
 
 format-full = <label-full>
-label-full = "  100%  "
-label-full-background = ${colors.shade1}
-label-full-foreground = ${colors.font_fore}
+label-full = " 100%"
+/* label-full-background = ${colors.shade1} */
+label-full-foreground = ${colors.font_back}
 
-ramp-capacity-0 = "  "
-ramp-capacity-1 = "  "
-ramp-capacity-2 = "  "
-ramp-capacity-3 = "  "
-ramp-capacity-4 = "  "
-ramp-capacity-foreground = ${colors.font_fore}
-ramp-capacity-background = ${colors.shade1}
+ramp-capacity-0 = "  "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
+ramp-capacity-3 = "  "
+ramp-capacity-4 = "  "
+ramp-capacity-foreground = ${colors.font_back}
+/* ramp-capacity-background = ${colors.shade1} */
 
 /* }}} */
 
@@ -429,8 +434,8 @@ interval = 1
 
 format = <label>
 label = %output%
-label-background = ${colors.shade4}
-label-foreground = ${colors.font_fore}
+/* label-background = ${colors.shade4} */
+label-foreground = ${colors.font_back}
 
 padding = 0
 
@@ -445,8 +450,8 @@ interval = 0.1
 
 format = <label>
 label = %output%
-label-foreground = ${colors.font_fore}
-label-background = ${colors.shade2}
+label-foreground = ${colors.font_back}
+/* label-background = ${colors.shade2} */
 
 padding = 0
 
@@ -456,8 +461,8 @@ padding = 0
 [module/rofi]
 type = custom/text
 content = " %{T3}%{T-}"
-content-background = ${colors.shade1}
-content-foreground = ${colors.font_fore}
+/* content-background = ${colors.shade1} */
+content-foreground = ${colors.font_back}
 click-left = rofi -show run
 click-middle = rofi -show run
 click-right = rofi -show run

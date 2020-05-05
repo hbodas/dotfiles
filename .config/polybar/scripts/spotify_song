@@ -12,8 +12,10 @@ player_status=$(playerctl status 2> /dev/null)
 # rbl="%{B$trans}%{F$polyback}%{T3}%{T-}%{F-}%{B-}"
 # ltmp="%{B$polyback}%{F$polyfore}"
 # rtmp="%{B-}%{F-}"
-lt="%{B$POLYBAR_ORSHADE4}%{F$POLYBAR_ORSHADE3}%{T5}%{T-}%{F-}%{B-}%{B$POLYBAR_ORSHADE4}%{F$POLYBAR_FONT_FORE}"
-rt="%{B-}%{F-}%{B$POLYBAR_BACKGROUND}%{F$POLYBAR_ORSHADE4}%{T5}%{T-}%{F-}%{B-}"
+# lt="%{B$POLYBAR_ORSHADE4}%{F$POLYBAR_ORSHADE3}%{T5}%{T-}%{F-}%{B-}%{B$POLYBAR_ORSHADE4}%{F$POLYBAR_FONT_FORE} "
+# rt=" %{B-}%{F-}%{B$POLYBAR_BACKGROUND}%{F$POLYBAR_ORSHADE4}%{T5}%{T-}%{F-}%{B-}"
+lt=
+rt=
 
 if [ "$player_status" = "Playing" ]; then
     outstr="  $(playerctl metadata title) - $(playerctl metadata artist) "
