@@ -51,50 +51,50 @@ scrollback_lines = 10000
 #background = #3f3f3f
 
 # 20% background transparency (requires a compositor)
-background = rgba(10, 10, 10, 1.00)
+# background = rgba(10, 10, 10, 1.0)
 
 # If unset, will reverse foreground and background
-highlight = #2f2f2f
+# highlight = #2f2f2f
 
 [colors]
-
 # special
 foreground      = #f8f8f2
 foreground_bold = #f8f8f2
 cursor          = #f8f8f2
-background      = #282a36
+# background      = #282a36
+background      = rgba(40, 42, 54, 0.6)
 
 # black
 color0  = #000000
-color8  = #4d4d4d
+color8  = #5c5c61
 
 # red
-color1  = #ff5555
-color9  = #ff6e67
+color1  = #ec3a37
+color9  = #ec3a37
 
 # green
-color2  = #50fa7b
-color10 = #5af78e
+color2  = #75e44c
+color10 = #3ad900
 
 # yellow
-color3  = #f1fa8c
-color11 = #f4f99d
+color3  = #fad000
+color11 = #fad000
 
 # blue
-color4  = #bd93f9
-color12 = #caa9fa
+color4  = #6943ff
+color12 = #6943ff
 
 # magenta
-color5  = #ff79c6
-color13 = #ff92d0
+color5  = #ff2c70
+color13 = #fb94ff
 
 # cyan
-color6  = #8be9fd
-color14 = #9aedfe
+color6  = #80fcff
+color14 = #80fcff
 
 # white
-color7  = #bfbfbf
-color15 = #e6e6e6
+color7  = #ffffff
+color15 = #2d2b55
 
 [hints]
 #font = Monospace 12
@@ -102,9 +102,9 @@ color15 = #e6e6e6
 #background = #3f3f3f
 #active_foreground = #e68080
 #active_background = #3f3f3f
-# padding = 10
+padding = 30
 #border = #3f3f3f
 #border_width = 0.5
-#roundness = 2.0
+roundness = 2.0
 
 # vim: ft=dosini cms=#%s

@@ -20,6 +20,7 @@
 [colors]
 foreground = ${env:POLYBAR_FOREGROUND}
 background = ${env:POLYBAR_BACKGROUND}
+background_light = ${env:POLYBAR_BACKGROUND_LIGHT}
 font_fore = ${env:POLYBAR_FONT_FORE}
 font_back = ${env:POLYBAR_FONT_BACK}
 shade1 = ${env:POLYBAR_ORSHADE1}
@@ -119,9 +120,9 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 ; margins around modules
-padding-left = 2
-padding-right = 2
-module-margin = 3
+padding-left = 6
+padding-right = 6
+module-margin = 4
 /* separator = %{T3}|%{T-} */
 
 ; fonts
@@ -134,9 +135,9 @@ font-3 = MesloLGSDZ Nerd Font:size=18;4
 font-4 = Inconsolata for Powerline:size=26;5
 
 ; modules
-modules-left = rofi date
-modules-center = i3
-modules-right = wlan cpu memory xbacklight volume battery
+modules-left = date i3
+modules-center = spotify
+modules-right = updates wlan cpu memory xbacklight volume battery
 
 ; tray
 /* tray-position = right */
@@ -161,7 +162,7 @@ wrapping-scroll = false
 strip-wsnumbers = true
 
 ; Only show workspaces on the same output as the bar
-pin-workspaces = true
+pin-workspaces = false
 
 label-mode-padding = 0
 label-mode-foreground = ${colors.font_fore}
@@ -182,8 +183,8 @@ label-unfocused-padding = 3
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
-label-visible-background = ${colors.foreground}
-label-visible-foreground = ${colors.font_fore}
+label-visible-background = ${colors.background_light}
+label-visible-foreground = ${colors.font_back}
 label-visible-padding = 3
 
 ; urgent = Workspace with urgency hint set

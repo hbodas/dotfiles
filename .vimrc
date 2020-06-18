@@ -3,12 +3,13 @@
 call plug#begin('~/.vim/plug')
 
 " colors
-Plug 'dikiaap/minimalist'
-Plug 'morhetz/gruvbox'
-Plug 'sjl/badwolf'
-Plug 'jnurmine/Zenburn'
-Plug 'ayu-theme/ayu-vim'
-Plug 'dracula/vim'
+" Plug 'dikiaap/minimalist'
+" Plug 'morhetz/gruvbox'
+" Plug 'sjl/badwolf'
+" Plug 'jnurmine/Zenburn'
+" Plug 'ayu-theme/ayu-vim'
+" Plug 'dracula/vim'
+Plug 'Rigellute/shades-of-purple.vim'
 
 " Nerd Commenter
 Plug 'scrooloose/nerdcommenter'
@@ -50,24 +51,26 @@ set noshowmode
 " encoding
 set encoding=utf-8
 
-" " " set colorscheme gruvbox
+" color
 " colorscheme gruvbox
 " set background=dark
 " let g:gruvbox_contrast_dark = 'hard'
 " set t_Co=256
 
-" " set colorscheme badwolf
 " colorscheme badwolf
 " set background=dark
 " set t_Co=256
 
-" color
-colorscheme dracula
+" colorscheme dracula
+
+colorscheme shades_of_purple
 
 augroup vimrc
     autocmd!
     autocmd ColorScheme * highlight Folded ctermbg=None
+    autocmd ColorScheme * highlight CursorLine ctermbg=None
     autocmd ColorScheme * highlight clear CursorLineNr
+    autocmd ColorScheme * highlight LineNr ctermbg=None
 augroup END
 
 " filetype plugins
@@ -236,7 +239,8 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:airline_powerline_fonts = 1
 
 " theme setting
-let g:airline_theme = 'dracula'
+let g:shades_of_purple_airline = 1
+let g:airline_theme = 'shades_of_purple'
 
 " what sections get truncated and at what width
 let g:airline#extensions#default#section_truncate_width = {
@@ -344,16 +348,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-l>'
 
 " view snippets
 let g:UltiSnipsListSnippets = '<C-v>'
-" }}}
-
-" {{{ BADWOLF
-
-" gutters are darker than the background
-let g:badwolf_darkgutter = 1
-
-" Make the tab line darker than the background.
-let g:badwolf_tabline = 0
-
 " }}}
 
 " }}}
