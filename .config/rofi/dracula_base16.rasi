@@ -36,7 +36,7 @@
 }
 
 window {
-    border:           5;
+    border:           0;
     padding:          0;
     width:            50%;
     height:            50%;

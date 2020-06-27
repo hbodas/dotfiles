@@ -1,5 +1,5 @@
-rofi.theme: ~/.config/rofi/transparent.rasi
-/* rofi.theme: ~/.config/rofi/dracula_base16.rasi */
+/* rofi.theme: ~/.config/rofi/transparent.rasi */
+rofi.theme: ~/.config/rofi/dracula_base16.rasi
 /* rofi.theme: ~/.config/rofi/gruvbox_custom.rasi */
 
 rofi.font: sans 12

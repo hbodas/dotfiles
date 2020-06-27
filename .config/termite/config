@@ -5,7 +5,7 @@ bold_is_bright = true
 clickable_url = true
 cursor_blink=on
 #dynamic_title = true
-font = VictorMono Nerd Font Mono SemiBold 11
+font = Iosevka Term Medium 14
 fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
@@ -62,7 +62,7 @@ foreground      = #f8f8f2
 foreground_bold = #f8f8f2
 cursor          = #f8f8f2
 # background      = #282a36
-background      = rgba(40, 42, 54, 0.6)
+background      = rgba(40, 42, 54, 0.8)
 
 # black
 color0  = #000000

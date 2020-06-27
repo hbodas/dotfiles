@@ -202,6 +202,7 @@ bindsym $win+$right workspace next
 assign [class="Firefox"] $ws1
 assign [class="Opera"] $ws1
 assign [class="Slack"] $ws8
+assign [class="discord"] $ws8
 for_window [class="Spotify"] move container to workspace $ws9
 # }}}
 
@@ -239,7 +240,7 @@ exec --no-startup-id $bar
 
 # scratchpad terminal
 for_window [instance="__scratchpad"] floating enable
-for_window [instance="__scratchpad"] resize 1600 1000
+for_window [instance="__scratchpad"] resize 1200 1000
 for_window [instance="__scratchpad"] move scratchpad
 exec --no-startup-id termite --name="__scratchpad"
 # }}}
