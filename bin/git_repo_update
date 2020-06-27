@@ -1,0 +1,19 @@
+#/bin/bash
+
+cd ~/packages
+for package in ./*; do
+    cd $package
+    if [[ $1 = "-l" ]]; then
+        if test="$(git status | grep 'Your branch is behind')"
+        then
+            stat="\e[1;31m$(echo $test | awk '{print $7" "substr($8,0,length($8)-1)" behind"}')\e[0m"
+        else
+            stat="\e[1;32mUp to date\e[0m"
+        fi
+        pack=$(git remote show origin | grep "Fetch" | awk -F "/" '{print $(NF-1)"/"substr($NF, 0, length($NF)-4)}')
+        echo -e "\e[1;95m$pack\e[0m: $stat"
+        cd ..
+    else
+        echo "Under construction"
+    fi
+done

@@ -212,7 +212,7 @@ for_window [class="Spotify"] move container to workspace $ws9
 exec --no-startup-id feh --bg-fill $HOME/.config/i3/wall.png
 
 # compositor
-exec_always compton --config $HOME/.config/compton/compton.conf
+exec_always picom  --config $HOME/.config/compton/compton.conf
 
 # lock screen on boot
 exec --no-startup-id $Locker ~/.config/i3/wall.png
