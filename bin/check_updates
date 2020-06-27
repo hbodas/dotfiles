@@ -13,7 +13,6 @@ while true; do
 done
 
 if [[ $1 = "-l" ]]; then
-    echo "Listing updates..."
     checkupdates
     yay --aur -Qu
 else

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+wget -q --tries=1 --timeout=20 --spider http://google.com
+if [[ $? -eq 0 ]]; then
+    # Online
+    echo "Connected"
+else
+    # Offline
+    echo "Disconnected"
+fi
+
