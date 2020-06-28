@@ -1,4 +1,4 @@
-!! Appearance
+!Appearance
 URxvt.font: xft:Consolas NF:pixelsize=16
 ! URxvt.font: xft:Meslo LGSDZ Nerd Font Mono:pixelsize=13
 ! URxvt.font: xft:Fantasque Sans Mono Nerd Font Mono:pixelsize=16
@@ -20,22 +20,23 @@ URxvt.keysym.C-question:  resize-font:show
 URxvt.resize-font.step: 1
 URxvt.internalBorder: 10
 
-! Dracula Xresources palette
-*.foreground: #F8F8F2
-*.background: #282A36
-*.color0:     #000000
-*.color8:     #4D4D4D
-*.color1:     #FF5555
-*.color9:     #FF6E67
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
-*.color5:     #FF79C6
-*.color13:    #FF92D0
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
+
+# special
+*.foreground: #f8f8f2
+*.background: #282a36
+*.color0: #000000
+*.color8: #5c5c61
+*.color1: #ec3a37
+*.color9: #ec3a37
+*.color2: #75e44c
+*.color10: #3ad900
+*.color3: #fad000
+*.color11: #fad000
+*.color4: #6943ff
+*.color12: #6943ff
+*.color5: #ff2c70
+*.color13: #fb94ff
+*.color6: #80fcff
+*.color14: #80fcff
+*.color7: #ffffff
+*.color15: #2d2b55
