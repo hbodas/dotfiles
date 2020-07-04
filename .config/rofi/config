@@ -2,5 +2,6 @@
 rofi.theme: ~/.config/rofi/dracula_base16.rasi
 /* rofi.theme: ~/.config/rofi/gruvbox_custom.rasi */
 
+rofi.location: 1
 rofi.font: sans 12
 rofi.blur-background = true
