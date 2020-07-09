@@ -120,12 +120,10 @@ bindsym $alt+Shift+Up move up
 bindsym $alt+Shift+Down move down
 
 # split
-bindsym $alt+b split h
+bindsym $alt+c split h
 bindsym $alt+v split v
 
 # changing views
-bindsym $alt+c fullscreen toggle
-
 bindsym $alt+s layout stacked
 bindsym $alt+w layout tabbed
 bindsym $alt+e layout toggle split
@@ -155,6 +153,9 @@ bindsym F12 scratchpad show
 
 # move a workspace to the next? display
 bindsym $alt+Tab move workspace to output right
+
+# rofi-bluetooth
+bindsym $alt+b exec --no-startup-id rofi-bluetooth
 # }}}
 
 # {{{ WORKSPACE
