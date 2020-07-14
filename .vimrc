@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plug')
 
 " colors
 " Plug 'dikiaap/minimalist'
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 " Plug 'sjl/badwolf'
 " Plug 'jnurmine/Zenburn'
 " Plug 'ayu-theme/ayu-vim'
@@ -52,10 +52,10 @@ set noshowmode
 set encoding=utf-8
 
 " color
-" colorscheme gruvbox
-" set background=dark
-" let g:gruvbox_contrast_dark = 'hard'
-" set t_Co=256
+let g:gruvbox_italic=1
+set t_Co=256
+colorscheme gruvbox
+set background=dark
 
 " colorscheme badwolf
 " set background=dark
@@ -63,7 +63,7 @@ set encoding=utf-8
 
 " colorscheme dracula
 
-colorscheme shades_of_purple
+" colorscheme shades_of_purple
 
 augroup vimrc
     autocmd!
@@ -239,8 +239,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:airline_powerline_fonts = 1
 
 " theme setting
-let g:shades_of_purple_airline = 1
-let g:airline_theme = 'shades_of_purple'
+let g:airline_theme = 'simple'
 
 " what sections get truncated and at what width
 let g:airline#extensions#default#section_truncate_width = {
@@ -253,7 +252,7 @@ let g:airline#extensions#default#section_truncate_width = {
   \ }
 
 " ignore empty sections
-let g:airline_skip_empty_sections = 1
+let g:airline_skip_empty_sections = 0
 
 " ignore if the filetype says utf-8[unix]
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
@@ -272,7 +271,7 @@ nmap <leader>l <Plug>AirlineSelectNextTab
 nmap <leader>h <Plug>AirlineSelectPrevTab
 
 " vimtex
-let g:airline#extensions#vimtex#enabled = 0
+let g:airline#extensions#vimtex#enabled = 1
 let g:airline#extensions#vimtex#compiled = "c₁"
 let g:airline#extensions#vimtex#continuous = "c"
 let g:airline#extensions#vimtex#viewer = "v"

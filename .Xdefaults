@@ -1,7 +1,7 @@
 !Appearance
-URxvt.font: xft:Consolas NF:pixelsize=16
+! URxvt.font: xft:Consolas NF:pixelsize=16
 ! URxvt.font: xft:Meslo LGSDZ Nerd Font Mono:pixelsize=13
-! URxvt.font: xft:Fantasque Sans Mono Nerd Font Mono:pixelsize=16
+URxvt.font: xft:Fantasque Sans Mono Nerd Font Mono:pixelsize=16
 ! URxvt.font: xft:Roboto Mono for Powerline:pixelsize=14
 URxvt.scrollBar: false
 URxvt.depth: 32

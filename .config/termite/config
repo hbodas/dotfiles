@@ -2,10 +2,11 @@
 allow_bold = true
 bold_is_bright = true
 #audible_bell = false
+cell_height_scale = 1.3
 clickable_url = true
 cursor_blink=on
 #dynamic_title = true
-font = Iosevka Term Medium 14
+font = FantasqueSansMono 13
 fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
@@ -41,60 +42,47 @@ scrollback_lines = 10000
 #scrollbar = off
 
 [colors]
-# If both of these are unset, cursor falls back to the foreground color,
-# and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
-
-#foreground = #dcdccc
-#foreground_bold = #ffffff
-#background = #3f3f3f
-
-# 20% background transparency (requires a compositor)
-# background = rgba(10, 10, 10, 1.0)
-
-# If unset, will reverse foreground and background
-# highlight = #2f2f2f
-
-[colors]
 # special
-foreground      = #f8f8f2
-foreground_bold = #f8f8f2
-cursor          = #f8f8f2
-# background      = #282a36
-background      = rgba(40, 42, 54, 0.8)
 
-# black
-color0  = #000000
-color8  = #5c5c61
+# background = #1d2021
+background = rgba(29, 32, 33, 0.95)
+# background = #282828
+# soft contrast: background = #32302f
+foreground = #ebdbb2
+cursor = #ebdbb2
+foreground_bold = #ebdbb2
 
-# red
-color1  = #ec3a37
-color9  = #ec3a37
+# dark0 + gray
+color0 = #282828
+color8 = #928374
 
-# green
-color2  = #75e44c
-color10 = #3ad900
+# neutral_red + bright_red
+color1 = #cc241d
+color9 = #fb4934
 
-# yellow
-color3  = #fad000
-color11 = #fad000
+# neutral_green + bright_green
+color2 = #98971a
+color10 = #b8bb26
 
-# blue
-color4  = #6943ff
-color12 = #6943ff
+# neutral_yellow + bright_yellow
+color3 = #d79921
+color11 = #fabd2f
 
-# magenta
-color5  = #ff2c70
-color13 = #fb94ff
+# neutral_blue + bright_blue
+color4 = #458588
+color12 = #83a598
 
-# cyan
-color6  = #80fcff
-color14 = #80fcff
+# neutral_purple + bright_purple
+color5 = #b16286
+color13 = #d3869b
 
-# white
-color7  = #ffffff
-color15 = #2d2b55
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #8ec07c
+
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2
 
 [hints]
 #font = Monospace 12
