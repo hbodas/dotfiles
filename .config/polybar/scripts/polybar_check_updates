@@ -28,7 +28,7 @@ AUR=$(echo $UPD | awk '{print $3}')
 # echo $FIRSTSEP$FIRSTPART$MIDDLESEP$MIDDLEPART$ENDSEP$ENDPART$VERYENDSEP
 
 # get the right color
-color=$(cat ~/.config/polybar/poly_colors | grep "color1 " | awk '{print $NF}')
+# color=$(cat ~/.config/polybar/poly_colors | grep "color1 " | awk '{print $NF}')
 
 # regular label
 echo "  $REPOS / $AUR"

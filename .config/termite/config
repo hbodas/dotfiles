@@ -2,11 +2,10 @@
 allow_bold = true
 bold_is_bright = true
 #audible_bell = false
-cell_height_scale = 1.3
 clickable_url = true
 cursor_blink=on
 #dynamic_title = true
-font = FantasqueSansMono 13
+font = Iosevka 14
 fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
