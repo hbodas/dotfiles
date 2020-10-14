@@ -3,13 +3,7 @@
 call plug#begin('~/.vim/plug')
 
 " colors
-" Plug 'dikiaap/minimalist'
 Plug 'morhetz/gruvbox'
-" Plug 'sjl/badwolf'
-" Plug 'jnurmine/Zenburn'
-" Plug 'ayu-theme/ayu-vim'
-" Plug 'dracula/vim'
-Plug 'Rigellute/shades-of-purple.vim'
 
 " Nerd Commenter
 Plug 'scrooloose/nerdcommenter'
@@ -36,8 +30,14 @@ Plug 'honza/vim-snippets'
 " tmux-vim-navigation
 Plug 'christoomey/vim-tmux-navigator'
 
-" After-colors for colorscheme modifications
-Plug 'vim-scripts/AfterColors.vim'
+" YouCompleteme
+Plug 'ycm-core/YouCompleteMe'
+
+" SML
+Plug 'jez/vim-better-sml'
+
+" Syntastic
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 " }}}
@@ -136,7 +136,7 @@ set undodir=~/.vim/undo
 set so=10
 
 " line break at 80 characters and wrap
-set textwidth=80
+set textwidth=100
 set wrap
 
 " viewoptions
@@ -310,6 +310,10 @@ let g:airline_symbols.readonly = '  '
 let g:airline_symbols.linenr = ' ☰ '
 let g:airline_symbols.maxlinenr = '  '
 let g:airline_symbols.dirty=' ⚡'
+
+" syntastic stuff
+let g:airline#extensions#syntastic#enabled = 1
+
 " }}}
 
 " {{{ VIMTEX
@@ -343,7 +347,7 @@ let g:vimtex_fold_manual = 1
 let g:vimtex_indent_on_ampersands = 0
 
 " index mode
-let g:vimtex_index_mode = 1
+" let g:vimtex_index_mode = 1
 
 " table of labels
 let g:vimtex_labels_enabled = 0
@@ -356,6 +360,12 @@ let g:vimtex_fold_types = {
     \ }
 
 let g:vimtex_quickfix_mode=1
+
+" YCM stuff
+" if !exists('g:ycm_semantic_triggers')
+    " let g:ycm_semantic_triggers = {}
+" endif
+" au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 " }}}
 
 " {{{ TEX-CONCEAL
@@ -382,6 +392,17 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-l>'
 
 " view snippets
 let g:UltiSnipsListSnippets = '<C-v>'
+" }}}
+
+" {{{ VIM-BETTER-SML
+au FileType sml setlocal conceallevel=2
+" }}}
+
+" {{{ SYNTASTIC
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 " }}}
 
 " }}}

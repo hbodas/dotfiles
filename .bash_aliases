@@ -36,3 +36,6 @@ alias cul="check_updates -l"
 alias Alpaca="cd /media/Alpaca"
 alias Alpaca2="cd /media/Alpaca2"
 alias Win="cd /media/Win"
+
+# sml
+alias sml="rlwrap smlnj"
