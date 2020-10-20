@@ -17,6 +17,7 @@ Plug 'Konfekt/tex-conceal.vim', {'for': 'tex'}
 
 " airline
 Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
 
 " airline themes
 Plug 'vim-airline/vim-airline-themes'
@@ -136,7 +137,7 @@ set undodir=~/.vim/undo
 set so=10
 
 " line break at 80 characters and wrap
-set textwidth=100
+set textwidth=80
 set wrap
 
 " viewoptions
@@ -403,6 +404,16 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" let g:syntastic_python_checkers = ['pyflakes', 'pycodestyle', 'pep8']
+let g:syntastic_python_checkers = ['pep8']
+" }}}
+
+" {{{ GITGUTTER
+
+let g:gitgutter_highlight_linenrs=1
+set updatetime=100
+
 " }}}
 
 " }}}
