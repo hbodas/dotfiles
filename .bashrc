@@ -8,6 +8,7 @@
 # get all the aliases
 source ~/.bash_aliases
 source ~/.bash_aliases_tmp
+# source ~/.bash_profile
 
 # path variable
 export PATH=$PATH":$HOME/bin:$HOME/.local/bin"
@@ -17,6 +18,9 @@ export EDITOR=vim
 export BROWSER=firefox
 export TERM=screen-256color
 export READER=zathura
+
+# GOPATH - probably change this later?
+export GOPATH="/home/hrishikesh/documents/Courses/15-440 (F20)/p3"
 
 # prompt
 export PROMPT_DIRTRIM=2

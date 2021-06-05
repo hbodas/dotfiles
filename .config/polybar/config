@@ -16,7 +16,7 @@
 ;
 ;==========================================================
 
-/* {{{ bar/colors */
+; {{{ bar/colors
 [colors]
 foreground = ${env:POLYBAR_FOREGROUND}
 background = ${env:POLYBAR_BACKGROUND}
@@ -31,9 +31,9 @@ shade5 = ${env:POLYBAR_ORSHADE5}
 shade6 = ${env:POLYBAR_ORSHADE6}
 shade7 = ${env:POLYBAR_ORSHADE7}
 shade8 = ${env:POLYBAR_ORSHADE8}
-/* }}} */
+; }}}
 
-/* {{{ bar/top */
+; {{{ bar/top
 [bar/top]
 ; dimensions for the bar
 width = 1920
@@ -54,7 +54,7 @@ radius = 0
 
 ; location
 override-redirect = false
-/* override-redirect = true */
+; override-redirect = true
 wm-restack = i3
 
 ; background and foreground
@@ -65,11 +65,11 @@ foreground = ${colors.foreground}
 padding-left = 4
 padding-right = 4
 module-margin = 3
-/* separator = %{T3}|%{T-} */
+; separator = %{T3}|%{T-}
 
 ; fonts
-/* font-1 = MesloLGSDZ Nerd Font:size=8;2.5 */
-/* font-0 = VictorMono Nerd Font Mono:size=11;3.25 */
+; font-1 = MesloLGSDZ Nerd Font:size=8;2.5
+; font-0 = VictorMono Nerd Font Mono:size=11;3.25
 font-0 = SF UI Display:size=12;3.25
 font-1 = MesloLGSDZ Nerd Font:size=12;3.5
 font-2 = MesloLGSDZ Nerd Font:size=13;3
@@ -82,20 +82,20 @@ modules-center = spotify
 modules-right = updates wlan cpu memory xbacklight volume battery 
 
 ; tray
-/* tray-position = right */
-/* tray-maxsize = 16 */
-/* tray-padding = 2 */
-/* tray-background = ${colors.background} */
+; tray-position = right
+; tray-maxsize = 16
+; tray-padding = 2
+; tray-background = ${colors.background}
 
 ; line
 line-size = 2
 
-' inter-process messaging
+; inter-process messaging
 enable-ipc = true
 
-/* }}} */
+; }}}
 
-/* {{{ bar/top2 */
+; {{{ bar/top2
 [bar/top2]
 ; dimensions for the bar
 width = 1920
@@ -125,11 +125,11 @@ foreground = ${colors.foreground}
 padding-left = 6
 padding-right = 6
 module-margin = 4
-/* separator = %{T3}|%{T-} */
+; separator = %{T3}|%{T-}
 
 ; fonts
-/* font-1 = MesloLGSDZ Nerd Font:size=8;2.5 */
-/* font-0 = VictorMono Nerd Font Mono:size=11;3.25 */
+; font-1 = MesloLGSDZ Nerd Font:size=8;2.5
+; font-0 = VictorMono Nerd Font Mono:size=11;3.25
 font-0 = SF UI Display:size=12;3.25
 font-1 = MesloLGSDZ Nerd Font:size=10;3.25
 font-2 = MesloLGSDZ Nerd Font:size=13;3
@@ -142,20 +142,20 @@ modules-center = spotify
 modules-right = updates wlan cpu memory xbacklight volume battery
 
 ; tray
-/* tray-position = right */
-/* tray-maxsize = 16 */
-/* tray-padding = 2 */
-/* tray-background = ${colors.background} */
+; tray-position = right
+; tray-maxsize = 16
+; tray-padding = 2
+; tray-background = ${colors.background}
 
 ; line
 line-size = 2
 
-' inter-process messaging
+; inter-process messaging
 enable-ipc = true
 
-/* }}} */
+; }}}
 
-/* {{{ module/i3 */
+; {{{ module/i3
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -171,7 +171,7 @@ label-mode-foreground = ${colors.font_fore}
 label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
-/* label-focused = %icon% */
+; label-focused = %icon%
 label-focused = %index%
 label-focused-foreground = ${colors.font_fore}
 label-focused-background = ${colors.foreground}
@@ -204,9 +204,9 @@ ws-icon-6 = 7;%{T4}%{T-}
 ws-icon-7 = 8;%{T4}%{T-}
 ws-icon-8 = 9;%{T4}%{T-}
 ws-icon-default = ♟
-/* }}} */
+; }}}
 
-/* {{{ module/mpd */
+; {{{ module/mpd
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
@@ -220,14 +220,14 @@ icon-next = 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
-/* }}} */
+; }}}
 
-/* {{{ module/xbacklight */
+; {{{ module/xbacklight
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = false
 format = "<ramp>  <label>"
-/* format-background = ${colors.shade3} */
+; format-background = ${colors.shade3}
 label-foreground = ${colors.font_back}
 
 ramp-0 = 
@@ -235,37 +235,37 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.font_back}
 
-/* }}} */
+; }}}
 
-/* {{{ module/backlight-acpi */
+; {{{ module/backlight-acpi
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-/* }}} */
+; }}}
 
-/* {{{ module/cpu 
+; {{{ module/cpu 
 [module/cpu]
 type = internal/cpu
 interval = 1
 label = "   %percentage%%  "
 label-foreground = ${colors.font_back}
-/* label-background = ${colors.shade5} */
+; label-background = ${colors.shade5}
 
-/* }}} */
+; }}}
 
-/* {{{ module/memory */
+; {{{ module/memory
 [module/memory]
 type = internal/memory
 interval = 1
 label = " 柳  %percentage_used%%  "
 label-foreground = ${colors.font_back}
-/* label-background = ${colors.shade4} */
+; label-background = ${colors.shade4}
 
-/* }}} */
+; }}}
 
-/* {{{ module/wlan */
+; {{{ module/wlan
 [module/wlan]
 type = internal/network
 interface = wlp58s0
@@ -274,16 +274,16 @@ interval = 2
 format-connected = <label-connected>
 label-connected = " 直  %essid%  "
 label-connected-foreground = ${colors.font_back}
-/* label-connected-background = ${colors.shade6} */
+; label-connected-background = ${colors.shade6}
 
 format-disconnected = <label-disconnected>
 label-disconnected = " 睊 ---  "
 label-disconnected-foreground = ${colors.font_back}
-/* label-disconnected-background = ${colors.shade6} */
+; label-disconnected-background = ${colors.shade6}
 
-/* }}} */
+; }}}
 
-/* {{{ module/time */
+; {{{ module/time
 [module/time]
 type = internal/date
 interval = 1
@@ -292,29 +292,29 @@ time = %I:%M %p
 date =
 
 label = "  %time% "
-/* label-background = ${colors.shade2} */
+; label-background = ${colors.shade2}
 label-foreground = ${colors.font_back}
 
-/* }}} */
+; }}}
 
-/* {{{ module/date */
+; {{{ module/date
 [module/date]
 type = internal/date
 interval = 1
 
-/* time = */
+; time =
 time = %l:%M
 time-alt = %l:%M %p
 date = %b %d, 
 date-alt = %a, %b %d %Y, 
 
 label = "%date% %time%"
-/* label-background = ${colors.shade3} */
+; label-background = ${colors.shade3}
 label-foreground = ${colors.font_back}
 
-/* }}} */
+; }}}
 
-/* {{{ module/pulseaudio */
+; {{{ module/pulseaudio
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -331,9 +331,9 @@ ramp-volume-0 = "奄 "
 ramp-volume-1 = "奔 "
 ramp-volume-2 = "墳 "
 
-/* }}} */
+; }}}
 
-/* {{{ module/alsa */
+; {{{ module/alsa
 [module/alsa]
 type = internal/alsa
 
@@ -362,9 +362,9 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-/* }}} */
+; }}}
 
-/* {{{ module/battery */
+; {{{ module/battery
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -374,17 +374,17 @@ time-format = %H:%M
 
 format-charging = <label-charging>
 label-charging =  %percentage%% (%time%)
-/* label-charging-background = ${colors.shade1} */
+; label-charging-background = ${colors.shade1}
 label-charging-foreground = ${colors.font_back}
 
 format-discharging = <ramp-capacity><label-discharging>
 label-discharging = "%percentage%% (%time%)"
-/* label-discharging-background = ${colors.shade1} */
+; label-discharging-background = ${colors.shade1}
 label-discharging-foreground = ${colors.font_back}
 
 format-full = <label-full>
 label-full = " 100%"
-/* label-full-background = ${colors.shade1} */
+; label-full-background = ${colors.shade1}
 label-full-foreground = ${colors.font_back}
 
 ramp-capacity-0 = "  "
@@ -393,11 +393,11 @@ ramp-capacity-2 = "  "
 ramp-capacity-3 = "  "
 ramp-capacity-4 = "  "
 ramp-capacity-foreground = ${colors.font_back}
-/* ramp-capacity-background = ${colors.shade1} */
+; ramp-capacity-background = ${colors.shade1}
 
-/* }}} */
+; }}}
 
-/* {{{ module/temperature */
+; {{{ module/temperature
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -415,20 +415,20 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.purple}
 
-/* }}} */
+; }}}
 
-/* {{{ module/updates */
+; {{{ module/updates
 [module/updates]
 type = custom/script
 exec = ~/.config/polybar/scripts/polybar_check_updates
 tail = true
 interval = 3600
 label = %output%
-/* format-prefix = " " */
-/* format-prefix-foreground = ${env:POLYBAR_COLOR1} */
-/* }}} */
+; format-prefix = " "
+; format-prefix-foreground = ${env:POLYBAR_COLOR1}
+; }}}
 
-/* {{{ module/spotify */
+; {{{ module/spotify
 [module/spotify]
 type = custom/script
 exec = ~/.config/polybar/scripts/spotify_song
@@ -437,14 +437,14 @@ interval = 1
 
 format = <label>
 label = %output%
-/* label-background = ${colors.shade4} */
+; label-background = ${colors.shade4}
 label-foreground = ${colors.font_back}
 
 padding = 0
 
-/* }}} */
+; }}}
 
-/* {{{ module/volume */
+; {{{ module/volume
 [module/volume]
 type = custom/script
 exec = ~/.config/polybar/scripts/volume
@@ -454,24 +454,24 @@ interval = 0.1
 format = <label>
 label = %output%
 label-foreground = ${colors.font_back}
-/* label-background = ${colors.shade2} */
+; label-background = ${colors.shade2}
 
 padding = 0
 
-/* }}} */
+; }}}
 
-/*{{{*/ module/rofi
+; module/rofi
 [module/rofi]
 type = custom/text
 content = " %{T3}%{T-}"
-/* content-background = ${colors.shade1} */
+; content-background = ${colors.shade1}
 content-foreground = ${colors.font_back}
 click-left = rofi -show run
 click-middle = rofi -show run
 click-right = rofi -show run
-/*}}}*/
+;}}}
 
-/*{{{*/ module/power
+;{{{ module/power
 [module/power]
 type = custom/menu
 label-open = ⏻
@@ -483,9 +483,9 @@ label-close = " "
 label-separator = " "
 label-open-background = ${colors.shade1}
 label-open-foreground = ${colors.font_fore}
-/*}}}*/
+;}}}
 
-/* {{{ separators */
+; {{{ separators
 [module/sep_r12]
 type = custom/text
 content = ${env:POLYBAR_SEPARATOR_R12}
@@ -517,9 +517,9 @@ content = ${env:POLYBAR_SEPARATOR_L56}
 [module/sep_l60]
 type = custom/text
 content = ${env:POLYBAR_SEPARATOR_L60}
-/* }}} */
+; }}}
 
-/* {{{ settings */
+; {{{ settings
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -527,13 +527,13 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 
-/* }}} */
+; }}}
 
-/* {{{ global/wm */
+; {{{ global/wm
 [global/wm]
 margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
 
-/* }}} */
+; }}}

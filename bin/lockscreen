@@ -7,17 +7,17 @@ bshl=$(appres foo | grep color1: | awk '{print $NF}')88
 trans='00000000'
 
 if [[ -z "$1" ]]; then
-    image="--blur 8"
+    image="--blur 10"
 else
     image="-i $1"
 fi
 
-i3lock -e --force-clock $image --insidevercolor=$back \
---insidewrongcolor=$back --insidecolor=$back --ringvercolor=$fore  \
---ringwrongcolor=cc241daa --ringcolor=$trans --line-uses-inside \
---keyhlcolor=$fore --bshlcolor=$bshl --separatorcolor=$trans \
---indpos="0.5*w:0.4*h" --timecolor=$fore --timestr="%l:%M %p" \
---timepos="0.5*w:0.38*h" --datecolor=$fore --datestr="%a, %b %d, %Y" \
---time-font=sans-serif --date-font=sans-serif --timesize=44 \
---datepos="0.5*w:0.44*h" --datesize=24 --veriftext="" --wrongtext="" \
---noinputtext="" --radius=130 --ring-width=10 --indicator \
+i3lock -e --force-clock $image --insidever-color=$back \
+--insidewrong-color=$back --inside-color=$back --ringver-color=$fore  \
+--ringwrong-color=cc241daa --ring-color=$trans --line-uses-inside \
+--keyhl-color=$fore --bshl-color=$bshl --separator-color=$trans \
+--ind-pos="0.5*w:0.4*h" --time-color=$fore --time-str="%l:%M %p" \
+--time-pos="0.5*w:0.38*h" --date-color=$fore --date-str="%a, %b %d, %Y" \
+--time-font=sans-serif --date-font=sans-serif --time-size=44 \
+--date-pos="0.5*w:0.44*h" --date-size=24 --verif-text="" --wrong-text="" \
+--noinput-text="" --radius=130 --ring-width=10 --indicator \
