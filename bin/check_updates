@@ -19,7 +19,8 @@ else
     repos=$(checkupdates | wc -l)
     aur=$(yay --aur -Pn)
     aurout="${aur:0:1}"
-    echo "$repos / $aur"
+    # echo "$repos   $aur"
+    echo "$repos ﮮ $aur"
 fi
 
 

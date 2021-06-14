@@ -1,0 +1,89 @@
+#!/bin/python
+
+import pywal
+import json
+from string import Template
+
+wal_file = "/home/hrishikesh/.cache/wal/colors.json"            
+more_colors = "/home/hrishikesh/.cache/wal/more_colors.json"    
+poly_colors = "/home/hrishikesh/.config/polybar/colors.ini"         
+modules_template = "/home/hrishikesh/.config/polybar/modules_template"
+modules_file = "/home/hrishikesh/.config/polybar/modules.ini"
+
+def getRGB(color_string):
+    R = color_string[1:3]
+    G = color_string[3:5]
+    B = color_string[5:7]
+    return (int(R, 16), int(G, 16), int(B, 16))
+
+def modifyRGB(r, g, b, factor):
+    if factor < 0:
+        return (int((factor+1)*r), int((factor+1)*g), int((factor+1)*b))
+    else:
+        return (int(r + factor*(255-r)), int(g + factor*(255-g)), int(b + factor*(255-b)))
+
+def outputToHex(r, g, b, a=None):
+    red = str(hex(r))[2:]
+    green = str(hex(g))[2:]
+    blue = str(hex(b))[2:]
+
+    if a == None: alpha = ""
+    else: 
+        alpha = str(hex(a))[2:]
+        if len(alpha) != 2: alpha = "0" + alpha
+
+    while len(red) != 2:
+        red = "0" + red
+
+    while len(green) != 2:
+        green = "0" + green
+
+    while len(blue) != 2:
+        blue = "0" + blue
+
+    return "#"+alpha+red+green+blue
+
+colors = pywal.colors.file(wal_file)
+
+colors_out = { "special" : {"background" : colors["special"]["background"]}, "colors" : {}}
+
+# transparentize background
+bg_r, bg_g, bg_b = getRGB(colors["special"]["background"])
+for i in [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]:
+    hx = outputToHex(bg_r, bg_g, bg_b, int(i * 2.56))
+    colors_out["special"]["background_alpha_" + str(i)] = hx
+
+cols = ["background", "foreground", "color0", "color1", "color2", "color3", \
+        "color4", "color5", "color6", "color7", "color8"]
+factors = { "_dark_3" : -0.36, "_dark_2" : -0.24, "_dark_1" : -0.12, "" : 0, "_light_1" : 0.1, "_light_2" : 0.2, "_light_3" : 0.3}
+
+for color in cols:
+    if color == "background" or color == "foreground": subdict = "special"
+    else: subdict = "colors"
+    c_r, c_g, c_b = getRGB(colors[subdict][color])
+
+    for f in factors:
+        r, g, b = modifyRGB(c_r, c_g, c_b, factors[f])
+        colors_out[subdict][color + f] = outputToHex(r, g, b)
+
+with open(more_colors, 'w') as f:
+    json.dump(colors_out, f, indent=4)
+
+outstr = "[colors]\n"
+for d in colors_out:
+    for c in colors_out[d]:
+        outstr += c + " = " + colors_out[d][c] + "\n"
+
+with open(poly_colors, 'w') as f:
+    f.write(outstr)
+
+with open(modules_template, 'r') as f:
+    s = f.read()
+
+t = Template(s)
+flat_colors = dict(colors_out["special"], **(colors_out["colors"]))
+
+with open(modules_file, 'w') as f:
+    f.write(t.substitute(flat_colors))
+
+

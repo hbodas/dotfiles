@@ -1,13 +1,12 @@
 # i3 config file (v4)
 
 # {{{ GENERAL
-font pango: sans 10
+font pango: sans 9
 
 # default applications
 # set $term urxvt
-set $term termite
+set $term alacritty
 set $browser firefox
-set $file_manager termite -e ranger
 set $launcher rofi -show run
 set $bar polybar_start
 
@@ -23,11 +22,11 @@ set $exec exec
 set $execa exec_always
 
 # border settings
-default_border pixel 0
+default_border pixel 2
 # hide_edge_borders no
 
 # gaps settings
-gaps inner 10
+gaps inner 5
 gaps outer 0
 # gaps right 340
 focus_wrapping yes
@@ -54,13 +53,15 @@ set_from_resource $color15 color15
 set $tra #00000000
 
 # some color settings
-# colorclass               border    backgr. text    indica. ch._bo.
-client.focused             $color15  $color15   $color7   $color12  $color15
-client.focused_inactive    $color0  $color0   $color8  $color12    $color8
-client.unfocused           $color0  $color0   $color8  $color12   $color8
-client.urgent              $color1  $color1   $color15  $color12    $color8
-client.placeholder         $color0  $color0   $color8  $color12    $color8
-client.background          $tra
+# class                         border          backgr.         text            indicator               child_border
+client.focused                  $color1         $color1         $color7         #2e9ef4                 #285577
+client.focused_inactive         $color1         $color1         $color0         #484e50                 #5f676a
+client.unfocused                $tra            $color0         #888888         #292d2e                 #222222
+client.urgent                   $color3         $color0         $color0         #900000                 #900000
+client.placeholder              #000000         #0c0c0c         $color0         #000000                 #0c0c0c
+
+client.background       $tra
+
 # }}}
 
 # {{{ KEYBINDINGS
@@ -96,11 +97,13 @@ floating_modifier $alt
 bindcode $alt+Shift+65 floating toggle
 
 # some launching
-bindsym $alt+Return $exec $term -e "env TERM=screen-256color-it tmux"
+# bindsym $alt+Return $exec $term -e "env TERM=screen-256color-it tmux"
+# bindsym $alt+Return $exec $term -e tmux
+bindsym $alt+Return $exec $term -e bash -ic tmux
 bindsym $alt+t $exec $term
 bindsym $alt+Shift+q [con_id="__focused__" instance="^(?!__scratchpad).*$"] kill
 bindsym $win+d $exec $launcher
-bindsym $alt+f $exec $file_manager
+bindsym $alt+f $exec $term -e bash -ic ranger
 bindsym $alt+d $exec $browser
 
 # moving around
@@ -244,9 +247,9 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id $bar
 
 # scratchpad terminal
-for_window [instance="__scratchpad"] floating enable
-for_window [instance="__scratchpad"] resize 1200 1000
-for_window [instance="__scratchpad"] move scratchpad
-exec --no-startup-id termite --name="__scratchpad"
+for_window [title="scratchpad"] floating enable
+for_window [title="scratchpad"] resize 1200 800
+for_window [title="scratchpad"] move scratchpad
+exec --no-startup-id alacritty -t scratchpad
 # }}}
 

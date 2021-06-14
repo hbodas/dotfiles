@@ -4,6 +4,8 @@ call plug#begin('~/.vim/plug')
 
 " colors
 Plug 'morhetz/gruvbox'
+Plug 'hzchirs/vim-material'
+Plug 'dylanaraps/wal.vim'
 
 " Nerd Commenter
 Plug 'scrooloose/nerdcommenter'
@@ -53,24 +55,17 @@ set noshowmode
 set encoding=utf-8
 
 " color
-let g:gruvbox_italic=1
+" let g:gruvbox_italic=1
 set t_Co=256
-colorscheme gruvbox
+colorscheme wal
 set background=dark
 
-" colorscheme badwolf
-" set background=dark
-" set t_Co=256
-
-" colorscheme dracula
-
-" colorscheme shades_of_purple
 
 augroup vimrc
     autocmd!
-    autocmd ColorScheme * highlight Folded ctermbg=None
+    " autocmd ColorScheme * highlight Folded ctermbg=None
     autocmd ColorScheme * highlight CursorLine ctermbg=None
-    autocmd ColorScheme * highlight clear CursorLineNr
+    autocmd ColorScheme * highlight clear CursorLine
     autocmd ColorScheme * highlight LineNr ctermbg=None
 augroup END
 
@@ -159,8 +154,8 @@ set splitright
 set completeopt=menu
 
 " overriding background color
-hi NonText ctermbg=none
-hi Normal guibg=NONE ctermbg=NONE
+" hi NonText ctermbg=none
+" hi Normal guibg=NONE ctermbg=NONE
 
 " clipboard
 set clipboard=unnamedplus
@@ -241,7 +236,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:airline_powerline_fonts = 1
 
 " theme setting
-let g:airline_theme = 'simple'
+let g:airline_theme = 'wal'
 
 " what sections get truncated and at what width
 let g:airline#extensions#default#section_truncate_width = {
@@ -254,7 +249,7 @@ let g:airline#extensions#default#section_truncate_width = {
   \ }
 
 " ignore empty sections
-let g:airline_skip_empty_sections = 0
+let g:airline_skip_empty_sections = 1
 
 " ignore if the filetype says utf-8[unix]
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
@@ -303,10 +298,10 @@ let g:airline_symbols.notexists = 'Ɇ'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = '/'
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = '\'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = '  '
 let g:airline_symbols.readonly = '  '
 let g:airline_symbols.linenr = ' ☰ '
@@ -448,7 +443,7 @@ endfun
 
 " }}}
 
-" {{{ OCAML SHIT
+" {{{ OCAML STUFF
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 let s:opam_share_dir = system("opam config var share")
 let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')

@@ -1,11 +1,12 @@
 !Appearance
 ! URxvt.font: xft:Consolas NF:pixelsize=16
 ! URxvt.font: xft:Meslo LGSDZ Nerd Font Mono:pixelsize=13
-URxvt.font: xft:Fantasque Sans Mono Nerd Font Mono:pixelsize=16
+URxvt.font: xft:VictorMono Nerd Font Mono:semibold:pixelsize=15
 ! URxvt.font: xft:Roboto Mono for Powerline:pixelsize=14
 URxvt.scrollBar: false
 URxvt.depth: 32
 URxvt*saveLines:0
+URxvt.letterSpace:-1
 
 !! extensions for urxvt
 URxvt.perl-ext-common: resize-font
@@ -18,25 +19,6 @@ URxvt.keysym.C-question:  resize-font:show
 
 ! You can also configure the number of steps to take when changing the size:
 URxvt.resize-font.step: 1
-URxvt.internalBorder: 10
+URxvt.internalBorder: 20
 
 
-# special
-*.foreground: #f8f8f2
-*.background: #282a36
-*.color0: #000000
-*.color8: #5c5c61
-*.color1: #ec3a37
-*.color9: #ec3a37
-*.color2: #75e44c
-*.color10: #3ad900
-*.color3: #fad000
-*.color11: #fad000
-*.color4: #6943ff
-*.color12: #6943ff
-*.color5: #ff2c70
-*.color13: #fb94ff
-*.color6: #80fcff
-*.color14: #80fcff
-*.color7: #ffffff
-*.color15: #2d2b55

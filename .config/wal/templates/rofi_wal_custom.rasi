@@ -1,6 +1,6 @@
 * {{
-    foreground:         		#{foreground.strip}BB;
-    background:         		#{background.strip}BB;
+    foreground:         		#{foreground.strip}EE;
+    background:         		#{background.strip}EE;
     transparent:			rgba(0, 0, 0, 0);
 
     normal-background: 			@transparent;
@@ -10,11 +10,11 @@
     active-background: 			@transparent;
     active-foreground:			@foreground;
 
-    selected-normal-background:  #{color3.strip}BB;
+    selected-normal-background:  #{color3.strip}EE;
     selected-normal-foreground:  @background;
-    selected-urgent-background:  #{color1.strip}BB;
+    selected-urgent-background:  #{color1.strip}EE;
     selected-urgent-foreground:  @background;
-    selected-active-background:  #{color3.strip}BB;
+    selected-active-background:  #{color3.strip}EE;
     selected-active-foreground:  @background;
 
     alternate-normal-background: @transparent;
@@ -38,7 +38,7 @@
 
 #mainbox {{
     border:   				0;
-    padding: 				10px;
+    padding: 				20px;
 }}
 
 #message {{

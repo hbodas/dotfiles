@@ -1,5 +1,7 @@
 #!/bin/sh
 
+wal -R
+
 #start i3
 exec i3
 
