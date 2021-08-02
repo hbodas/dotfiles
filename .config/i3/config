@@ -23,11 +23,12 @@ set $execa exec_always
 
 # border settings
 default_border pixel 2
-# hide_edge_borders no
+smart_borders on
 
 # gaps settings
-gaps inner 5
+gaps inner 7
 gaps outer 0
+gaps top -7
 # gaps right 340
 focus_wrapping yes
 
@@ -56,7 +57,7 @@ set $tra #00000000
 # class                         border          backgr.         text            indicator               child_border
 client.focused                  $color1         $color1         $color7         #2e9ef4                 #285577
 client.focused_inactive         $color1         $color1         $color0         #484e50                 #5f676a
-client.unfocused                $tra            $color0         #888888         #292d2e                 #222222
+client.unfocused                $color0         $color0         #888888         #292d2e                 #222222
 client.urgent                   $color3         $color0         $color0         #900000                 #900000
 client.placeholder              #000000         #0c0c0c         $color0         #000000                 #0c0c0c
 
@@ -137,17 +138,17 @@ bindsym $alt+Shift+c reload
 bindsym $alt+Shift+r restart
 
 # resizing
-bindsym $alt+y resize shrink width 10px
-bindsym $alt+u resize grow height 10px
-bindsym $alt+i resize shrink height 10px
-bindsym $alt+o resize grow width 10px
+bindsym $alt+y resize shrink width 40px
+bindsym $alt+u resize grow height 40px
+bindsym $alt+i resize shrink height 40px
+bindsym $alt+o resize grow width 40px
 
 # reload polybar
 bindsym $alt+p exec polybar_start
 
 # power options
-bindsym $win+e exec --no-startup-id lockscreen
-bindsym $win+s exec --no-startup-id lockscreen && systemctl suspend
+bindsym $win+e exec --no-startup-id lockscreen ~/.config/i3/wall.png
+bindsym $win+s exec --no-startup-id lockscreen ~/.config/i3/wall.png && systemctl suspend
 bindsym $win+Shift+r exec --no-startup-id systemctl reboot
 bindsym $win+Shift+s exec --no-startup-id systemctl poweroff -i
 

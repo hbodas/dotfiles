@@ -2,7 +2,7 @@
 ; module/xwindow {{{
 [module/xwindow]
 type = internal/xwindow
-label = %{F$background}%{B$background_alpha_40}%{T4} %{T3}%{T-}%{F$color3}%{B$background_dark_1}%title:0:50:...%%{F$background}%{B$background_alpha_40}%{T3}%{T4} %{T-}%{F-}%{B-}
+label = %{F$background}%{B$background_alpha_0}%{T4} %{T3}%{T-}%{F$color3}%{B$background_dark_1}%title:0:50:...%%{F$background}%{B$background_alpha_0}%{T3}%{T4} %{T-}%{F-}%{B-}
 ; label-background = $${colors.background_dark_1}
 ; label-foreground = $${colors.color3}
 ; }}}
@@ -13,5 +13,5 @@ type = custom/script
 exec = ~/bin/check_updates
 tail = true
 interval = 3600
-label = %{F$background}%{B$background_alpha_40}%{T3}%{T-}%{F$color3}%{B$background_dark_1}%output%%{F$background}%{B$background_alpha_40}%{T3}%{T-}%{F-}%{B-}
+label = %{F$background}%{B$background_alpha_0}%{T3}%{T-}%{F$color3}%{B$background_dark_1}%output%%{F$background}%{B$background_alpha_0}%{T3}%{T-}%{F-}%{B-}
 ; }}}
