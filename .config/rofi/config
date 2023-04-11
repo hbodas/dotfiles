@@ -1,5 +1,0 @@
-rofi.theme: rofi-custom 
-
-rofi.font: sans 13
-rofi.blur-background = true
-rofi.fullscreen: true
