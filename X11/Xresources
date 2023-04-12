@@ -1,0 +1,70 @@
+#include "colorschemes/onedark"
+
+#define myFont JetBrainsMono Nerd Font
+
+!-- Xft settings --!
+Xft.antialias: 		1
+Xft.hinting: 		1
+Xft.autohint: 		0
+Xft.hintstyle:		hintslight
+Xft.rgba:		rgb
+Xft.lcdfilter:		lcddefault
+
+! Cursor theme
+Xcursor.theme: 		volantes_cursors
+!Xcursor.size: 		16
+
+! sxiv config
+Sxiv.font: 		myFont:style=Medium:size=9
+
+Xmessage.font: 		FiraCode Nerd Font:pixelsize=14
+
+! st settings
+st.font: 		myFont:size=10:weight=140
+st.fontalt0: 		Noto Color Emoji:pixelsize=13
+st.borderpx: 		10
+st.opacity: 		255
+st.alpha: 		1.0
+st.cursorshape: 	1
+st.blinktimeout: 	900
+
+! xmonad settings
+xmonad.font: 		xft:myFont:size=10:style=Bold
+xmonad.font.gtk: 	JetBrains Mono Medium, 10
+
+! special
+*.background: 		basebg
+*.foreground: 		basefg
+*.cursorColor: 		basefg
+
+! black
+*.color0: 		base00
+*.color8: 		base08
+
+! red
+*.color1: 		base01
+*.color9: 		base09
+
+! green
+*.color2: 		base02
+*.color10: 		base0A
+
+! yellow
+*.color3: 		base03
+*.color11: 		base0B
+
+! blue
+*.color4: 		base04
+*.color12: 		base0C
+
+! magenta
+*.color5: 		base05
+*.color13: 		base0D
+
+! cyan
+*.color6: 		base06
+*.color14: 		base0E
+
+! white
+*.color7: 		base07
+*.color15: 		base0F

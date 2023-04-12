@@ -27,8 +27,10 @@ Plug 'preservim/nerdcommenter'
 " autocomplete
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" rust
+" LSP stuff
 Plug 'neovim/nvim-lspconfig'
+
+" rust
 " use 'simrat39/rust-tools.nvim'
 
 " splitting stuff
@@ -78,6 +80,10 @@ hi SpecialKey guibg=none ctermbg=none
 hi VertSplit guibg=none ctermbg=none
 hi SignColumn guibg=none ctermbg=none
 hi EndOfBuffer guibg=none ctermbg=none
+hi DiagnosticVirtualTextWarn guibg=none ctermbg=none
+hi DiagnosticVirtualTextError guibg=none ctermbg=none
+hi DiagnosticVirtualTextInfo guibg=none ctermbg=none
+hi DiagnosticVirtualTextHint guibg=none ctermbg=none
 
 " filetype
 filetype plugin on 
@@ -310,6 +316,10 @@ require('treesj').setup {
 require('nvim-surround').setup {}
 -- }}}
 
+-- {{{ LSPCONFIG - RUST ANALYZER
+require('./lsp.lua')
+-- }}}
+
 -- {{{ TELESCOPE
 require('telescope').setup {
   defaults = {
@@ -497,3 +507,18 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " }}}
 
 " }}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
