@@ -1,6 +1,0 @@
-{
-  "rust-analyzer.completion.callable.snippets": "none",
-  "diagnostic.enableHighlightLineNumber": true,
-  "python.linting.mypyEnabled": true,
-  "pyright.organizeimports.provider": "isort",
-}
