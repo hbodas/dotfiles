@@ -13,6 +13,7 @@ abaddon
 NuGet
 
 nvim/plugged
+coc
 
 kitty/kitty.conf.bak
 kitty/current-theme.conf

@@ -41,4 +41,4 @@ session=${1:-xmonad}
 export XDG_SESSION_DESKTOP=$session
 export XDG_CURRENT_DESKTOP=$session
 
-exec xmonad
+exec i3
